@@ -15,3 +15,14 @@ Bugs:
 
 ### Description
 
+Mod extends ACE weapon jamming (from ACE Overheating) with additional logic. 
+
+Features:
+Weapon may suffer 5 types of malfunction and each requires correct user actions to fix it.  
+
+Usage:
+Bind Inspect Weapon key at (Settings -> Controls -> Addon Options).
+When weapon got jammed - use Inspect Weapon keybind or Self-interaction - Equipment - Inspect Weapon action.
+
+Note:
+Mod doesn't override ACE logic/functions, but extends it in parallel, so all ACE settings are still applied (e.g. Shift + R or Reload to unjam). But you may unbind ACE Shift+R combo and use dzn_EJAM instead.
