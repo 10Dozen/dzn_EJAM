@@ -21,7 +21,7 @@ if (_needRemove) then {
 	private _holder = createVehicle ["WeaponHolderSimulated",player modelToWorld [0,0.75,0], [],0,"CAN_COLLIDE"];
     _holder addMagazineAmmoCargo [_gunMagClass, 1, _gunMagAmmo];
 
-    ["Magazine dropped",1.5] call ace_common_fnc_displayTextStructured;
+    [localize "STR_EJAM_Hint_MagDropped",1.5] call ace_common_fnc_displayTextStructured;
 } else {
 	private _weaponMags = (getArray (configFile >> "CfgWeapons" >> _gun >> "magazines")) apply { toLower(_x) };
 	private _mag = [];
@@ -33,7 +33,7 @@ if (_needRemove) then {
     player setAmmo [primaryWeapon player, (_mag select 1)];
     player removeMagazine (_mag select 0);
 
-    ["Magazine attached",1.5] call ace_common_fnc_displayTextStructured;
+    [localize "STR_EJAM_Hint_MagAttached",1.5] call ace_common_fnc_displayTextStructured;
 };
 
 

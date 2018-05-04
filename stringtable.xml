@@ -131,6 +131,15 @@
 				<Original>Attaching magazine</Original>				
 				<Russian>Присоединием магазин</Russian>
 			</Key>
+
+			<Key ID="STR_EJAM_Hint_MagDropped">
+				<Original>Magazine dropped</Original>
+				<Russian>Магазин сброшен</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Hint_MagAttached">
+				<Original>Magazine attached</Original>
+				<Russian>Магазин присоединен</Russian>
+			</Key>
 		</Container>
 	</Package>
 </Project>
