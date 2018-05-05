@@ -18,7 +18,8 @@ if (
 	ace_overheating_unJamFailChance = 0;
 
 	[player, currentWeapon player, true] call ace_overheating_fnc_clearJam;
-	[player, "gestureYes"] call ace_common_fnc_doGesture;
+	player playActionNow "gestureYes";
+	// [player, "gestureYes"] call ace_common_fnc_doGesture;
 
 	ace_overheating_unJamFailChance = _oldFailChance;
 

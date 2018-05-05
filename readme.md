@@ -12,6 +12,12 @@ CR:
 
 Bugs:
 
+FR v.1:
+- Delayed fire
+- Unmanned automatic fire
+- Customizble jam chance in addition to ACE's overheat based one
+- Custom listing of weapon classes and jamming chance for them
+
 
 ### Description
 

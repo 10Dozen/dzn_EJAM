@@ -14,14 +14,19 @@ private _needRemove = _this;
 private _gun = primaryWeapon player;
 
 if (_needRemove) then {
+	private _allMags = magazinesAmmo player;
 	private _gunMagClass = (primaryWeaponMagazine player) select 0;
-    private _gunMagAmmo = player ammo _gun;
+	private _gunMagAmmo = player ammo _gun;
 
 	player removePrimaryWeaponItem _gunMagClass;
-	private _holder = createVehicle ["WeaponHolderSimulated",player modelToWorld [0,0.75,0], [],0,"CAN_COLLIDE"];
-    _holder addMagazineAmmoCargo [_gunMagClass, 1, _gunMagAmmo];
+	player addMagazine [_gunMagClass, _gunMagAmmo];
+	if ((magazinesAmmo player) isEqualTo _allMags) then {
+		private _holder = createVehicle ["WeaponHolderSimulated",player modelToWorld [0,0.75,0], [],0,"CAN_COLLIDE"];
+		_holder addMagazineAmmoCargo [_gunMagClass, 1, _gunMagAmmo];
 
-    [localize "STR_EJAM_Hint_MagDropped",1.5] call ace_common_fnc_displayTextStructured;
+		"drop_mag" call dzn_EJAM_fnc_playActionSound;
+		[localize "STR_EJAM_Hint_MagDropped",1.5] call ace_common_fnc_displayTextStructured;
+	};
 } else {
 	private _weaponMags = (getArray (configFile >> "CfgWeapons" >> _gun >> "magazines")) apply { toLower(_x) };
 	private _mag = [];
@@ -30,10 +35,10 @@ if (_needRemove) then {
 	} forEach (magazinesAmmo player);
 
 	player addPrimaryWeaponItem (_mag select 0);
-    player setAmmo [primaryWeapon player, (_mag select 1)];
-    player removeMagazine (_mag select 0);
+	player setAmmo [primaryWeapon player, (_mag select 1)];
+	player removeMagazine (_mag select 0);
 
-    [localize "STR_EJAM_Hint_MagAttached",1.5] call ace_common_fnc_displayTextStructured;
+	[localize "STR_EJAM_Hint_MagAttached",1.5] call ace_common_fnc_displayTextStructured;
 };
 
 

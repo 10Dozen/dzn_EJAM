@@ -1,6 +1,7 @@
-﻿call compile preProcessFileLineNumbers "EJAM\Functions.sqf";
-call compile preProcessFileLineNumbers "EJAM\UIFunctions.sqf";
-call compile preProcessFileLineNumbers "EJAM\Settings.sqf";
+﻿private _path = "";
+call compile preProcessFileLineNumbers format ["%1Functions.sqf", _path];
+call compile preProcessFileLineNumbers format ["%1UIFunctions.sqf", _path];
+call compile preProcessFileLineNumbers format ["%1Settings.sqf", _path];
 
 
 // Testing

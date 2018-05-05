@@ -19,11 +19,12 @@ switch (_actionID) do {
 	};
 	case "open_bolt": {
 		[0.5, [], {
-			["bolt_opened",nil,nil,nil] call dzn_EJAM_fnc_setWeaponState;
+			["bolt_opened",nil,nil,nil] call dzn_EJAM_fnc_setWeaponState;			
 			[] spawn dzn_EJAM_fnc_ShowUnjamMenu;
 		}, {}, _processText] call ace_common_fnc_progressBar;
 	};
 	case "clear_chamber": {
+		player playActionNow "DismountOptic";
 		[3, [], {
 			REMOVE_ROUND;
 			[nil,"chamber_empty",nil,nil] call dzn_EJAM_fnc_setWeaponState;
@@ -31,6 +32,7 @@ switch (_actionID) do {
 		}, {}, _processText] call ace_common_fnc_progressBar;
 	};
 	case "remove_case": {
+		player playActionNow "DismountOptic";
 		[3, [], {
 			[nil,nil,"case_ejected",nil] call dzn_EJAM_fnc_setWeaponState;
 			[] spawn dzn_EJAM_fnc_ShowUnjamMenu;
@@ -51,3 +53,5 @@ switch (_actionID) do {
 		}, {}, _processText] call ace_common_fnc_progressBar;
 	};
 };
+
+_actionID call dzn_EJAM_fnc_playActionSound;
