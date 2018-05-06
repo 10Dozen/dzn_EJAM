@@ -24,8 +24,8 @@ Bind Inspect Weapon key at (Settings -> Controls -> Addon Options) - default is 
 When weapon got jammed - use Inspect Weapon keybind or (Self-interaction - Equipment - Inspect Weapon) action to open extended unjamming interface.
 
 Note:
-- Currently loaded magazine may be dropped to ground on Magazine Detach action if there is no space in player's inventory.
-- Mod doesn't override ACE logic/functions, but extends it in the parallel way, so all ACE settings are still applied (e.g. Shift+R keybind or Reload to unjam setting). But you may unbind ACE Shift+R combo and use dzn_EJAM instead.
+- Currently loaded magazine will be dropped to the ground on Magazine Detach action if there is no space in player's inventory.
+- Mod doesn't override ACE logic/functions, but extends it in the parallel way, so all ACE settings are still applied (e.g. Shift+R keybind or Reload to unjam setting). But you can unbind ACE Shift+R combo and use dzn_EJAM's instead.
 - Weapon from different mods may behave differently (e.g. CUP guns doesn't hide detached magazine).
 
 Credits:
