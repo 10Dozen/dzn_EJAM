@@ -6,6 +6,11 @@ call compile preProcessFileLineNumbers format ["%1Settings.sqf", _path];
 
 // Testing
 player addAction ["Jam", {  [player, currentWeapon player] call ace_overheating_fnc_jamWeapon }];
+player addAction ["Check total ammo", {
+	private _totalAmmo = 0;
+	{ _totalAmmo = _totalAmmo + (_x select 1); } forEach (magazinesAmmoFull player);
+	hint format ["%1 \n \n Total: %2", currentMagazineDetail player, _totalAmmo];
+}];
 
 // Init
 [] spawn {

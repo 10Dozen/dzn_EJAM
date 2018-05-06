@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project name="dzn_EJAM">
+	<Package name="dzn_EJAM">
+		<Container name="Menus">
+			<Key ID="STR_EJAM_ACE_Action_Title">
+				<Original>Inspect Weapon</Original>				
+				<Russian>Проверить оружие</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Keybingding">
+				<Original>Inspect Weapon</Original>				
+				<Russian>Проверить оружие</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Settings">
+				<Original>Handle Magazine detachment</Original>				
+				<Russian>Визуально убирать магазин</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Settings_Desc">
+				<Original>Handles magazine detachement on weapon in game</Original>				
+				<Russian>Включает визуальное убирание/добавление магазина оружия при выборе соответствующего действия</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Menu_Title">
+				<Original>WEAPON MALFUNCTION</Original>				
+				<Russian>ОРУЖИЕ НЕИСПРАВНО</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Menu_Close">
+				<Original>CLOSE</Original>				
+				<Russian>ЗАКРЫТЬ</Russian>
+			</Key>
+			
+			
+			<Key ID="STR_EJAM_State_BoltClosed">
+				<Original>Bolt closed</Original>				
+				<Russian>Затвор в переднем положении</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_BoltNotClosed">
+				<Original>Bolt not closed</Original>				
+				<Russian>Затвор в среднем положении</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_BoltOpened">
+				<Original>Bolt opened</Original>				
+				<Russian>Затвор в заднем положении</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberEmpty">
+				<Original>Chamber empty</Original>				
+				<Russian>Патронник пустой</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberReady">
+				<Original>Chamber loaded</Original>				
+				<Russian>Патрон в патроннике</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberStucked">
+				<Original>Round stuck</Original>				
+				<Russian>Патрон уткнулся</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberNotExtracted">
+				<Original>Round not extracted</Original>				
+				<Russian>Гильза не извлечена</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberNotEjected">
+				<Original>Case not ejected</Original>				
+				<Russian>Гильза не выброшена</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_CaseEjected">
+				<Original>Case ejected</Original>				
+				<Russian>Гильза выброшена</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_MagAttached">
+				<Original>Magazine attached</Original>				
+				<Russian>Магазин присоединен</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_MagDetached">
+				<Original>Magazine detached</Original>				
+				<Russian>Магазин отсоединен</Russian>
+			</Key>
+			
+			
+			<Key ID="STR_EJAM_Action_PullBolt">
+				<Original>Pull bolt</Original>				
+				<Russian>Передернуть затвор</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_PullBolt_Process">
+				<Original>Pulling the bolt</Original>				
+				<Russian>Передергиваем затвор</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Action_OpenBolt">
+				<Original>Open bolt</Original>				
+				<Russian>Отвести затвор</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_OpenBolt_Process">
+				<Original>Opening the bolt</Original>				
+				<Russian>Отводим затвор назад</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Action_ClearChamber">
+				<Original>Clear chamber</Original>				
+				<Russian>Очистить патронник</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_ClearChamber_Process">
+				<Original>Clearing the chamber</Original>				
+				<Russian>Извлекаем патрон из патронника</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Action_RemoveCase">
+				<Original>Remove case</Original>				
+				<Russian>Удалить гильзу</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_RemoveCase_Process">
+				<Original>Removing the case</Original>				
+				<Russian>Извлекаем гильзу</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Action_MagDetach">
+				<Original>Detach magazine</Original>				
+				<Russian>Отсоединить магазин</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_MagDetach_Process">
+				<Original>Detaching magazine</Original>				
+				<Russian>Отсоединяем магазин</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Action_MagAttach">
+				<Original>Attach magazine</Original>				
+				<Russian>Присоединить магазин</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_MagAttach_Process">
+				<Original>Attaching magazine</Original>				
+				<Russian>Присоединием магазин</Russian>
+			</Key>
+
+			<Key ID="STR_EJAM_Hint_MagDropped">
+				<Original>Magazine dropped</Original>
+				<Russian>Магазин сброшен</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Hint_MagAttached">
+				<Original>Magazine attached</Original>
+				<Russian>Магазин присоединен</Russian>
+			</Key>
+		</Container>
+	</Package>
+</Project>
