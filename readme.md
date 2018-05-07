@@ -9,7 +9,8 @@ Roadmap to v.2:
 - Unmanned automatic fire malfunction
 - Customizble jam chance in addition to ACE's overheat based one
 - Custom listing of weapon classes and jamming chance for them
-
+- Option to enforce unjamming by dzn_EJAM
+- (bug) Reset variables if primary weapon is not in list of jammed (primary weapon was changed)
 
 ### Description
 
