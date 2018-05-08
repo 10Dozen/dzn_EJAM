@@ -10,6 +10,8 @@ Roadmap to v.2:
 - Customizble jam chance in addition to ACE's overheat based one
 - Custom listing of weapon classes and jamming chance for them
 - Option to enforce unjamming by dzn_EJAM
+- Add hint on Inspect Weapon if gun is ok
+- Add Inspect Weapon action icon
 - (bug) Reset variables if primary weapon is not in list of jammed (primary weapon was changed)
 
 ### Description
