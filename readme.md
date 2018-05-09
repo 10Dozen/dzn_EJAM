@@ -5,6 +5,7 @@
 Adds a little bit more complex logic to ACE jamming effect.
 
 Roadmap to v.2:
+
 - Delayed fire malfunction
 - Unmanned automatic fire malfunction
 - Customizble jam chance in addition to ACE's overheat based one
@@ -12,6 +13,7 @@ Roadmap to v.2:
 - Option to enforce unjamming by dzn_EJAM
 - Add hint on Inspect Weapon if gun is ok
 - Add Inspect Weapon action icon
+- Pistol jamming
 - (bug) Reset variables if primary weapon is not in list of jammed (primary weapon was changed)
 
 ### Description
@@ -30,6 +32,7 @@ Note:
 - Currently loaded magazine will be dropped to the ground on Magazine Detach action if there is no space in player's inventory.
 - Mod doesn't override ACE logic/functions, but extends it in the parallel way, so all ACE settings are still applied (e.g. Shift+R keybind or Reload to unjam setting). But you can unbind ACE Shift+R combo and use dzn_EJAM's instead.
 - Weapon from different mods may behave differently (e.g. CUP guns doesn't hide detached magazine).
+- For testing you can use next code to jam your weapon: [player, primaryWeapon player] call ace_overheating_fnc_jamWeapon
 
 Credits:
 10Dozen - scripting;
