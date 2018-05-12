@@ -1,6 +1,6 @@
 ## Extended Weapon Jamming
 
-#### Version: 1
+#### Version: 2
 
 Adds a little bit more complex logic to ACE jamming effect.
 
@@ -15,6 +15,10 @@ Roadmap to v.2:
 - Add Inspect Weapon action icon
 - Pistol jamming
 - (bug) Reset variables if primary weapon is not in list of jammed (primary weapon was changed)
+
+#### Notes:
+https://github.com/acemod/ACE3/blob/master/addons/interact_menu/functions/fnc_removeActionFromObject.sqf
+
 
 ### Description
 
