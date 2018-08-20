@@ -105,7 +105,7 @@ private _addKey = {
 	"InspectKey"
 	, "Action_Inspect"
 	, { call GVAR(fnc_inspectWeapon) }
-	, [DIK_R, [false,true,false]]
+	, [19, [false,true,false]]
 ] call _addKey;
 
 // Pull bolt key

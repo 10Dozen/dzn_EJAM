@@ -2,40 +2,13 @@
 Function: dzn_EJAM_fnc_checkJammed
 
 Description:
-	Check whether primary weapon is jammed.
-	TRUE - For INSPECT action
-		t && (t || !t) == t
-			ACE 	- yes
-			Cause 	- yes
-		t && (f || !t) == f
-			ACE 	- yes
-			Cause 	- no	
-		f && (t || !t) == f
-			ACE 	- no
-			Cause 	- yes	
-		f && (f || !t) == f
-			ACE 	- no
-			Cause 	- no
-
-	FALSE - For SETTING CAUSE
-		t && (t || !f) == t
-			ACE 	- yes
-			Cause 	- yes
-		t && (f || !f) == t
-			ACE 	- yes
-			Cause 	- no	
-		f && (t || !f) == f
-			ACE 	- no
-			Cause 	- yes	
-		f && (f || !f) == f
-			ACE 	- no
-			Cause 	- no
+	Check whether primary weapon is jammed and (a) cause set, (b) cause not set.
 
 Parameters:
 	_this - Need to check both ACE and EJAM jamming is set <BOOL>
 
 Returns:
-	_isJammed - Is weapon jammed <BOOL>
+	_checkType - Type fo check: "inspect" (check that both cause and ace_overheat is set) or "cause" (check that ace is jammed but no cause set) <STRING>
 
 Examples:
     (begin example)
@@ -51,6 +24,15 @@ Author:
 private _aceJammed = (primaryWeapon player) in (player getVariable ["ace_overheating_jammedWeapons", []]);
 private _causeSet = player getVariable [SVAR(CauseSet), false];
 
-private _result = (_aceJammed) && (_causeSet || !_this);
+private _result = false;
+
+switch toLower(_this) do {
+	case "inspect": {
+		_result = _aceJammed && _causeSet;
+	};
+	case "cause": {
+		_result = _aceJammed && !_causeSet;
+	};
+};
 
 (_result)

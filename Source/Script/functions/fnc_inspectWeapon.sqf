@@ -21,8 +21,12 @@ Author:
 
 #include "..\macro.hpp"
 
-if (true call GVAR(fnc_checkJammed)) then {
-	[] spawn GVAR(fnc_ShowUnjamMenu);
+if ("inspect" call GVAR(fnc_checkJammed)) then {
+	[] spawn GVAR(fnc_uiShowUnjamMenu);
 } else {
-	hint parseText format ["<t shadow='2' size='1.25'>%1</t>", LOCALIZE_FORMAT_STR("Hint_WeaponOK")];
-}
+	hint parseText format [
+		"<t shadow='2' size='1.25'>%1</t><br /><img image='%2' size='5'/>"
+		, LOCALIZE_FORMAT_STR("Hint_WeaponOK")
+		, getText (configFile >> "CfgWeapons" >> primaryWeapon player >> "picture")
+	];
+};

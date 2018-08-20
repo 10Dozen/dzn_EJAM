@@ -12,5 +12,6 @@ COMPILE_FUNCTION(fnc_processWeaponFixed);
 COMPILE_FUNCTION(fnc_isMagAttached);
 
 COMPILE_FUNCTION(fnc_playActionSound);
+COMPILE_FUNCTION(fnc_getEnumText);
 
-COMPILE_FUNCTION(fnc_ShowUnjamMenu);
+COMPILE_FUNCTION(fnc_uiShowUnjamMenu);

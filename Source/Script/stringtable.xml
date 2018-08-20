@@ -84,32 +84,32 @@
 				<Russian>Затвор в переднем положении</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_BoltNotClosed">
-				<Original>Bolt not closed</Original>				
-				<Russian>Затвор в среднем положении</Russian>
+				<Original>Bolt &lt;t color="#f79400"&gt;not closed&lt;/t&gt;</Original>				
+				<Russian>Затвор &lt;t color="#f79400"&gt;в среднем положении&lt;/t&gt;</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_BoltOpened">
-				<Original>Bolt opened</Original>				
-				<Russian>Затвор в заднем положении</Russian>
+				<Original>Bolt &lt;t color="#00b9f7"&gt;opened&lt;/t&gt;</Original>				
+				<Russian>Затвор &lt;t color="#00b9f7"&gt;в заднем положении&lt;/t&gt;</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberEmpty">
 				<Original>Chamber empty</Original>				
 				<Russian>Патронник пустой</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberReady">
-				<Original>Chamber loaded</Original>				
-				<Russian>Патрон в патроннике</Russian>
+				<Original>Chamber &lt;t color="#00b9f7"&gt;loaded&lt;/t&gt;</Original>				
+				<Russian>Патрон &lt;t color="#00b9f7"&gt;в патроннике&lt;/t&gt;</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberStucked">
-				<Original>Round stuck</Original>				
-				<Russian>Патрон уткнулся</Russian>
+				<Original>Round &lt;t color="#f79400"&gt;stuck&lt;/t&gt;</Original>				
+				<Russian>Патрон &lt;t color="#f79400"&gt;уткнулся&lt;/t&gt;</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberNotExtracted">
-				<Original>Round not extracted</Original>				
-				<Russian>Гильза не извлечена</Russian>
+				<Original>Round &lt;t color="#f79400"&gt;not extracted&lt;/t&gt;</Original>				
+				<Russian>Гильза &lt;t color="#f79400"&gt;не извлечена&lt;/t&gt;</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberNotEjected">
-				<Original>Case not ejected</Original>				
-				<Russian>Гильза не выброшена</Russian>
+				<Original>Case &lt;t color="#f79400"&gt;not ejected&lt;/t&gt;</Original>				
+				<Russian>Гильза &lt;t color="#f79400"&gt;не выброшена&lt;/t&gt;</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_CaseEjected">
 				<Original>Case ejected</Original>				
@@ -120,8 +120,8 @@
 				<Russian>Магазин присоединен</Russian>
 			</Key>
 			<Key ID="STR_EJAM_State_MagDetached">
-				<Original>Magazine detached</Original>				
-				<Russian>Магазин отсоединен</Russian>
+				<Original>Magazine &lt;t color="#00b9f7"&gt;detached&lt;/t&gt;</Original>				
+				<Russian>Магазин &lt;t color="#00b9f7"&gt;отсоединен<&lt;/t&gt;/Russian>
 			</Key>			
 			
 			<!-- ACTIONS -->

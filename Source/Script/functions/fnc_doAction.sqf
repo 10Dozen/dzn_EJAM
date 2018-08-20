@@ -25,7 +25,7 @@ private _actionID = _this;
 private _processText = (GVAR(FixActions) select { _x select 0 == _actionID }) select 0 select 2;
 
 #define	REMOVE_ROUND	if ((player getVariable SVAR(RemovedMagazine) select 1) > 0) then { player setVariable [SVAR(LooseRound), true]; }
-#define SHOW_MENU		[] spawn GVAR(fnc_ShowUnjamMenu)
+#define SHOW_MENU		call GVAR(fnc_inspectWeapon)
 
 switch (_actionID) do {
 	case "pull_bolt": {
