@@ -23,7 +23,8 @@ Author:
 
 if (isNil { player getVariable SVAR(WeaponState) }) exitWith {};
 
-(player getVariable SVAR(WeaponState)) params ["_bolt","_chamber","_case","_mag"];
+private _gun = primaryWeapon player;
+(call GVAR(fnc_getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 
 if (
 	_bolt != "bolt_not_closed"
@@ -34,14 +35,23 @@ if (
 	private _oldFailChance = ace_overheating_unJamFailChance;
 	ace_overheating_unJamFailChance = 0;
 
-	[player, currentWeapon player, true] call ace_overheating_fnc_clearJam;
+	[player, _gun, true] call ace_overheating_fnc_clearJam;
 	player playActionNow "gestureYes";
 
 	ace_overheating_unJamFailChance = _oldFailChance;
 
-	player setVariable [SVAR(Cause), nil];
-	player setVariable [SVAR(WeaponState), nil];
-	player setVariable [SVAR(CauseSet), false];
+	private _causes = player getVariable SVAR(Cause);
+	private _states = player getVariable SVAR(WeaponState);
+
+	player setVariable [
+		SVAR(WeaponState)
+		, _states - (_states select { _gun == _x select 0 })		
+	];
+
+	player setVariable [
+		SVAR(Cause)
+		, _causes - (_causes select { _gun == _x select 0 })		
+	];
 	player setVariable [SVAR(RemovedMagazine), nil];
 	player setVariable [SVAR(LooseRound), nil];
 };

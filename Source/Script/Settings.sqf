@@ -83,8 +83,6 @@ private _addLocal = {
 
 
 // Keybinding
-#include "\a3\editor_f\Data\Scripts\dikCodes.h"
-
 private _addKey = {
 	params["_var","_str","_downCode",["_defaultKey", nil],["_upCode", {}]];
 
@@ -112,33 +110,37 @@ private _addKey = {
 [
 	"PullBoltKey"
 	, "Action_PullBolt"
-	, { hint "Pull bolt" }
+	, { "pull_bolt" call GVAR(fnc_doHotkeyAction); }
 ] call _addKey;
 
 // Toggle magazine key
 [
 	"MagazineKey"
 	, "Action_MagazineToggle"
-	, { hint "Magazine toggle" }
+	, { 
+		(call GVAR(fnc_getWeaponState)) params ["","","","_mag"];
+		private _action = if (_mag == "mag_attached") then { "detach_mag" } else { "attach_mag" };
+		_action call GVAR(fnc_doHotkeyAction);
+	}
 ] call _addKey;
 
 // Open bolt key
 [
 	"OpenBoltKey"
 	, "Action_OpenBolt"
-	, { hint "Open bolt" }
+	, { "open_bolt" call GVAR(fnc_doHotkeyAction); }
 ] call _addKey;
 
 // Clear chamber key 
 [
 	"ClearChamnerKey"
 	, "Action_ClearChamber"
-	, { hint "Chamber clear" }
+	, { "clear_chamber" call GVAR(fnc_doHotkeyAction); }
 ] call _addKey;
 
 // Remove case key
 [
 	"RemoveCaseKey"
 	, "Action_RemoveCase"
-	, { hint "Remove key" }
+	, { "remove_case" call GVAR(fnc_doHotkeyAction); }
 ] call _addKey;

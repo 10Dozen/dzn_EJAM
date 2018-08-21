@@ -33,7 +33,7 @@ if (GVAR(HandleMag)) then {
 	] call GVAR(fnc_setWeaponState);
 };
 
-(player getVariable SVAR(WeaponState)) params ["_bolt","_chamber","_case","_mag"];
+(call GVAR(fnc_getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 
 // **
 // Prepare data

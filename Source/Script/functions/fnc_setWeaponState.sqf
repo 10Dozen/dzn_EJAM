@@ -2,7 +2,7 @@
 Function: dzn_EJAM_fnc_setWeaponState
 
 Description:
-	Set/updates state of weapon elements (bolt, chamber, case ejection port and magazine)
+	Set/updates state of current equipped weapon elements (bolt, chamber, case ejection port and magazine)
 
 Parameters:
 	_weaponState - List of weapon parts states <ARRAY>
@@ -26,23 +26,28 @@ Author:
 
 #include "..\macro.hpp"
 
-private _currentState = player getVariable [SVAR(WeaponState), []];
-if (_currentState isEqualTo []) then {
+private _gun = primaryWeapon player;
+private _weaponStates = player getVariable [SVAR(WeaponState), []];
+
+if ((_weaponStates select { _gun == _x # 0 }) isEqualTo []) then {
 
 	// First time set
-	player setVariable [SVAR(WeaponState), _this];
+	_weaponStates pushBack ([_gun] + _this);
+	player setVariable [SVAR(WeaponState), _weaponStates];
 } else {
 
-	// Update state
+	// Update state (parse _this with _currentState as defaults)
+	private _currentState = (_weaponStates select { _gun == _x # 0 }) # 0;
+
 	params[
-		["_boltState", _currentState # 0]
-		,["_chamberState", _currentState # 1]
-		,["_caseState", _currentState # 2]
-		,["_magState",  _currentState # 3]
+		["_boltState", _currentState # 1]
+		,["_chamberState", _currentState # 2]
+		,["_caseState", _currentState # 3]
+		,["_magState",  _currentState # 4]
 	];
 
-	player setVariable [
-		SVAR(WeaponState)
-		, [_boltState, _chamberState, _caseState, _magState]
-	];
+	_currentState set [1, _boltState];
+	_currentState set [2, _chamberState];
+	_currentState set [3, _caseState];
+	_currentState set [4, _magState];
 };

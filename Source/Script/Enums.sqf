@@ -73,3 +73,10 @@ GVAR(FixActions) = [
 	,["detach_mag"		,localize "STR_EJAM_Action_MagDetach"		, localize "STR_EJAM_Action_MagDetach_Process"]
 	,["attach_mag"		,localize "STR_EJAM_Action_MagAttach"		, localize "STR_EJAM_Action_MagAttach_Process"]
 ];
+
+GVAR(Defaults) = [
+	"bolt_closed"
+	, "chamber_ready"
+	, "case_ejected"
+	, "mag_attached"
+];

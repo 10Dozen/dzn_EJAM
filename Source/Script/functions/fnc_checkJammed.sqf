@@ -22,7 +22,7 @@ Author:
 #include "..\macro.hpp"
 
 private _aceJammed = (primaryWeapon player) in (player getVariable ["ace_overheating_jammedWeapons", []]);
-private _causeSet = player getVariable [SVAR(CauseSet), false];
+private _causeSet = (call GVAR(fnc_getJamCause)) != "";
 
 private _result = false;
 

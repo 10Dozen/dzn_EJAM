@@ -21,7 +21,7 @@ Author:
 
 #include "..\macro.hpp"
 
-(player getVariable SVAR(WeaponState)) params ["_bolt","_chamber","_case","_mag"];
+(call GVAR(fnc_getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 
 private _hasAmmo = player ammo (currentWeapon player) > 0;
 
