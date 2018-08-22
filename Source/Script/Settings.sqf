@@ -37,6 +37,16 @@ private _addLocal = {
 	, true 
 ] call _addLocal;
 
+// Overall jam chance
+[
+	"OverallChanceSetting"
+	, "EDITBOX"
+	, "1.5"
+	, {
+		GVAR(OverallChance) = parseNumber _this;
+	}
+] call _add;
+
 // Chance of Malfunctions
 [
 	"feed_failure_ChanceSettings"
@@ -66,6 +76,16 @@ private _addLocal = {
 	"fail_to_eject_ChanceSettings"
 	, "SLIDER"
 	, [1, 100, 20, 0] 
+] call _add;
+
+// Subsonic ammo effect on jam chance
+[
+	"SubsonicJamEffectSetting"
+	, "EDITBOX"
+	, "20"
+	, {
+		GVAR(SubsonicJamEffect) = parseNumber _this;
+	}
 ] call _add;
 
 // Mapping of gun classes on jam settings

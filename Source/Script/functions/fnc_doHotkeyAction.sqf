@@ -21,6 +21,8 @@ Author:
 
 #include "..\macro.hpp"
 
+if !(isNil SVAR(ActionInProgress)) exitWith {};
+
 if !("inspect" call GVAR(fnc_checkJammed)) exitWith {
 	"OK" call GVAR(fnc_uiShowBriefState);
 };
@@ -29,8 +31,9 @@ if !("inspect" call GVAR(fnc_checkJammed)) exitWith {
 private _actionID = _this;
 
 if (
-	_actionID in ["clear_chamber","remove_case"] 
-	&& _bolt in ["bolt_closed","bolt_not_closed"]
+	(_actionID == "clear_chamber" && (_mag == "mag_attached" || _bolt in ["bolt_closed","bolt_not_closed"]))
+	||
+	(_actionID == "remove_case" && _bolt in ["bolt_closed","bolt_not_closed"])
 ) exitWith {
 	"no_access" call GVAR(fnc_uiShowBriefState);
 };

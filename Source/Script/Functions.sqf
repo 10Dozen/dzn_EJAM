@@ -1,7 +1,11 @@
 #include "macro.hpp"
 
+COMPILE_FUNCTION(fnc_firedEH);
+COMPILE_FUNCTION(fnc_getMappingData);
+
 COMPILE_FUNCTION(fnc_checkJammed);
-COMPILE_FUNCTION(fnc_setJamCause);
+COMPILE_FUNCTION(fnc_setJammed);
+
 COMPILE_FUNCTION(fnc_getJamCause);
 COMPILE_FUNCTION(fnc_setWeaponState);
 COMPILE_FUNCTION(fnc_getWeaponState);
@@ -20,3 +24,5 @@ COMPILE_FUNCTION(fnc_getEnumText);
 
 COMPILE_FUNCTION(fnc_uiShowUnjamMenu);
 COMPILE_FUNCTION(fnc_uiShowBriefState);
+COMPILE_FUNCTION(fnc_uiShowProgressBar);
+

@@ -21,7 +21,7 @@ Author:
 
 #include "..\macro.hpp"
 
-private _aceJammed = (primaryWeapon player) in (player getVariable ["ace_overheating_jammedWeapons", []]);
+private _aceJammed = !(missionNamespace getVariable ["ace_overheating_enabled", false]) || (primaryWeapon player) in (player getVariable ["ace_overheating_jammedWeapons", []]);
 private _causeSet = (call GVAR(fnc_getJamCause)) != "";
 
 private _result = false;

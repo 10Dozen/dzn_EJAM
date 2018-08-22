@@ -80,3 +80,9 @@ GVAR(Defaults) = [
 	, "case_ejected"
 	, "mag_attached"
 ];
+
+GVAR(Mapping) = [
+	[
+		"arifle_MX_ACO_pointer_F", 30, 210, 210, 20, 20, 20
+	]
+];

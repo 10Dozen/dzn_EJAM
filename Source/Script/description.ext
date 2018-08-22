@@ -1,6 +1,7 @@
 
 #include "dzn_EJAM\ui\dialog.hpp"
 #include "dzn_EJAM\ui\dzn_EJAM_Menu.hpp"
+#include "dzn_EJAM\ui\dzn_EJAM_ProgressBar.hpp"
 #include "dzn_EJAM\sounds\CfgSounds.hpp"
 
 

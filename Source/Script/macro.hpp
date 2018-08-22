@@ -21,3 +21,7 @@
 #define LOCALIZE_FORMAT_STR_desc(X) localize format ["STR_%1_%2_desc", ADDON, X]
 
 #define COMPILE_FUNCTION(X) GVAR(X) = compile preprocessFileLineNumbers format ["%1%2.sqf", FNC_PATH, #X]
+
+#define gSND_PATH gADDON_NAME##\sounds\##
+#define gSND(X) gSND_PATH##X
+#define SND(X) QUOTE(gSND(X))

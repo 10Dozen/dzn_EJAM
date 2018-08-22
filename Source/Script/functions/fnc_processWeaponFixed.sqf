@@ -32,14 +32,8 @@ if (
 	&& _case == "case_ejected"
 	&& _mag == "mag_attached"
 ) then {
-	private _oldFailChance = ace_overheating_unJamFailChance;
-	ace_overheating_unJamFailChance = 0;
 
-	[player, _gun, true] call ace_overheating_fnc_clearJam;
-	player playActionNow "gestureYes";
-
-	ace_overheating_unJamFailChance = _oldFailChance;
-
+	// Unset weapon from jamming/weapon state lists
 	private _causes = player getVariable SVAR(Cause);
 	private _states = player getVariable SVAR(WeaponState);
 
@@ -47,11 +41,27 @@ if (
 		SVAR(WeaponState)
 		, _states - (_states select { _gun == _x select 0 })		
 	];
-
 	player setVariable [
 		SVAR(Cause)
 		, _causes - (_causes select { _gun == _x select 0 })		
 	];
 	player setVariable [SVAR(RemovedMagazine), nil];
 	player setVariable [SVAR(LooseRound), nil];
+
+	player playActionNow "gestureYes";
+
+	// Unjamming
+	if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
+
+		// No ACE Overheating
+		player removeAction GVAR(PreventFireID);
+		GVAR(PreventFireID) = nil;
+	} else {
+
+		// ACE Overheating enabled
+		private _oldFailChance = ace_overheating_unJamFailChance;
+		ace_overheating_unJamFailChance = 0;
+		[player, _gun, true] call ace_overheating_fnc_clearJam;
+		ace_overheating_unJamFailChance = _oldFailChance;
+	};
 };
