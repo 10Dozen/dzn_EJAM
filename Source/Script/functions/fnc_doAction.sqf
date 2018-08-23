@@ -85,12 +85,11 @@ switch (_actionID) do {
 		};
 	};
 	case "inspect": {
-		if (GVAR(HandleMag)) then {	
-			[
-				nil, nil, nil
-				, if (call GVAR(fnc_isMagAttached)) then { "mag_attached" } else { "mag_detached" }
-			] call GVAR(fnc_setWeaponState);
-		};
+		[
+			nil, nil, nil
+			, if (call GVAR(fnc_isMagAttached)) then { "mag_attached" } else { "mag_detached" }
+		] call GVAR(fnc_setWeaponState);
+		
 		_code = {
 			"state" call GVAR(fnc_uiShowBriefState);
 			FINISH_ACTION;
