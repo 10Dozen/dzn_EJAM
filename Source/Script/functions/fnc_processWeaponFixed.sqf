@@ -54,8 +54,12 @@ if (
 	if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 
 		// No ACE Overheating
-		player removeAction GVAR(PreventFireID);
-		GVAR(PreventFireID) = nil;
+		// Remove Prevent Fire handler once all guns were unjammed
+		if ((player getVariable [SVAR(Cause), []]) isEqualTo []) then {			
+			player removeAction GVAR(PreventFireID);
+			GVAR(PreventFireID) = nil;
+		};
+
 	} else {
 
 		// ACE Overheating enabled

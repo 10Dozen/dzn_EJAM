@@ -6,30 +6,38 @@
 			SETTINGS
 			-->
 			<Key ID="STR_EJAM_Force">
-				<Original>Force EJAM only</Original>				
-				<Russian>Только EJAM</Russian>
+				<Original>Unjam via EJAM only</Original>				
+				<Russian>Починка только через EJAM</Russian>
 			</Key>
 			<Key ID="STR_EJAM_Force_desc">
 				<Original>Force EJAM unjam logic over ACE</Original>				
-				<Russian>Принудительно использовать логику EJAM вместо ACE</Russian>
+				<Russian>Принудительно использовать логику починки EJAM вместо ACE</Russian>
 			</Key>
 
-			<Key ID="STR_EJAM_HandleMag">
-				<Original>Handle Magazine detachment</Original>				
-				<Russian>Визуально убирать магазин</Russian>
+			<Key ID="STR_EJAM_ForceOverallChance">
+				<Original>Override jam chance</Original>				
+				<Russian>Перезаписать шанс на заклинивание</Russian>
 			</Key>
-			<Key ID="STR_EJAM_HandleMag_desc">
-				<Original>Handles magazine detachement on weapon in game</Original>				
-				<Russian>Включает визуальное убирание/добавление магазина оружия при выборе соответствующего действия</Russian>
+			<Key ID="STR_EJAM_ForceOverallChance_desc">
+				<Original>Force EJAM Overall jam chance over ACE jamming logic. </Original>				
+				<Russian>Принудительно использовать общий шанс на заклинивание. </Russian>
 			</Key>
 
+			<Key ID="STR_EJAM_OverallChanceSetting">
+				<Original>Overall jam chance</Original>				
+				<Russian>Общий шанс заклинивания</Russian>
+			</Key>
+			<Key ID="STR_EJAM_OverallChanceSetting_desc">
+				<Original>Default jam chance for all primary weapons. From 0 to 100. Custom weapon setting will be used if set.</Original>				
+				<Russian>Шанс на клин для всего основного оружия. От 0 до 100. Если для оружия указаны специфические настройки - будут использованы они.</Russian>
+			</Key>
 
 			<Key ID="STR_EJAM_feed_failure_ChanceSettings">
 				<Original>(Chance of) Feed failure</Original>				
 				<Russian>(Шанс на) Неподачу патрона</Russian>
 			</Key>
 			<Key ID="STR_EJAM_feed_failure_ChanceSettings_desc">
-				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
+				<Original>Chance for specific malfunction to happen if weapon got jammed.</Original>				
 				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
 			</Key>
 			<Key ID="STR_EJAM_feed_failure_2_ChanceSettings">
@@ -65,7 +73,23 @@
 				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
 			</Key>
 
+			<Key ID="STR_EJAM_SubsonicJamEffectSetting">
+				<Original>Subsonic ammunition penalty</Original>				
+				<Russian>Пенальти дозвуковых боеприпасов</Russian>
+			</Key>
+			<Key ID="STR_EJAM_SubsonicJamEffectSetting_desc">
+				<Original>Jam chance penalty on using subsonic ammo. Value will be added to weapon's jam chance.</Original>				
+				<Russian>Штраф к шансу на заклинивание при использовании дозвуковых патронов. Значение будет добавляться к шансу на клин для оружия.</Russian>
+			</Key>
 
+			<Key ID="STR_EJAM_MappingSettings">
+				<Original>Weapon settings</Original>				
+				<Russian>Настройки оружия</Russian>
+			</Key>
+			<Key ID="STR_EJAM_MappingSettings_desc">
+				<Original>Custom settings for specific weapon. In format [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. Use EJAM Configurator by [ call dzn_EJAM_Configure ]</Original>				
+				<Russian>Настройки для конкретных классов оружия. В формтае [@Класс, @Шанс_на_клин, @Шанс_на_поломку_типа#1...5]. Используйте конфигуратор вызовом [ call dzn_EJAM_Configure ]</Russian>
+			</Key>
 
 			<!-- MENU -->
 			<Key ID="STR_EJAM_Menu_Title">
@@ -129,8 +153,12 @@
 			ACTIONS:: Keybindings & Menu 
 			-->
 			<Key ID="STR_EJAM_Action_Inspect">
-				<Original>Inspect Weapon</Original>				
-				<Russian>Проверить оружие</Russian>
+				<Original>Inspect weapon menu</Original>				
+				<Russian>Проверить оружие (меню)</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_QuickInspect">
+				<Original>Inspect weapon (no menu)</Original>				
+				<Russian>Проверить оружие (без меню)</Russian>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagazineToggle">
 				<Original>Attach/Detach magazine</Original>				
@@ -161,7 +189,11 @@
 				<Original>Attach magazine</Original>				
 				<Russian>Присоединить магазин</Russian>
 			</Key>
-			
+			<Key ID="STR_EJAM_Action_Inspect">
+				<Original>Inspect weapon</Original>				
+				<Russian>Проверить оружие</Russian>
+			</Key>
+
 			<!-- 
 			ACTIONS:: Progress states 
 			-->
@@ -189,6 +221,10 @@
 				<Original>Attaching magazine</Original>				
 				<Russian>Присоединием магазин</Russian>
 			</Key>
+			<Key ID="STR_EJAM_Action_Inspect_Process">
+				<Original>Inspecting</Original>				
+				<Russian>Проверка</Russian>
+			</Key>
 
 			<!-- 
 			Hints 
@@ -205,6 +241,13 @@
 				<Original>Weapon is functioning normally</Original>
 				<Russian>Оружие функционирует нормально</Russian>
 			</Key>
+			<Key ID="STR_EJAM_Hint_NoAccess">
+				<Original>Not possible to perform action!</Original>
+				<Russian>Невозможно выполнить действие!</Russian>
+			</Key>
+
+
+
 		</Container>
 	</Package>
 </Project>

@@ -22,16 +22,15 @@ Author:
 #include "..\macro.hpp"
 
 closeDialog 2;
+hintSilent "";
 sleep 0.001;
 
 // **
 // Get weapon state 
-if (GVAR(HandleMag)) then {	
-	[
-		nil, nil, nil
-		, if (call GVAR(fnc_isMagAttached)) then { "mag_attached" } else { "mag_detached" }
-	] call GVAR(fnc_setWeaponState);
-};
+[
+	nil, nil, nil
+	, if (call GVAR(fnc_isMagAttached)) then { "mag_attached" } else { "mag_detached" }
+] call GVAR(fnc_setWeaponState);
 
 (call GVAR(fnc_getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 

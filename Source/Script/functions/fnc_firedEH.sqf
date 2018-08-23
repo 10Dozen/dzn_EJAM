@@ -24,9 +24,10 @@ Author:
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 
 private _gun = primaryWeapon player;
-dzn_LOG = ["GUN", _gun];
 
-if (_weapon != _gun || {_muzzle !=  _gun} || !isNil SVAR(PreventFireID)) exitWith { dzn_LOG pushBack ["Exit with: ", _gun, _weapon, _muzzle]; };
+if ( _weapon != _gun || {_muzzle !=  _gun} || "inspect" call GVAR(fnc_checkJammed) ) exitWith { 
+	// Exit if fired not a main muzzle (e.g. UGL) OR weapon already jammed 
+};
 
 // Get jam chacne (from config or overall)
 private _lastFiredGunData = player getVariable [SVAR(FiredLastGunData), []];
@@ -40,21 +41,16 @@ if (_lastFiredGunData isEqualTo [] || { _gun != _lastFiredGunData select 0 }) th
 	_jamChance = _lastFiredGunData select 1;
 };
 
-dzn_LOG pushBack ["Jam chance: ", _jamChance];
-
-
 // Check is subsonic to enlarge jam chance
-if ( getNumber (configFile >> "CfgMagazines" >> _magazine >> "initSpeed") < 343 ) then {
+private _ammo = getText (configFile >> "CfgMagazines" >> _magazine >> "ammo");
+private _subsonicSpeed = getNumber (configFile >> "CfgAmmo" >> _ammo >> "typicalSpeed") < 343;
+private _lowAudible = getNumber (configFile >> "CfgAmmo" >> _ammo >> "audibleFire") < 10;
+if (_subsonicSpeed && _lowAudible ) then {
 	_jamChance = _jamChance + GVAR(SubsonicJamEffect);
 };
 
-dzn_LOG pushBack ["Jam chance (modified): ", _jamChance];
-
 // Get random value 
 private _random = random 100;
-
-dzn_LOG pushBack ["Random: ", _random];
-dzn_LOG pushBack ["Check: ", _random <= _jamChance];
 
 // Check random vs jam chance to modify 
 if (_random <= _jamChance) then {
@@ -72,4 +68,3 @@ if (_random <= _jamChance) then {
 		};
 	};	
 };
-

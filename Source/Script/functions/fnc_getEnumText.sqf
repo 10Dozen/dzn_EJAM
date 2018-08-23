@@ -6,7 +6,7 @@ Description:
 	
 Parameters:
 	_enumValue - Value of enum <STRING>
-	_enumType - Type of the enum to search: "state", "action" or "process" <STRING>
+	_enumType - Type of the enum to search: "state", "action", "process", "time" <STRING>
 
 Returns:
 	_text - Localized text value <STRING>
@@ -38,6 +38,9 @@ switch (_source) do {
 	};
 	case "process": {
 		_result = (GVAR(FixActions) select { _x select 0 == _text }) select 0 select 2;
+	};
+	case "time": {
+		_result = (GVAR(FixActions) select { _x select 0 == _text }) select 0 select 3;
 	};
 };
 

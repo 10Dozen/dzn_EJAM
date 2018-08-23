@@ -22,10 +22,9 @@ Author:
 
 #include "..\macro.hpp"
 
-if (!GVAR(HandleMag)) exitWith {};
-
 private _needRemove = _this;
 private _gun = primaryWeapon player;
+private _msg = [];
 
 if (_needRemove) then {
 	private _allMags = magazinesAmmo player;
@@ -40,7 +39,7 @@ if (_needRemove) then {
 		_holder addMagazineAmmoCargo [_gunMagClass, 1, _gunMagAmmo];
 
 		"drop_mag" call GVAR(fnc_playActionSound);
-		[LOCALIZE_FORMAT_STR("Hint_MagDropped"), 1.5] call ace_common_fnc_displayTextStructured;
+		_msg = [LOCALIZE_FORMAT_STR("Hint_MagDropped"), 1.5];
 	};
 } else {
 	private _weaponMags = (getArray (configFile >> "CfgWeapons" >> _gun >> "magazines")) apply { toLower(_x) };
@@ -53,5 +52,13 @@ if (_needRemove) then {
 	player setAmmo [primaryWeapon player, (_mag select 1)];
 	player removeMagazine (_mag select 0);
 
-	[LOCALIZE_FORMAT_STR("Hint_MagAttached"),1.5] call ace_common_fnc_displayTextStructured;
+	_msg = [LOCALIZE_FORMAT_STR("Hint_MagAttached"),1.5]
+};
+
+if (_msg isEqualTo []) exitWith {};
+
+if (isNil "ace_common_fnc_displayTextStructured") then {
+	hint parseText (_msg select 0);
+} else {
+	_msg call ace_common_fnc_displayTextStructured;
 };

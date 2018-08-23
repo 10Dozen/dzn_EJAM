@@ -30,20 +30,23 @@ private _addLocal = {
 	, true 
 ] call _add;
 
-// Handle magazine attach/detach
+// Option to override ACE Unjam
 [
-	"HandleMag"
+	"ForceOverallChance"
 	, "CHECKBOX"
 	, true 
-] call _addLocal;
+] call _add;
 
 // Overall jam chance
 [
 	"OverallChanceSetting"
-	, "EDITBOX"
-	, "1.5"
+	, "SLIDER"
+	, [0,100, 1.5, 2]
 	, {
-		GVAR(OverallChance) = parseNumber _this;
+		GVAR(OverallChance) = _this;
+
+		// Reset cache
+		player setVariable [SVAR(FiredLastGunData), nil];
 	}
 ] call _add;
 
@@ -52,30 +55,35 @@ private _addLocal = {
 	"feed_failure_ChanceSettings"
 	, "SLIDER"
 	, [1, 100, 20, 0] 
+	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"feed_failure_2_ChanceSettings"
 	, "SLIDER"
 	, [1, 100, 20, 0] 
+	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"dud_ChanceSettings"
 	, "SLIDER"
 	, [1, 100, 20, 0] 
+	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"fail_to_extract_ChanceSettings"
 	, "SLIDER"
 	, [1, 100, 20, 0] 
+	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"fail_to_eject_ChanceSettings"
 	, "SLIDER"
 	, [1, 100, 20, 0] 
+	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 // Subsonic ammo effect on jam chance
@@ -89,16 +97,18 @@ private _addLocal = {
 ] call _add;
 
 // Mapping of gun classes on jam settings
-/*
 [
 	"MappingSettings"
 	, "EDITBOX"
 	, str(GVAR(Mapping)) select [1, count str(GVAR(Mapping)) -2]
 	, { 
-		// GVAR(Mapping) = call compile ("[" + _this + "]");
+		GVAR(Mapping) = call compile ("[" + _this + "]");
+		call GVAR(fnc_processMappingData);
+
+		// Reset cache
+		player setVariable [SVAR(FiredLastGunData), nil];
 	}
 ] call _add;
-*/
 
 
 
@@ -126,11 +136,24 @@ private _addKey = {
 	, [19, [false,true,false]]
 ] call _addKey;
 
+[
+	"QuickInspectKey"
+	, "Action_QuickInspect"
+	, { "inspect" call GVAR(fnc_doHotkeyAction); }
+] call _addKey;
+
 // Pull bolt key
 [
 	"PullBoltKey"
 	, "Action_PullBolt"
 	, { "pull_bolt" call GVAR(fnc_doHotkeyAction); }
+] call _addKey;
+
+// Open bolt key
+[
+	"OpenBoltKey"
+	, "Action_OpenBolt"
+	, { "open_bolt" call GVAR(fnc_doHotkeyAction); }
 ] call _addKey;
 
 // Toggle magazine key
@@ -142,13 +165,6 @@ private _addKey = {
 		private _action = if (_mag == "mag_attached") then { "detach_mag" } else { "attach_mag" };
 		_action call GVAR(fnc_doHotkeyAction);
 	}
-] call _addKey;
-
-// Open bolt key
-[
-	"OpenBoltKey"
-	, "Action_OpenBolt"
-	, { "open_bolt" call GVAR(fnc_doHotkeyAction); }
 ] call _addKey;
 
 // Clear chamber key 

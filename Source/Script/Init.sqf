@@ -12,23 +12,26 @@ call compile preprocessFileLineNumbers format ["%1\Settings.sqf", PATH];
 [] spawn {
 	sleep 5;
 
-	if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
-
-		// Run mod FiredEH if ACE Overheating disabled
-		GVAR(FiredEH) = player addEventHandler ["Fired", { call GVAR(fnc_firedEH) }];
-	} else {
-
+	if (missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 		// Run ACE Jammed handler if ACE Overheating enabled
 		GVAR(ACE_Jammed_EH) = [
 			"ace_weaponJammed"
 			, { 
 				if (_this select 1 != primaryWeapon player) exitWith {}; 
-				call GVAR(fnc_setJammed);  
+				call GVAR(fnc_setJammed);
 			}
 		] call CBA_fnc_addEventHandler;
+
+		// Update ACE Overheating data with custom mapping
+		call GVAR(fnc_processMappingData);
 	};
 
-	// Add ACE Self-Interecation action
+	if (!(missionNamespace getVariable ["ace_overheating_enabled",false]) || GVAR(ForceOverallChance)) then {
+		// Run mod FiredEH if ACE Overheating disabled OR EJAM Jam chance forced
+		GVAR(FiredEH) = player addEventHandler ["Fired", { call GVAR(fnc_firedEH) }];
+	};
+
+	// Add ACE Self-Interecation action if ACE is running
 	if (!isNil "ace_interact_menu_fnc_createAction") exitWith {
 		GVAR(ACE_InspectActionClass) = [
 			SVAR(ACE_Action_Inspect)
@@ -53,7 +56,7 @@ call compile preprocessFileLineNumbers format ["%1\Settings.sqf", PATH];
 				GVAR(ACE_InspectActionClass) set [2, getText(configFile >> "CfgWeapons" >> GVAR(CurrentWeapon) >> "picture")];
 			};
 
-			if (dzn_EJAM_Force) then {
+			if (GVAR(Force)) then {
 				ace_overheating_unJamFailChance = 1;
 			};
 		};

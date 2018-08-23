@@ -32,7 +32,7 @@ switch toLower(_this) do {
 	case "no_access": {
 		hint parseText format [
 			"<t shadow='2' size='1.25'>%1</t><br /><img image='%2' size='5'/>"
-			, "Not possible!<br />No access to perform action"
+			, LOCALIZE_FORMAT_STR("Hint_NoAccess")
 			, getText (configFile >> "CfgWeapons" >> primaryWeapon player >> "picture")
 		];
 	};
@@ -52,10 +52,3 @@ switch toLower(_this) do {
 		];
 	};
 };
-
-
-
-
-
-
-

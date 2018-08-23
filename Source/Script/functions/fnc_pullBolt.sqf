@@ -21,6 +21,8 @@ Author:
 
 #include "..\macro.hpp"
 
+#define	REMOVE_ROUND	if ((player getVariable SVAR(RemovedMagazine) select 1) > 0) then { player setVariable [SVAR(LooseRound), true]; }
+
 (call GVAR(fnc_getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 
 private _hasAmmo = player ammo (currentWeapon player) > 0;
@@ -47,7 +49,7 @@ if (_case == "case_not_ejected") then {
 					if (_bolt == "bolt_opened") then {
 						["bolt_not_closed","chamber_stucked",nil,nil] call GVAR(fnc_setWeaponState);
 					} else {
-						if (_chamber == "chamber_ready") then { REMOVE_ROUND; };
+						 if (_chamber == "chamber_ready") then { REMOVE_ROUND; };
 						["bolt_closed","chamber_ready",nil,nil] call GVAR(fnc_setWeaponState);
 					};
 				} else {

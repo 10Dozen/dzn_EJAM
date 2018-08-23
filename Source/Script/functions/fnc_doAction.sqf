@@ -31,13 +31,13 @@ GVAR(ActionInProgress) = true;
 
 private _title = [_actionID, "process"] call GVAR(fnc_getEnumText);
 private _args = _isMenuAction;
+private _time = [_actionID, "time"] call GVAR(fnc_getEnumText);;
 
-private _time = 0;
 private _code = {};
+private _needSound = true;
 
 switch (_actionID) do {
 	case "pull_bolt": {
-		_time = 0.5;
 		_code = {
 			call GVAR(fnc_pullBolt);
 			SHOW_MENU;
@@ -45,7 +45,6 @@ switch (_actionID) do {
 		};
 	};
 	case "open_bolt": {
-		_time = 0.5;
 		_code = {
 			["bolt_opened",nil,nil,nil] call GVAR(fnc_setWeaponState);
 			SHOW_MENU;
@@ -54,7 +53,6 @@ switch (_actionID) do {
 	};
 	case "clear_chamber": {
 		player playActionNow "DismountOptic";
-		_time = 3;
 		_code = {
 			REMOVE_ROUND;
 			[nil,"chamber_empty",nil,nil] call GVAR(fnc_setWeaponState);
@@ -64,7 +62,6 @@ switch (_actionID) do {
 	};
 	case "remove_case": {
 		player playActionNow "DismountOptic";
-		_time = 3;
 		_code = {
 			[nil,nil,"case_ejected",nil] call GVAR(fnc_setWeaponState);
 			SHOW_MENU;
@@ -72,7 +69,6 @@ switch (_actionID) do {
 		};
 	};
 	case "detach_mag": {
-		_time = if (GVAR(handleMag)) then { 0.3 } else { 1 };
 		_code = {
 			true call GVAR(fnc_manageMagazine);
 			[nil,nil,nil,"mag_detached"] call GVAR(fnc_setWeaponState);
@@ -81,7 +77,6 @@ switch (_actionID) do {
 		};
 	};
 	case "attach_mag": {
-		_time = 1;
 		_code = {
 			false call GVAR(fnc_manageMagazine);
 			[nil,nil,nil,"mag_attached"] call GVAR(fnc_setWeaponState);
@@ -89,6 +84,19 @@ switch (_actionID) do {
 			FINISH_ACTION;
 		};
 	};
+	case "inspect": {
+		if (GVAR(HandleMag)) then {	
+			[
+				nil, nil, nil
+				, if (call GVAR(fnc_isMagAttached)) then { "mag_attached" } else { "mag_detached" }
+			] call GVAR(fnc_setWeaponState);
+		};
+		_code = {
+			"state" call GVAR(fnc_uiShowBriefState);
+			FINISH_ACTION;
+		};
+		_needSound = false;
+	}
 };
 
 if (isNil "ace_common_fnc_progressBar") then {
@@ -101,4 +109,6 @@ if (isNil "ace_common_fnc_progressBar") then {
 	[_time, _args, _code, {}, _title, {true}, ["isNotInside", "isNotSwimming", "isNotSitting"]] call ace_common_fnc_progressBar;
 };
 
-_actionID call GVAR(fnc_playActionSound);
+if (_needSound) then {
+	_actionID call GVAR(fnc_playActionSound);
+};

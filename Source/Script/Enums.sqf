@@ -64,14 +64,15 @@ GVAR(States) = [
 	,["mag_detached"			,localize "STR_EJAM_State_MagDetached"]
 ];
 
-// Actions; In format [@ID, @DisplayName, @ProgressBarDisplayText]
+// Actions; In format [@ID, @DisplayName, @ProgressBarDisplayText, @TimeSpent]
 GVAR(FixActions) = [
-	["pull_bolt"		,localize "STR_EJAM_Action_PullBolt"		, localize "STR_EJAM_Action_PullBolt_Process"]
-	,["open_bolt"		,localize "STR_EJAM_Action_OpenBolt"		, localize "STR_EJAM_Action_OpenBolt_Process"]
-	,["clear_chamber"	,localize "STR_EJAM_Action_ClearChamber"	, localize "STR_EJAM_Action_ClearChamber_Process"]
-	,["remove_case"		,localize "STR_EJAM_Action_RemoveCase"		, localize "STR_EJAM_Action_RemoveCase_Process"]
-	,["detach_mag"		,localize "STR_EJAM_Action_MagDetach"		, localize "STR_EJAM_Action_MagDetach_Process"]
-	,["attach_mag"		,localize "STR_EJAM_Action_MagAttach"		, localize "STR_EJAM_Action_MagAttach_Process"]
+	["pull_bolt"		,localize "STR_EJAM_Action_PullBolt"		, localize "STR_EJAM_Action_PullBolt_Process"		, 0.5]
+	,["open_bolt"		,localize "STR_EJAM_Action_OpenBolt"		, localize "STR_EJAM_Action_OpenBolt_Process"		, 0.5]
+	,["clear_chamber"	,localize "STR_EJAM_Action_ClearChamber"	, localize "STR_EJAM_Action_ClearChamber_Process"	, 3]
+	,["remove_case"		,localize "STR_EJAM_Action_RemoveCase"		, localize "STR_EJAM_Action_RemoveCase_Process"		, 1.5]
+	,["detach_mag"		,localize "STR_EJAM_Action_MagDetach"		, localize "STR_EJAM_Action_MagDetach_Process"		, 0.3]		
+	,["attach_mag"		,localize "STR_EJAM_Action_MagAttach"		, localize "STR_EJAM_Action_MagAttach_Process"		, 0.75]		
+	,["inspect"			,localize "STR_EJAM_Action_Inspect"			, localize "STR_EJAM_Action_Inspect_Process"		, 0.5]
 ];
 
 GVAR(Defaults) = [
@@ -83,6 +84,6 @@ GVAR(Defaults) = [
 
 GVAR(Mapping) = [
 	[
-		"arifle_MX_ACO_pointer_F", 30, 210, 210, 20, 20, 20
+		"arifle_MX_F", 1.5, 20, 20, 20, 20, 20
 	]
 ];

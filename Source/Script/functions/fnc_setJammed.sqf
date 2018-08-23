@@ -48,25 +48,21 @@ if ((_jamCauses select { _gun == _x # 0 }) isEqualTo []) then {
 if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 	// No ACE_Overheating 
 
-	dzn_LOG pushBack "Add Prevent Fire action";
-
-	if (!isNil SVAR(PreventFireID)) then {
-		player removeAction GVAR(PreventFireID);
+	if (isNil SVAR(PreventFireID)) then {
+		// Adding prevent fire handler
+		// until player's weapon is in jammed list - it will prevent firing from this gun but allow other
+		GVAR(PreventFireID) = player addAction [
+			"", {
+				playSound3D ['a3\sounds_f\weapons\Other\dry9.wss', _this select 0];
+			}, "", 0, false, true, "DefaultAction"
+			, format [
+				"(currentMuzzle player == primaryWeapon player) 
+				&& [player, primaryWeapon player] call CBA_fnc_canUseWeapon 
+				&& ""inspect"" call %1"
+				, SVAR(fnc_checkJammed)
+			]
+		];
 	};
-
-	GVAR(PreventFireID) = player addAction [
-		"", {
-			playSound3D ['a3\sounds_f\weapons\Other\dry9.wss', _this select 0];
-		}, "", 0, false, true, "DefaultAction"
-		, format [
-			"(currentMuzzle player == primaryWeapon player) 
-			&& [player, primaryWeapon player] call CBA_fnc_canUseWeapon 
-			&& ""inspect"" call %1"
-			, SVAR(fnc_checkJammed)
-		]
-	];
-
-	dzn_LOG pushBack ["Prevent fire ID: ", GVAR(PreventFireID)];
 } else {
 
 	// ACE_Overheating

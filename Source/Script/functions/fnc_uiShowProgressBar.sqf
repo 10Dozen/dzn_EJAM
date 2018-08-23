@@ -15,7 +15,7 @@ Returns:
 
 Examples:
     (begin example)
-		[10, "In progress", { hint (_this) }, "Hint message on finish"] spawn dzn_EJAM_fnc_uiShowProgressBar;
+		[10, "In progress", { hint (_args) }, "Hint message on finish"] spawn dzn_EJAM_fnc_uiShowProgressBar;
     (end)
 
 Author:
@@ -25,6 +25,10 @@ Author:
 #include "..\macro.hpp"
 
 params ["_drawTime","_title","_code",["_args", []]];
+
+// Prepare data 
+private _strCode = ((str(_code) splitString "") select [1, count str(_code) - 2]) joinString "";
+_code = compile format ["private _args = _this; %1", _strCode];
 
 // Draw 
 private _dialog = createDialog "dzn_EJAM_ProgressBar_Group";

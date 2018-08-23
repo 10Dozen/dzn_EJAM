@@ -7,6 +7,7 @@ Description:
 Parameters:
 	_weaponClass - Classname of weapon to get data <STRING>
 	_dataType - Type of data to return: "jam" or "malfunction" <STRING>
+	_isForConfig - (optional) Is data returned for config or for inner functions. Default: false <BOOL>
 
 Returns:
 	_data - Mapping data (<NUMBER> for "jam") or (<ARRAY> of "malfunction")
@@ -23,8 +24,9 @@ Author:
 
 #include "..\macro.hpp"
 
-params ["_gun", "_type"];
+params ["_gun", "_type", ["_isForConfig", false]];
 
+_gun = [_gun] call BIS_fnc_baseWeapon;
 _type = toLower(_type);
 
 private _result = -1;
@@ -34,19 +36,24 @@ if (_data isEqualTo []) then {
 	
 	// No config - use default
 	// GVAR(Causes) apply {	call compile FORMAT_VAR((_x select 0) + "_ChanceSettings") };
-	_data = [
-		0
-		, GVAR(OverallChance)
-		, GVAR(feed_failure_ChanceSettings)
-		, GVAR(feed_failure_2_ChanceSettings)
-		, GVAR(dud_ChanceSettings)
-		, GVAR(fail_to_extract_ChanceSettings)
-		, GVAR(fail_to_eject_ChanceSettings)
-	];
+
+	if !(_isForConfig) then {
+		_data = [
+			0
+			, GVAR(OverallChance)
+			, GVAR(feed_failure_ChanceSettings)
+			, GVAR(feed_failure_2_ChanceSettings)
+			, GVAR(dud_ChanceSettings)
+			, GVAR(fail_to_extract_ChanceSettings)
+			, GVAR(fail_to_eject_ChanceSettings)
+		];
+	} else {
+		_data = [0,0,0,0,0,0,0];
+	};
 } else {
 
 	// Config specified
-	_data = _data select 0;
+	_data = [] + (_data select 0);
 };
 
 switch toLower(_type) do {
