@@ -247,6 +247,16 @@ class dzn_EJAM_Config_Group: RscControlsGroup
 			h = 1 * GUI_GRID_H;	
 			font = "PuristaLight";
 		};
+		class dzn_EJAM_Config_ResetBtn: RscButtonMenu
+		{
+			idc = 6053;
+			text = "Reset"; //--- ToDo: Localize;
+			x = 30.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 22 * GUI_GRID_H + GUI_GRID_Y;
+			w = 6 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;	
+			font = "PuristaLight";
+		};
 
 	};
 };

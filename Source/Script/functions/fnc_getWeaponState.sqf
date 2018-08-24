@@ -21,7 +21,7 @@ Author:
 
 #include "..\macro.hpp"
 
-private _gun = primaryWeapon player;
+private _gun = [primaryWeapon player] call BIS_fnc_baseWeapon;
 private _state = ((player getVariable [SVAR(WeaponState), []]) select { _gun == _x # 0 });
 
 if (_state isEqualTo []) exitWith { [] };

@@ -168,7 +168,7 @@ fnc_EJAM_uiUpdateWeaponData = {
 		, [_class,"author","t"] call fnc_EJAM_gfc
 	];
 	private _gunImage = parseText format [
-		"<t ><img align=""center""  size=""5"" image=""%1""</img></t>"
+		"<img align=""center""  size=""5"" image=""%1"" />"
 		, [_class,"picture","t"] call fnc_EJAM_gfc
 	];
 
@@ -241,7 +241,7 @@ fnc_EJAM_uiOnSliderChanged = {
 
 fnc_EJAM_uiUpdateButtons = {
 	private _display = (findDisplay 134802);
-	private _data = [6050, 6051, 6052];
+	private _data = [6050, 6051, 6052, 6053];
 	
 	{
 		((findDisplay 134802) displayCtrl _x) ctrlEnable _this;
@@ -250,14 +250,21 @@ fnc_EJAM_uiUpdateButtons = {
 
 fnc_EJAM_uiOnSaveClick = {
 	private _newMappingData = call fnc_EJAM_collectSliderData;
+	private _isReset = (_newMappingData select [1,6]) isEqualTo [0,0,0,0,0,0];
 	
 	private _mapping = GVAR(Mapping) select { _newMappingData select 0 == _x select 0 };
 	if (_mapping isEqualTo []) then {
-		GVAR(Mapping) pushBack _newMappingData;
+		if !(_isReset) then {
+			GVAR(Mapping) pushBack _newMappingData;
+		};
 	} else {
-		private _map = _mapping select 0;
-		for "_i" from 0 to (count _map) - 1 do {
-			_map set [_i, _newMappingData select _i];
+		if !(_isReset) then {
+			private _map = _mapping select 0;
+			for "_i" from 0 to (count _map) - 1 do {
+				_map set [_i, _newMappingData select _i];
+			};
+		} else {
+			GVAR(Mapping) = GVAR(Mapping) - (_mapping);
 		};
 	};
 
@@ -328,6 +335,12 @@ fnc_EJAM_uiOnLBDblClick = {
 	true call fnc_EJAM_uiOnApplyClick;
 };
 
+fnc_EJAM_uiOnResetClick = {
+	private _gun = call fnc_EJAM_uiGetSelected;
+	[_gun, true, [0,0,0,0,0,0]] call fnc_EJAM_uiUpdateSliders;
+	call fnc_EJAM_uiOnSaveClick;
+};
+
 // Draw 
 // --- Dialog 
 createDialog "dzn_EJAM_Config_Group";
@@ -360,3 +373,5 @@ GET_CTRL(6050) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnSave
 GET_CTRL(6051) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnCopyClick"];
 GET_CTRL(6052) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnApplyClick"];
 GET_CTRL(6052) ctrlSetTooltip "Or double click on list element to apply copied settings!";
+GET_CTRL(6053) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnResetClick"];
+GET_CTRL(6053) ctrlSetTooltip "Unsets weapon settings";

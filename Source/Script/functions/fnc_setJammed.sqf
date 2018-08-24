@@ -21,7 +21,7 @@ Author:
 
 #include "..\macro.hpp"
 
-private _gun = primaryWeapon player;
+private _gun = [primaryWeapon player] call BIS_fnc_baseWeapon;
 private _weights = [_gun, "malfunction"] call GVAR(fnc_getMappingData);
 private _cause = GVAR(Causes) selectRandomWeighted _weights;
 
@@ -56,7 +56,8 @@ if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 				playSound3D ['a3\sounds_f\weapons\Other\dry9.wss', _this select 0];
 			}, "", 0, false, true, "DefaultAction"
 			, format [
-				"(currentMuzzle player == primaryWeapon player) 
+				"_muzzle = str(currentMuzzle player) splitString '""' joinString '';				
+				(_muzzle == primaryWeapon player) 
 				&& [player, primaryWeapon player] call CBA_fnc_canUseWeapon 
 				&& ""inspect"" call %1"
 				, SVAR(fnc_checkJammed)
@@ -66,5 +67,9 @@ if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 } else {
 
 	// ACE_Overheating
-	[player, _gun] call ace_overheating_fnc_jamWeapon;
+	[player, primaryWeapon player] call ace_overheating_fnc_jamWeapon;
+
+	private _aceJammed = player getVariable ["ace_overheating_jammedWeapons", []];
+	private _family = (primaryWeapon player) call GVAR(fnc_getClassFamily);
+	{ _aceJammed pushBackUnique _x; } forEach _family;
 };

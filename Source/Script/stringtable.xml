@@ -245,8 +245,10 @@
 				<Original>Not possible to perform action!</Original>
 				<Russian>Невозможно выполнить действие!</Russian>
 			</Key>
-
-
+			<Key ID="STR_EJAM_Hint_NoMag">
+				<Original>No magazine to load!</Original>
+				<Russian>Нет магазинов!</Russian>
+			</Key>
 
 		</Container>
 	</Package>

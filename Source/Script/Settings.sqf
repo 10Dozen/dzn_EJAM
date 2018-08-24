@@ -54,35 +54,35 @@ private _addLocal = {
 [
 	"feed_failure_ChanceSettings"
 	, "SLIDER"
-	, [1, 100, 20, 0] 
+	, [0, 100, 20, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"feed_failure_2_ChanceSettings"
 	, "SLIDER"
-	, [1, 100, 20, 0] 
+	, [0, 100, 20, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"dud_ChanceSettings"
 	, "SLIDER"
-	, [1, 100, 20, 0] 
+	, [0, 100, 20, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"fail_to_extract_ChanceSettings"
 	, "SLIDER"
-	, [1, 100, 20, 0] 
+	, [0, 100, 20, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"fail_to_eject_ChanceSettings"
 	, "SLIDER"
-	, [1, 100, 20, 0] 
+	, [0, 100, 20, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 

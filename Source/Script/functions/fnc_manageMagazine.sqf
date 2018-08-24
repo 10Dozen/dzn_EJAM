@@ -48,11 +48,15 @@ if (_needRemove) then {
 		if (toLower(_x select 0) in _weaponMags) exitWith {	_mag = _x; };
 	} forEach (magazinesAmmo player);
 
-	player addPrimaryWeaponItem (_mag select 0);
-	player setAmmo [primaryWeapon player, (_mag select 1)];
-	player removeMagazine (_mag select 0);
+	if (_mag isEqualTo []) then {
+		_msg = [LOCALIZE_FORMAT_STR("Hint_NoMag"),1.5];		
+	} else {
+		player addPrimaryWeaponItem (_mag select 0);
+		player setAmmo [primaryWeapon player, (_mag select 1)];
+		player removeMagazine (_mag select 0);
 
-	_msg = [LOCALIZE_FORMAT_STR("Hint_MagAttached"),1.5]
+		_msg = [LOCALIZE_FORMAT_STR("Hint_MagAttached"),1.5]
+	};
 };
 
 if (_msg isEqualTo []) exitWith {};

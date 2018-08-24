@@ -26,7 +26,7 @@ Author:
 
 #include "..\macro.hpp"
 
-private _gun = primaryWeapon player;
+private _gun = [primaryWeapon player] call BIS_fnc_baseWeapon;
 private _weaponStates = player getVariable [SVAR(WeaponState), []];
 
 if ((_weaponStates select { _gun == _x # 0 }) isEqualTo []) then {
