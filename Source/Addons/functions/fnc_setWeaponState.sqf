@@ -1,24 +1,53 @@
-/*
-	author: 10Dozen
-	description: Set/updates state of weapon elements (bolt, chamber, case ejection port and magazine)
-	returns: nothing
-*/
+/* ----------------------------------------------------------------------------
+Function: dzn_EJAM_fnc_setWeaponState
 
-params[["_boltState",""],["_chamberState",""],["_caseState",""],["_magState",""]];
+Description:
+	Set/updates state of current equipped weapon elements (bolt, chamber, case ejection port and magazine)
 
-private _currentState = player getVariable ["dzn_EJAM_WeaponState", []];
+Parameters:
+	_weaponState - List of weapon parts states <ARRAY>
 
-if (_currentState isEqualTo []) then {
+Returns:
+	nothing
+
+Examples:
+    (begin example)
+		[
+			"bolt_closed"
+			,"chamber_empty"
+			,"case_ejected"
+			,"mag_attached"
+		] call dzn_EJAM_fnc_setWeaponState;
+    (end)
+
+Author:
+	10Dozen
+---------------------------------------------------------------------------- */
+
+#include "..\macro.hpp"
+
+private _gun = [primaryWeapon player] call BIS_fnc_baseWeapon;
+private _weaponStates = player getVariable [SVAR(WeaponState), []];
+
+if ((_weaponStates select { _gun == _x # 0 }) isEqualTo []) then {
+
 	// First time set
-	player setVariable ["dzn_EJAM_WeaponState", _this];
+	_weaponStates pushBack ([_gun] + _this);
+	player setVariable [SVAR(WeaponState), _weaponStates];
 } else {
-	player setVariable [
-		"dzn_EJAM_WeaponState"
-		, [
-			if (_boltState == "") then { _currentState select 0 } else { _boltState }
-			, if (_chamberState == "") then { _currentState select 1 } else { _chamberState }
-			, if (_caseState == "") then { _currentState select 2 } else { _caseState }
-			, if (_magState == "") then { _currentState select 3 } else { _magState }
-		]
+
+	// Update state (parse _this with _currentState as defaults)
+	private _currentState = (_weaponStates select { _gun == _x # 0 }) # 0;
+
+	params[
+		["_boltState", _currentState # 1]
+		,["_chamberState", _currentState # 2]
+		,["_caseState", _currentState # 3]
+		,["_magState",  _currentState # 4]
 	];
+
+	_currentState set [1, _boltState];
+	_currentState set [2, _chamberState];
+	_currentState set [3, _caseState];
+	_currentState set [4, _magState];
 };

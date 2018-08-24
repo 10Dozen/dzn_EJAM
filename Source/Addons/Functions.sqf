@@ -1,12 +1,33 @@
-private _path = "\dzn_EJAM\functions\";
-private _compile = { compile preprocessFileLineNumbers format ["%1%2.sqf", _path, _this] };
+#include "macro.hpp"
 
-dzn_EJAM_fnc_setJamCause 		= "fnc_setJamCause" call _compile;
-dzn_EJAM_fnc_setWeaponState 		= "fnc_setWeaponState" call _compile;
-dzn_EJAM_fnc_doAction			= "fnc_doAction" call _compile;
-dzn_EJAM_fnc_pullBolt			= "fnc_pullBolt" call _compile;
-dzn_EJAM_fnc_processWeaponFixed	= "fnc_processWeaponFixed" call _compile;
-dzn_EJAM_fnc_ShowUnjamMenu		= "fnc_ShowUnjamMenu" call _compile;
-dzn_EJAM_fnc_manageMagazine		= "fnc_manageMagazine" call _compile;
-dzn_EJAM_fnc_isMagAttached		= "fnc_isMagAttached" call _compile;
-dzn_EJAM_fnc_playActionSound		= "fnc_playActionSound" call _compile;
+COMPILE_FUNCTION(fnc_firedEH);
+COMPILE_FUNCTION(fnc_getMappingData);
+COMPILE_FUNCTION(fnc_processMappingData);
+
+COMPILE_FUNCTION(fnc_checkJammed);
+COMPILE_FUNCTION(fnc_setJammed);
+
+COMPILE_FUNCTION(fnc_getJamCause);
+COMPILE_FUNCTION(fnc_setWeaponState);
+COMPILE_FUNCTION(fnc_getWeaponState);
+
+COMPILE_FUNCTION(fnc_inspectWeapon);
+COMPILE_FUNCTION(fnc_doAction);
+COMPILE_FUNCTION(fnc_doHotkeyAction);
+
+COMPILE_FUNCTION(fnc_pullBolt);
+COMPILE_FUNCTION(fnc_manageMagazine);
+COMPILE_FUNCTION(fnc_processWeaponFixed);
+COMPILE_FUNCTION(fnc_isMagAttached);
+COMPILE_FUNCTION(fnc_hasMagazine);
+
+COMPILE_FUNCTION(fnc_playActionSound);
+COMPILE_FUNCTION(fnc_getEnumText);
+COMPILE_FUNCTION(fnc_getClassFamily);
+
+COMPILE_FUNCTION(fnc_uiShowUnjamMenu);
+COMPILE_FUNCTION(fnc_uiShowBriefState);
+COMPILE_FUNCTION(fnc_uiShowProgressBar);
+COMPILE_FUNCTION(fnc_uiShowConfig);
+
+GVAR(Configure) = { [] spawn GVAR(fnc_uiShowConfig); };

@@ -1,9 +1,23 @@
-/*
-	author: 10Dozen
-	description: Plays appropriate action sound in 3D
-	input: STRING - action id (e.g. "pull_bolt")
-	returns: nothing
-*/
+/* ----------------------------------------------------------------------------
+Function: dzn_EJAM_fnc_playActionSound
+
+Description:
+	Plays appropriate action sound in 3D
+
+Parameters:
+	_actionName - action to perform <STRING>
+
+Returns:
+	nothing
+
+Examples:
+    (begin example)
+		"pull_bolt" call dzn_EJAM_fnc_playActionSound;
+    (end)
+
+Author:
+	10Dozen
+---------------------------------------------------------------------------- */
 
 private _actionID = _this;
 

@@ -4,14 +4,16 @@
 	titles[] = {0, ""}; \
 }
 
+#include "..\macro.hpp"
+
 class CfgSounds
 {
 	sounds[] = {};
-	SOUND_CLASS(open_bolt,"\dzn_EJAM\sounds\BoltOpen.ogg");
-	SOUND_CLASS(pull_bolt,"\dzn_EJAM\sounds\BoltPull.ogg");
-	SOUND_CLASS(attach_mag,"\dzn_EJAM\sounds\MagAttach.ogg");
-	SOUND_CLASS(detach_mag,"\dzn_EJAM\sounds\MagDetach.ogg");
-	SOUND_CLASS(clear_chamber,"\dzn_EJAM\sounds\Fixing.ogg");
-	SOUND_CLASS(remove_case,"\dzn_EJAM\sounds\Fixing.ogg");
-	SOUND_CLASS(drop_mag,"\dzn_EJAM\sounds\MagDrop.ogg");
+	SOUND_CLASS(open_bolt, SND(BoltOpen.ogg));
+	SOUND_CLASS(pull_bolt, SND(BoltPull.ogg));
+	SOUND_CLASS(attach_mag, SND(MagAttach.ogg));
+	SOUND_CLASS(detach_mag, SND(MagDetach.ogg));
+	SOUND_CLASS(clear_chamber, SND(Fixing.ogg));
+	SOUND_CLASS(remove_case, SND(Fixing.ogg));
+	SOUND_CLASS(drop_mag, SND(MagDrop.ogg));
 };
