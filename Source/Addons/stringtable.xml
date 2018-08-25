@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="dzn_EJAM">
+	<Package name="dzn_EJAM">
+		<Container name="Menus">
+			<!--
+			SETTINGS
+			-->
+			<Key ID="STR_EJAM_Force">
+				<Original>Unjam via EJAM only</Original>				
+				<Russian>Починка только через EJAM</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Force_desc">
+				<Original>Force EJAM unjam logic over ACE</Original>				
+				<Russian>Принудительно использовать логику починки EJAM вместо ACE</Russian>
+			</Key>
+
+			<Key ID="STR_EJAM_ForceOverallChance">
+				<Original>Override jam chance</Original>				
+				<Russian>Перезаписать шанс на заклинивание</Russian>
+			</Key>
+			<Key ID="STR_EJAM_ForceOverallChance_desc">
+				<Original>Force EJAM Overall jam chance over ACE jamming logic. </Original>				
+				<Russian>Принудительно использовать общий шанс на заклинивание. </Russian>
+			</Key>
+
+			<Key ID="STR_EJAM_OverallChanceSetting">
+				<Original>Overall jam chance</Original>				
+				<Russian>Общий шанс заклинивания</Russian>
+			</Key>
+			<Key ID="STR_EJAM_OverallChanceSetting_desc">
+				<Original>Default jam chance for all primary weapons. From 0 to 100. Custom weapon setting will be used if set.</Original>				
+				<Russian>Шанс на клин для всего основного оружия. От 0 до 100. Если для оружия указаны специфические настройки - будут использованы они.</Russian>
+			</Key>
+
+			<Key ID="STR_EJAM_feed_failure_ChanceSettings">
+				<Original>(Chance of) Feed failure</Original>				
+				<Russian>(Шанс на) Неподачу патрона</Russian>
+			</Key>
+			<Key ID="STR_EJAM_feed_failure_ChanceSettings_desc">
+				<Original>Chance for specific malfunction to happen if weapon got jammed.</Original>				
+				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
+			</Key>
+			<Key ID="STR_EJAM_feed_failure_2_ChanceSettings">
+				<Original>(Chance of) Chamber failure</Original>				
+				<Russian>(Шанс на) Утыкание патрона</Russian>
+			</Key>
+			<Key ID="STR_EJAM_feed_failure_2_ChanceSettings_desc">
+				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
+				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
+			</Key>			
+			<Key ID="STR_EJAM_dud_ChanceSettings">
+				<Original>(Chance of) Dud</Original>				
+				<Russian>(Шанс на) Осечка</Russian>
+			</Key>
+			<Key ID="STR_EJAM_dud_ChanceSettings_desc">
+				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
+				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
+			</Key>
+			<Key ID="STR_EJAM_fail_to_extract_ChanceSettings">
+				<Original>(Chance of) Extraction failure</Original>				
+				<Russian>(Шанс на) Неизвлечение гильзы</Russian>
+			</Key>
+			<Key ID="STR_EJAM_fail_to_extract_ChanceSettings_desc">
+				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
+				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
+			</Key>
+			<Key ID="STR_EJAM_fail_to_eject_ChanceSettings">
+				<Original>(Chance of) Ejection failure</Original>				
+				<Russian>(Шанс на) Прихват гильзы</Russian>
+			</Key>
+			<Key ID="STR_EJAM_fail_to_eject_ChanceSettings_desc">
+				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
+				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
+			</Key>
+
+			<Key ID="STR_EJAM_SubsonicJamEffectSetting">
+				<Original>Subsonic ammunition penalty</Original>				
+				<Russian>Пенальти дозвуковых боеприпасов</Russian>
+			</Key>
+			<Key ID="STR_EJAM_SubsonicJamEffectSetting_desc">
+				<Original>Jam chance penalty on using subsonic ammo. Value will be added to weapon's jam chance.</Original>				
+				<Russian>Штраф к шансу на заклинивание при использовании дозвуковых патронов. Значение будет добавляться к шансу на клин для оружия.</Russian>
+			</Key>
+
+			<Key ID="STR_EJAM_MappingSettings">
+				<Original>Weapon settings</Original>				
+				<Russian>Настройки оружия</Russian>
+			</Key>
+			<Key ID="STR_EJAM_MappingSettings_desc">
+				<Original>Custom settings for specific weapon. In format [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. Use EJAM Configurator by [ call dzn_EJAM_Configure ]</Original>				
+				<Russian>Настройки для конкретных классов оружия. В формтае [@Класс, @Шанс_на_клин, @Шанс_на_поломку_типа#1...5]. Используйте конфигуратор вызовом [ call dzn_EJAM_Configure ]</Russian>
+			</Key>
+
+			<!-- MENU -->
+			<Key ID="STR_EJAM_Menu_Title">
+				<Original>WEAPON MALFUNCTION</Original>				
+				<Russian>ОРУЖИЕ НЕИСПРАВНО</Russian>
+			</Key>
+			
+			<Key ID="STR_EJAM_Menu_Close">
+				<Original>CLOSE</Original>				
+				<Russian>ЗАКРЫТЬ</Russian>
+			</Key>
+			
+			<!-- STATES	-->
+			<Key ID="STR_EJAM_State_BoltClosed">
+				<Original>Bolt closed</Original>				
+				<Russian>Затвор в переднем положении</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_BoltNotClosed">
+				<Original>Bolt &lt;t color="#f79400"&gt;not closed&lt;/t&gt;</Original>				
+				<Russian>Затвор &lt;t color="#f79400"&gt;в среднем положении&lt;/t&gt;</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_BoltOpened">
+				<Original>Bolt &lt;t color="#00b9f7"&gt;opened&lt;/t&gt;</Original>				
+				<Russian>Затвор &lt;t color="#00b9f7"&gt;в заднем положении&lt;/t&gt;</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberEmpty">
+				<Original>Chamber empty</Original>				
+				<Russian>Патронник пустой</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberReady">
+				<Original>Chamber &lt;t color="#00b9f7"&gt;loaded&lt;/t&gt;</Original>				
+				<Russian>Патрон &lt;t color="#00b9f7"&gt;в патроннике&lt;/t&gt;</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberStucked">
+				<Original>Round &lt;t color="#f79400"&gt;stuck&lt;/t&gt;</Original>				
+				<Russian>Патрон &lt;t color="#f79400"&gt;уткнулся&lt;/t&gt;</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberNotExtracted">
+				<Original>Round &lt;t color="#f79400"&gt;not extracted&lt;/t&gt;</Original>				
+				<Russian>Гильза &lt;t color="#f79400"&gt;не извлечена&lt;/t&gt;</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_ChamberNotEjected">
+				<Original>Case &lt;t color="#f79400"&gt;not ejected&lt;/t&gt;</Original>				
+				<Russian>Гильза &lt;t color="#f79400"&gt;не выброшена&lt;/t&gt;</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_CaseEjected">
+				<Original>Case ejected</Original>				
+				<Russian>Гильза выброшена</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_MagAttached">
+				<Original>Magazine attached</Original>				
+				<Russian>Магазин присоединен</Russian>
+			</Key>
+			<Key ID="STR_EJAM_State_MagDetached">
+				<Original>Magazine &lt;t color="#00b9f7"&gt;detached&lt;/t&gt;</Original>				
+				<Russian>Магазин &lt;t color="#00b9f7"&gt;отсоединен<&lt;/t&gt;/Russian>
+			</Key>			
+			
+			<!-- ACTIONS -->
+			<!-- 
+			ACTIONS:: Keybindings & Menu 
+			-->
+			<Key ID="STR_EJAM_Action_Inspect">
+				<Original>Inspect weapon menu</Original>				
+				<Russian>Проверить оружие (меню)</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_QuickInspect">
+				<Original>Inspect weapon (no menu)</Original>				
+				<Russian>Проверить оружие (без меню)</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_MagazineToggle">
+				<Original>Attach/Detach magazine</Original>				
+				<Russian>Присоединить/Отсоединить магазин</Russian>
+			</Key>
+
+			<Key ID="STR_EJAM_Action_PullBolt">
+				<Original>Pull bolt</Original>				
+				<Russian>Передернуть затвор</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_OpenBolt">
+				<Original>Open bolt</Original>				
+				<Russian>Отвести затвор</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_ClearChamber">
+				<Original>Clear chamber</Original>				
+				<Russian>Очистить патронник</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_RemoveCase">
+				<Original>Remove case</Original>				
+				<Russian>Удалить гильзу</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_MagDetach">
+				<Original>Detach magazine</Original>				
+				<Russian>Отсоединить магазин</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_MagAttach">
+				<Original>Attach magazine</Original>				
+				<Russian>Присоединить магазин</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_Inspect">
+				<Original>Inspect weapon</Original>				
+				<Russian>Проверить оружие</Russian>
+			</Key>
+
+			<!-- 
+			ACTIONS:: Progress states 
+			-->
+			<Key ID="STR_EJAM_Action_PullBolt_Process">
+				<Original>Pulling the bolt</Original>				
+				<Russian>Передергиваем затвор</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_OpenBolt_Process">
+				<Original>Opening the bolt</Original>				
+				<Russian>Отводим затвор назад</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_ClearChamber_Process">
+				<Original>Clearing the chamber</Original>				
+				<Russian>Извлекаем патрон из патронника</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_RemoveCase_Process">
+				<Original>Removing the case</Original>				
+				<Russian>Извлекаем гильзу</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_MagDetach_Process">
+				<Original>Detaching magazine</Original>				
+				<Russian>Отсоединяем магазин</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_MagAttach_Process">
+				<Original>Attaching magazine</Original>				
+				<Russian>Присоединием магазин</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Action_Inspect_Process">
+				<Original>Inspecting</Original>				
+				<Russian>Проверка</Russian>
+			</Key>
+
+			<!-- 
+			Hints 
+			-->
+			<Key ID="STR_EJAM_Hint_MagDropped">
+				<Original>Magazine dropped</Original>
+				<Russian>Магазин сброшен</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Hint_MagAttached">
+				<Original>Magazine attached</Original>
+				<Russian>Магазин присоединен</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Hint_WeaponOK">
+				<Original>Weapon is functioning normally</Original>
+				<Russian>Оружие функционирует нормально</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Hint_NoAccess">
+				<Original>Not possible to perform action!</Original>
+				<Russian>Невозможно выполнить действие!</Russian>
+			</Key>
+			<Key ID="STR_EJAM_Hint_NoMag">
+				<Original>No magazine to load!</Original>
+				<Russian>Нет магазинов!</Russian>
+			</Key>
+
+		</Container>
+	</Package>
+</Project>
