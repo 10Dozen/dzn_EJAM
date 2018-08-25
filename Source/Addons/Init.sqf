@@ -7,9 +7,9 @@ call compile preprocessFileLineNumbers format ["%1\Settings.sqf", PATH];
 
 // Exit at dedicated or headless client
 if (!hasInterface) exitWith {};
-
 // Init main
 [] spawn {
+	waitUntil { !isNull player }; // Handle 3DEN and/or specator
 	sleep 5;
 
 	if (missionNamespace getVariable ["ace_overheating_enabled",false]) then {
