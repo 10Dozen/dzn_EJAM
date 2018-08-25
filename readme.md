@@ -15,7 +15,8 @@ Features:
 - Primary weapons may suffer 5 types of malfunction (feed failures, dud, extraction and ejection failures) and each requires correct user actions to be fixed.
 - Unjamming from UI or "blind", using the hotkeys
 - Jam chance and Malfunction frequency may be configured
-- Specific guns may have specific jam chances and malfunction type frequency.
+- Specific guns may have specific jam chances and malfunction type frequency
+- Compatible both with ACE and Vanilla
 
 Usage:
 - Bind hotkeys at (Settings -> Controls -> Addon Options)
@@ -26,10 +27,41 @@ Note:
 - Currently loaded magazine will be dropped to the ground on Magazine Detach action if there is no space in player's inventory.
 - Mod can override ACE unjamming logic if forced in the settings.
 - Weapon from different mods may behave differently (e.g. CUP guns doesn't hide detached magazine).
-- For testing you can use next code to jam your weapon: [player, primaryWeapon player] call ace_overheating_fnc_jamWeapon
+- For testing you can set jam chance to 100% at Addon Options
 
 Credits:
 10Dozen - scripting;
 hyper's youtube channel (https://www.youtube.com/channel/UCSezUnbvCLYBXuUlPcXU_QQ) - sound.
 
 License: APL-SA
+
+--- 
+Версия: 2
+
+Мод добавляет логику заклинивания оружия в ванильную игру или расширяет логику работы с заклинившим оружием в ACE (ACE Overheating).
+Клиентский мод, при установке на сервер - применяет единые настройки для всех клиентов.
+
+[h1]Features:[/h1]
+- Основное оружие может получить одну из 5 неисправностей приведших к остановке огня (проблемы с подачей, осечка, неизвлечение или прихват гильзы). Каждая из неисправностей должна быть исправлена с помощью операций в правильном порядке.
+- Исправление неисправностей через интефейс или "вслепую", с помощью горячих клавиш
+- Шанс на заклинивание и частота каждого типа неисправности может быть настроена
+- Каждое оружие может иметь свои специчные настройки шанса на заклинивание/частоту неисправностей
+- Совместим с ванильной версией игры и с ACE
+
+[h1]Usage:[/h1]
+- Настройте горячие клавиши в (Settings -> Controls -> Configure Addon -> dzn Extended Jamming)
+- Проверьте и измените настройки мода в (Settings -> Addon Options -> dzn Extended Jamming)
+- Когда оружие заклинит - используйте горячие клавиши или меню взаимодействия ACE (Self-interaction - Equipment - Inspect Weapon) для вызова интерфейса мода. Или попробуйте исправить неисправность "вслепую" с помощью горячих клавиш.
+
+[h1]Notes:[/h1]
+- Если в инвентаре не хватает места, то магазин будет выброшен на землю при отсоединении.
+- Мод может быть настроен на принудительное использование логики расклинивания, взамен ACE'овой.
+- Оружие из разных модов может вести себя по разному во время выполнения операций (например, оружие из CUP всегда отображается с присоединенным магазином)
+- Чтобы заклинить оружие (для тестов) - увельчте шанс на заклин в настройках мода.
+
+
+[h1]Credits:[/h1]
+10Dozen - scripting;
+hyper's youtube channel ( https://www.youtube.com/channel/UCSezUnbvCLYBXuUlPcXU_QQ ) - sound.
+
+[h1]License: APL-SA[/h1]
