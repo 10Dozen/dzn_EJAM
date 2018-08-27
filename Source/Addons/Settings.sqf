@@ -114,7 +114,7 @@ private _addLocal = {
 
 // Keybinding
 private _addKey = {
-	params["_var","_str","_downCode",["_defaultKey", nil],["_upCode", {}]];
+	params["_var","_str","_downCode",["_defaultKey", nil],["_upCode", { true }]];
 
 	private _settings = [
 		TITLE
@@ -132,28 +132,28 @@ private _addKey = {
 [
 	"InspectKey"
 	, "Action_Inspect"
-	, { call GVAR(fnc_inspectWeapon) }
+	, { call GVAR(fnc_inspectWeapon); true }
 	, [19, [false,true,false]]
 ] call _addKey;
 
 [
 	"QuickInspectKey"
 	, "Action_QuickInspect"
-	, { "inspect" call GVAR(fnc_doHotkeyAction); }
+	, { "inspect" call GVAR(fnc_doHotkeyAction); true }
 ] call _addKey;
 
 // Pull bolt key
 [
 	"PullBoltKey"
 	, "Action_PullBolt"
-	, { "pull_bolt" call GVAR(fnc_doHotkeyAction); }
+	, { "pull_bolt" call GVAR(fnc_doHotkeyAction); true }
 ] call _addKey;
 
 // Open bolt key
 [
 	"OpenBoltKey"
 	, "Action_OpenBolt"
-	, { "open_bolt" call GVAR(fnc_doHotkeyAction); }
+	, { "open_bolt" call GVAR(fnc_doHotkeyAction); true }
 ] call _addKey;
 
 // Toggle magazine key
@@ -164,6 +164,7 @@ private _addKey = {
 		(call GVAR(fnc_getWeaponState)) params ["","","","_mag"];
 		private _action = if (_mag == "mag_attached") then { "detach_mag" } else { "attach_mag" };
 		_action call GVAR(fnc_doHotkeyAction);
+		true
 	}
 ] call _addKey;
 
@@ -171,12 +172,12 @@ private _addKey = {
 [
 	"ClearChamnerKey"
 	, "Action_ClearChamber"
-	, { "clear_chamber" call GVAR(fnc_doHotkeyAction); }
+	, { "clear_chamber" call GVAR(fnc_doHotkeyAction); true }
 ] call _addKey;
 
 // Remove case key
 [
 	"RemoveCaseKey"
 	, "Action_RemoveCase"
-	, { "remove_case" call GVAR(fnc_doHotkeyAction); }
+	, { "remove_case" call GVAR(fnc_doHotkeyAction); true }
 ] call _addKey;

@@ -13,6 +13,11 @@ if (!hasInterface) exitWith {};
 	sleep 5;
 
 	if (missionNamespace getVariable ["ace_overheating_enabled",false]) then {
+		// Wait ACE init 
+		waitUntil { 
+			!isNil "ace_overheating_cacheWeaponData"
+			&& !isNil "ace_overheating_cacheSilencerData"
+		};
 
 		// Update ACE Overheating data with custom mapping
 		call GVAR(fnc_processMappingData);
