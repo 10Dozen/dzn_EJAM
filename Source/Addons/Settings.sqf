@@ -3,7 +3,7 @@
 // Addon Settings
 
 private _add = {
-	params ["_var","_type","_val",["_exp", "No Expression"],["_subcat", ""],["_isGlobal", true]];	
+	params ["_var","_type","_val",["_exp", "No Expression"],["_subcat", ""],["_isGlobal", false]];	
 	 
 	private _arr = [
 		FORMAT_VAR(_var)
@@ -41,7 +41,7 @@ private _addLocal = {
 [
 	"OverallChanceSetting"
 	, "SLIDER"
-	, [0,100, 1.5, 2]
+	, [0,100, 0.01, 2]
 	, {
 		GVAR(OverallChance) = _this;
 
@@ -54,7 +54,7 @@ private _addLocal = {
 [
 	"feed_failure_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 20, 0] 
+	, [0, 100, 30, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
@@ -68,7 +68,7 @@ private _addLocal = {
 [
 	"dud_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 20, 0] 
+	, [0, 100, 30, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
