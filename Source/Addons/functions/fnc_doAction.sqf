@@ -31,6 +31,7 @@ GVAR(ActionInProgress) = true;
 #define	REMOVE_ROUND	if ((player getVariable SVAR(RemovedMagazine) select 1) > 0) then { player setVariable [SVAR(LooseRound), true]; }
 #define SHOW_MENU		if (_args) then { call GVAR(fnc_inspectWeapon) } else { "state" call GVAR(fnc_uiShowBriefState) }
 #define FINISH_ACTION	GVAR(ActionInProgress) = nil
+#define PLAY_ANIMATION	if (stance player != "PRONE" && vehicle player == player) then { player playActionNow "DismountOptic"; }
 
 private _title = [_actionID, "process"] call GVAR(fnc_getEnumText);
 private _args = _isMenuAction;
@@ -55,8 +56,8 @@ switch (_actionID) do {
 			FINISH_ACTION;
 		};
 	};
-	case "clear_chamber": {
-		player playActionNow "DismountOptic";
+	case "clear_chamber": {		
+		PLAY_ANIMATION;
 		_code = {
 			REMOVE_ROUND;
 			[nil,"chamber_empty",nil,nil] call GVAR(fnc_setWeaponState);
@@ -65,7 +66,7 @@ switch (_actionID) do {
 		};
 	};
 	case "remove_case": {
-		player playActionNow "DismountOptic";
+		PLAY_ANIMATION;
 		_code = {
 			[nil,nil,"case_ejected",nil] call GVAR(fnc_setWeaponState);
 			SHOW_MENU;
@@ -88,7 +89,7 @@ switch (_actionID) do {
 	case "attach_mag": {
 		if !(call GVAR(fnc_hasMagazine)) exitWith {
 			GVAR(ActionInProgress) = nil;
-			_msg = [LOCALIZE_FORMAT_STR("Hint_NoMag"),1.5];
+			private _msg = [LOCALIZE_FORMAT_STR("Hint_NoMag"),1.5];
 			if (isNil "ace_common_fnc_displayTextStructured") then {
 				hint parseText (_msg select 0);
 			} else {

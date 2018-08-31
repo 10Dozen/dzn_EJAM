@@ -55,33 +55,37 @@ fnc_EJAM_filterWeapons = {
 	private _resultList = [];
 	private _allGunClasses = configFile >> "CfgWeapons";
 	for "_i" from 0 to ((count _allGunClasses) - 1) do {
+		
 		private _class = configName (_allGunClasses select _i);
-		private _name = [_class,"displayName","t"] call fnc_EJAM_gfc;
 
-		// Filter only classes with picture, model and scope=2
-		if (
-			[_class,"type","n"] call fnc_EJAM_gfc == 1
-			&& {
-				[_class,"picture","t"] call fnc_EJAM_gfc != "" 
-				&& [_class,"model","t"] call fnc_EJAM_gfc != "" 
-				&& [_class,"scope","n"] call fnc_EJAM_gfc == 2
-			}
-		) then {
-			private _found = false;
-			private _baseClass = [_class] call BIS_fnc_baseWeapon;
+		if (_class != "access") then {
+			private _name = [_class,"displayName","t"] call fnc_EJAM_gfc;
 
-			if !(_baseClass in _resultList) then {
-				private _name = [_baseClass,"displayName","t"] call fnc_EJAM_gfc;
-				
-				{
-					// Filter by string and source
-					if ( [_x, _name, false] call BIS_fnc_inString ) then {
-						_found = true;
+			// Filter only classes with picture, model and scope=2
+			if (
+				[_class,"type","n"] call fnc_EJAM_gfc == 1
+				&& {
+					[_class,"picture","t"] call fnc_EJAM_gfc != "" 
+					&& [_class,"model","t"] call fnc_EJAM_gfc != "" 
+					&& [_class,"scope","n"] call fnc_EJAM_gfc == 2
+				}
+			) then {
+				private _found = false;
+				private _baseClass = [_class] call BIS_fnc_baseWeapon;
+
+				if !(_baseClass in _resultList) then {
+					private _name = [_baseClass,"displayName","t"] call fnc_EJAM_gfc;
+					
+					{
+						// Filter by string and source
+						if ( [_x, _name, false] call BIS_fnc_inString ) then {
+							_found = true;
+						};
+					} forEach _searchList;
+
+					if (_found) then {
+						_resultList pushBackUnique _class;
 					};
-				} forEach _searchList;
-
-				if (_found) then {
-					_resultList pushBackUnique _class;
 				};
 			};
 		};
