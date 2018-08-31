@@ -84,6 +84,6 @@ GVAR(Defaults) = [
 
 GVAR(Mapping) = [
 	[
-		"arifle_MX_F", 1.5, 20, 20, 20, 20, 20
+		"arifle_MX_F", 0.05, 45, 10, 45, 0, 0
 	]
 ];
