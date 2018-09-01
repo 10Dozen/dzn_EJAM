@@ -28,7 +28,7 @@ GVAR(ActionInProgress) = true;
 // Update magazine state
 [nil, nil, nil, if (call GVAR(fnc_isMagAttached)) then { "mag_attached" } else { "mag_detached" }] call GVAR(fnc_setWeaponState);
 
-#define	REMOVE_ROUND	if ((player getVariable SVAR(RemovedMagazine) select 1) > 0) then { player setVariable [SVAR(LooseRound), true]; }
+#define REMOVE_ROUND	if ((player getVariable SVAR(RemovedMagazine) select 1) > 0) then { player setVariable [SVAR(LooseRound), true]; }
 #define SHOW_MENU		if (_args) then { call GVAR(fnc_inspectWeapon) } else { "state" call GVAR(fnc_uiShowBriefState) }
 #define FINISH_ACTION	GVAR(ActionInProgress) = nil
 #define PLAY_ANIMATION	if (stance player != "PRONE" && vehicle player == player) then { player playActionNow "DismountOptic"; }
@@ -75,7 +75,7 @@ switch (_actionID) do {
 	};
 	case "detach_mag": {
 		if ((primaryWeaponMagazine player) isEqualTo []) exitWith {
-			GVAR(ActionInProgress) = nil;
+			FINISH_ACTION;
 			_needExecute = false;
 		};
 		
@@ -88,7 +88,7 @@ switch (_actionID) do {
 	};
 	case "attach_mag": {
 		if !(call GVAR(fnc_hasMagazine)) exitWith {
-			GVAR(ActionInProgress) = nil;
+			FINISH_ACTION;
 			private _msg = [LOCALIZE_FORMAT_STR("Hint_NoMag"),1.5];
 			if (isNil "ace_common_fnc_displayTextStructured") then {
 				hint parseText (_msg select 0);
