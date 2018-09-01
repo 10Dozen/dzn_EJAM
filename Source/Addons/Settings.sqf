@@ -110,8 +110,6 @@ private _addLocal = {
 	}
 ] call _add;
 
-
-
 // Keybinding
 private _addKey = {
 	params["_var","_str","_downCode",["_defaultKey", nil],["_upCode", { true }]];

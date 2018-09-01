@@ -48,7 +48,16 @@ if (
 	player setVariable [SVAR(RemovedMagazine), nil];
 	player setVariable [SVAR(LooseRound), nil];
 
-	player playActionNow "gestureYes";
+	[] spawn {
+		if (isNil "ace_common_fnc_displayTextStructured") then {
+			hint parseText LOCALIZE_FORMAT_STR("Hint_WeaponOK");
+			uiSleep 2;
+			hint "";
+		} else {
+			uiSleep 0.75;
+			hint "";
+		};
+	};
 
 	// Unjamming
 	if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
