@@ -96,14 +96,19 @@ fnc_EJAM_filterWeapons = {
 
 fnc_EJAM_collectSliderData = {
 	private _gun = call fnc_EJAM_uiGetSelected;
-	private _sliderData = [6040,6041,6042,6043,6044,6045] apply {
-		floor (sliderPosition ((findDisplay 134802) displayCtrl _x) * 10) / 10
-	};
-
-	private _data = [_gun] + _sliderData;
+	private _display = (findDisplay 134802);
+	private _data = [_gun];
+	
+	//  Jam chance w. 0.00 accuracy & other sliders w. 0.0 accuracy
+	{
+		private _accuracy = if (_forEachIndex == 0) then { 100 } else { 10 };
+		_data pushBack (floor (sliderPosition (_display displayCtrl _x) * _accuracy) / _accuracy);
+	} forEach [6040, 6041,6042,6043,6044,6045];
 
 	(_data)
 };
+
+
 
 fnc_EJAM_uiOnFilterKeyDown = {
 	params ["_control", "_key", "_shift", "_ctrl", "_alt"];
@@ -217,7 +222,7 @@ fnc_EJAM_uiUpdateSliders = {
 
 			((findDisplay 134802) displayCtrl _ctrlId) ctrlEnable true;
 			((findDisplay 134802) displayCtrl _ctrlId) sliderSetPosition _val;
-			[nil, _val, _ctrlId - 10] call fnc_EJAM_uiOnSliderChanged;
+			[nil, _val, _ctrlId - 10, if (_forEachIndex == 0) then { 100 } else { 10 }] call fnc_EJAM_uiOnSliderChanged;
 		} forEach _data;
 	} else {
 		{
@@ -229,7 +234,7 @@ fnc_EJAM_uiUpdateSliders = {
 };
 
 fnc_EJAM_uiOnSliderChanged = {
-	params ["_control", "_newValue", "_labelIDC"];
+	params ["_control", "_newValue", "_labelIDC", ["_accuracy", 10]];
 
 	private _text = (
 		((ctrlText ((findDisplay 134802) displayCtrl _labelIDC)) splitString "%" select 0)
@@ -238,7 +243,7 @@ fnc_EJAM_uiOnSliderChanged = {
 	((findDisplay 134802) displayCtrl _labelIDC) ctrlSetStructuredText parseText format [
 		"%1 <t align=""right"">%3 %2</t>"
 		, _text
-		, (floor (_newValue * 10)) / 10
+		, (floor (_newValue * _accuracy)) / _accuracy
 		, "%"
 	];
 };
@@ -283,7 +288,7 @@ fnc_EJAM_uiOnSaveClick = {
 	private _draw = [
 		parseText format ["<t size='1.25' color='#FFD000'>%1</t>", [_newMappingData select 0,"displayName","t"] call fnc_EJAM_gfc]
 		, lineBreak
-		, parseText "<t color='#6666ff'>MAPPING SAVED!</t>"
+		, parseText format ["<t color='#6666ff'>%1</t>", LOCALIZE_FORMAT_STR("Config_SavedHint")]
 		, lineBreak
 	];
 	hint (composeText _draw);
@@ -298,7 +303,7 @@ fnc_EJAM_uiOnCopyClick = {
 	private _draw = [
 		parseText format ["<t size='1.25' color='#FFD000'>%1</t>", [_data select 0,"displayName","t"] call fnc_EJAM_gfc]
 		, lineBreak
-		, parseText "<t color='#6666ff'>MAPPING COPIED!</t>"
+		, parseText format ["<t color='#6666ff'>%1</t>", LOCALIZE_FORMAT_STR("Config_CopiedHint")]
 		, lineBreak
 	];
 	hint (composeText _draw);
@@ -308,7 +313,10 @@ fnc_EJAM_uiOnApplyClick = {
 	private _instantSave = if (isNil "_this") then { false } else { true };
 
 	if (isNil SVAR(ConfigClipboard)) exitWith {
-		hint parseText "<t color='#6666ff'>No data to apply</t>";
+		hint parseText format [
+			"<t color='#6666ff'>%1</t>"
+			, LOCALIZE_FORMAT_STR("Config_NoDataHint")
+		];
 	};
 
 	private _gun = call fnc_EJAM_uiGetSelected;
@@ -319,7 +327,7 @@ fnc_EJAM_uiOnApplyClick = {
 	private _draw = [
 		parseText format ["<t size='1.25' color='#FFD000'>%1</t>", [_gun,"displayName","t"] call fnc_EJAM_gfc]
 		, lineBreak
-		, parseText "<t color='#6666ff'>APPLIED!</t>"
+		, parseText format ["<t color='#6666ff'>APPLIED!</t>", LOCALIZE_FORMAT_STR("Config_ApplidHint")]
 		, lineBreak
 	];
 	hint (composeText _draw);
@@ -351,31 +359,49 @@ createDialog "dzn_EJAM_Config_Group";
 private _display = (findDisplay 134802);
 #define GET_CTRL(X)	(_display displayCtrl X)
 
+// --- Title
+GET_CTRL(6002) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_Title");
+GET_CTRL(6003) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_CloseBtn");
+GET_CTRL(6010) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_SectionLabel");
+GET_CTRL(6010) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_SectionLabel");
+
 // --- Filter 
-GET_CTRL(6012) ctrlSetTooltip "Enter/NumEnter to apply filter. Use ""|"" for multiple filter values";
+GET_CTRL(6012) ctrlSetText LOCALIZE_FORMAT_STR("Config_FilterLabel");
+GET_CTRL(6012) ctrlSetTooltip LOCALIZE_FORMAT_STR("Config_FilterTooltip");
 GET_CTRL(6012) ctrlSetEventHandler ["KeyDown", "_this call fnc_EJAM_uiOnFilterKeyDown;"];
 GET_CTRL(6011) ctrlSetEventHandler ["LBSelChanged", "_this call fnc_EJAM_uiOnGunSelected"];
 GET_CTRL(6011) ctrlSetEventHandler ["LBDblClick", "_this call fnc_EJAM_uiOnLBDblClick"];
 
 // --- Weapon data 
-GET_CTRL(6021) ctrlSetStructuredText parseText "<t align=""center"">No weapon</t>";
+GET_CTRL(6021) ctrlSetStructuredText parseText format [
+	"<t align=""center"">%1</t>"
+	, LOCALIZE_FORMAT_STR("Config_PlaceholderLabel")
+];
 
 // --- Sliders 
 {
 	GET_CTRL(_x) sliderSetRange [0,100];
-	GET_CTRL(_x) sliderSetSpeed [0.1,25];
+	GET_CTRL(_x) sliderSetSpeed (if (_forEachIndex == 0) then { [0.01,10] } else { [0.1,25] });
 	GET_CTRL(_x) ctrlEnable false;
 	GET_CTRL(_x) ctrlSetEventHandler [
 		"SliderPosChanged"
-		, format ["_this pushBack %1; _this call fnc_EJAM_uiOnSliderChanged", _x - 10]
+		, format ["_this pushBack %1; _this pushBack %2; _this call fnc_EJAM_uiOnSliderChanged", _x - 10, if (_forEachIndex == 0) then { 100 } else { 10 }]
 	];
 } forEach [6040, 6041, 6042, 6043, 6044, 6045];
 
 // --- Buttons 
 false call fnc_EJAM_uiUpdateButtons;
 GET_CTRL(6050) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnSaveClick"];
+GET_CTRL(6050) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_SaveBtn");
+
 GET_CTRL(6051) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnCopyClick"];
+GET_CTRL(6051) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_CopyBtn");
+
 GET_CTRL(6052) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnApplyClick"];
-GET_CTRL(6052) ctrlSetTooltip "Or double click on list element to apply copied settings!";
+GET_CTRL(6052) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_PasteBtn");
+GET_CTRL(6052) ctrlSetTooltip LOCALIZE_FORMAT_STR("Config_PasteTooltip");
+
 GET_CTRL(6053) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnResetClick"];
-GET_CTRL(6053) ctrlSetTooltip "Unsets weapon settings";
+GET_CTRL(6053) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_ResetBtn");
+GET_CTRL(6053) ctrlSetTooltip LOCALIZE_FORMAT_STR("Config_ResetTooltip");
+

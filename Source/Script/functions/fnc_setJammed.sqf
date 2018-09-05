@@ -69,7 +69,10 @@ if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 	// ACE_Overheating
 	[player, primaryWeapon player] call ace_overheating_fnc_jamWeapon;
 
-	private _aceJammed = player getVariable ["ace_overheating_jammedWeapons", []];
-	private _family = (primaryWeapon player) call GVAR(fnc_getClassFamily);
-	{ _aceJammed pushBackUnique _x; } forEach _family;
+	[] spawn {
+		// Async jam whole weapon family (w. and w/o grips)
+		private _aceJammed = player getVariable ["ace_overheating_jammedWeapons", []];
+		private _family = (primaryWeapon player) call GVAR(fnc_getClassFamily);
+		{ _aceJammed pushBackUnique _x; } forEach _family;
+	};
 };
