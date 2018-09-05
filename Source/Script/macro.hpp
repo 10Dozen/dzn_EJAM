@@ -1,13 +1,15 @@
 #define TITLE "dzn Extended Jamming"
 #define	gADDON EJAM
 #define	gADDON_NAME dzn_##gADDON
-#define gFNC_PATH gADDON_NAME##\functions\##
+
+#define gADDON_PATH gADDON_NAME
+#define gFNC_PATH gADDON_PATH##\functions\##
 
 #define QUOTE(s) #s
 
 #define	ADDON QUOTE(gADDON)
 #define ADDON_NAME QUOTE(gADDON_NAME)
-#define PATH QUOTE(gADDON_NAME)
+#define PATH QUOTE(gADDON_PATH)
 #define FNC_PATH QUOTE(gFNC_PATH)
 
 #define GVAR(X) gADDON_NAME##_##X
@@ -22,6 +24,6 @@
 
 #define COMPILE_FUNCTION(X) GVAR(X) = compile preprocessFileLineNumbers format ["%1%2.sqf", FNC_PATH, #X]
 
-#define gSND_PATH gADDON_NAME##\sounds\##
+#define gSND_PATH gADDON_PATH##\sounds\##
 #define gSND(X) gSND_PATH##X
 #define SND(X) QUOTE(gSND(X))

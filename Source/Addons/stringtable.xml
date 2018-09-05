@@ -360,6 +360,80 @@
 				<Chinese>武器無彈匣!</Chinese>
 			</Key>
 
+
+			<!-- CONFIGURATOR -->
+			<Key ID="STR_EJAM_Config_Title">
+				<Original>dzn EJAM Weapon Configurator</Original>
+				<Russian>dzn EJAM Конфигуратор оружия</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_SectionLabel">
+				<Original>Weapon</Original>
+				<Russian>Оружие</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_PlaceholderLabel">
+				<Original>No weapon selected</Original>
+				<Russian>Оружие не выбрано</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_FilterLabel">
+				<Original>Filter...</Original>
+				<Russian>Фильтр...</Russian>		
+			</Key>
+			
+			<!-- CONFIGURATOR: Buttons -->
+			<Key ID="STR_EJAM_Config_SaveBtn">
+				<Original>Save</Original>
+				<Russian>Сохранить</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_CopyBtn">
+				<Original>Copy</Original>
+				<Russian>Копировать</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_PasteBtn">
+				<Original>Paste</Original>
+				<Russian>Вставить</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_ResetBtn">
+				<Original>Reset</Original>
+				<Russian>Сброс</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_CloseBtn">
+				<Original>Close</Original>
+				<Russian>Закрыть</Russian>		
+			</Key>
+		
+			<!-- CONFIGURATOR: Tooltips -->
+			<Key ID="STR_EJAM_Config_FilterTooltip">
+				<Original>Enter/NumEnter to apply filter. Use "|" for multiple filter values</Original>
+				<Russian>Enter/NumEnter для применения фильтра. Используйте "|" для фильтрации по нескольким значениям</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_ResetTooltip">
+				<Original>Unsets weapon settings</Original>
+				<Russian>Сбрасывает настройки для оружия</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_PasteTooltip">
+				<Original>Double clicking list element will also apply copied settings!</Original>
+				<Russian>Двойной клик по оружию из списка также применит скопированные настройки!</Russian>		
+			</Key>
+
+			<!-- CONFIGURATOR: Hints -->
+			<Key ID="STR_EJAM_Config_NoDataHint">
+				<Original>No data to apply!</Original>
+				<Russian>Нет данных для применения!</Russian>		
+			</Key>
+
+			<Key ID="STR_EJAM_Config_ApplidHint">
+				<Original>Applied!!</Original>
+				<Russian>Применено!</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_CopiedHint">
+				<Original>Config copied!</Original>
+				<Russian>Конфигурация скопирована!</Russian>		
+			</Key>
+			<Key ID="STR_EJAM_Config_SavedHint">
+				<Original>Config saved!</Original>
+				<Russian>Конфигурация сохранена!</Russian>		
+			</Key>
+		
 		</Container>
 	</Package>
 </Project>

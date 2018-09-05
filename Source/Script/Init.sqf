@@ -9,8 +9,11 @@ call compile preprocessFileLineNumbers format ["%1\Settings.sqf", PATH];
 if (!hasInterface) exitWith {};
 // Init main
 [] spawn {
-	waitUntil { !isNull player }; // Handle 3DEN and/or specator
+	waitUntil { !isNull player && local player }; // Handle 3DEN and/or specator
 	sleep 5;
+
+	GVAR(ClassFamiliesCache) = call CBA_fnc_createNamespace;
+	GVAR(ConfigData) = call CBA_fnc_createNamespace;
 
 	if (missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 		// Wait ACE init 
@@ -61,6 +64,9 @@ if (!hasInterface) exitWith {};
 			if (GVAR(CurrentWeapon) != primaryWeapon player && primaryWeapon player != "") then {
 				GVAR(CurrentWeapon) = primaryWeapon player;
 				GVAR(ACE_InspectActionClass) set [2, getText(configFile >> "CfgWeapons" >> GVAR(CurrentWeapon) >> "picture")];
+
+				// Cache weapon family
+				GVAR(CurrentWeapon) spawn dzn_EJAM_fnc_getClassFamily
 			};
 
 			if (GVAR(Force)) then {

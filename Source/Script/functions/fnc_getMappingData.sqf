@@ -29,18 +29,18 @@ params ["_gun", "_type", ["_isForConfig", false]];
 _gun = [_gun] call BIS_fnc_baseWeapon;
 _type = toLower(_type);
 
+private _data = [];
 private _result = -1;
-private _data = GVAR(Mapping) select { _gun == _x select 0 };
 
-if (_data isEqualTo []) then {
-	
-	// No config - use default
-	// GVAR(Causes) apply {	call compile FORMAT_VAR((_x select 0) + "_ChanceSettings") };
+if (!isNil { GVAR(ConfigData) getVariable _gun}) then {
+	// Customized data found
+	_data = [] + (GVAR(ConfigData) getVariable _gun);
 
+} else {
+	// No custom data - use overall
 	if !(_isForConfig) then {
 		_data = [
-			0
-			, GVAR(OverallChance)
+			GVAR(OverallChance)
 			, GVAR(feed_failure_ChanceSettings)
 			, GVAR(feed_failure_2_ChanceSettings)
 			, GVAR(dud_ChanceSettings)
@@ -48,20 +48,17 @@ if (_data isEqualTo []) then {
 			, GVAR(fail_to_eject_ChanceSettings)
 		];
 	} else {
-		_data = [0,0,0,0,0,0,0];
+		_data = [0,0,0,0,0,0];
 	};
-} else {
 
-	// Config specified
-	_data = [] + (_data select 0);
 };
 
 switch toLower(_type) do {
 	case "jam": {
-		_result = _data select 1;
+		_result = _data select 0;
 	};
 	case "malfunction": {
-		_data deleteRange [0,2];
+		_data deleteAt 0;
 		_result = _data;
 	};
 };
