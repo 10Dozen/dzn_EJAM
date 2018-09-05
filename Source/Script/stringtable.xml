@@ -180,8 +180,8 @@
 			<Key ID="STR_EJAM_State_ChamberStucked">
 				<Original>Round &lt;t color="#f79400"&gt;stuck&lt;/t&gt;</Original>				
 				<Russian>Патрон &lt;t color="#f79400"&gt;уткнулся&lt;/t&gt;</Russian>		
-				<Chinesesimp>子弹 &lt;t color="#f79400"&gt;卡主&lt;/t&gt;</Chinesesimp>			
-				<Chinese>子彈 &lt;t color="#f79400"&gt;卡主&lt;/t&gt;</Chinese>
+				<Chinesesimp>子弹 &lt;t color="#f79400"&gt;卡住&lt;/t&gt;</Chinesesimp>			
+				<Chinese>子彈 &lt;t color="#f79400"&gt;卡住&lt;/t&gt;</Chinese>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberNotExtracted">
 				<Original>Round &lt;t color="#f79400"&gt;not extracted&lt;/t&gt;</Original>				
@@ -365,73 +365,105 @@
 			<Key ID="STR_EJAM_Config_Title">
 				<Original>dzn EJAM Weapon Configurator</Original>
 				<Russian>dzn EJAM Конфигуратор оружия</Russian>		
+				<Chinesesimp>dzn EJAM 自定义武器设置</Chinesesimp>			
+				<Chinese>dzn EJAM自定義武器設定</Chinese>		
 			</Key>
 			<Key ID="STR_EJAM_Config_SectionLabel">
 				<Original>Weapon</Original>
-				<Russian>Оружие</Russian>		
+				<Russian>Оружие</Russian>			
+				<Chinesesimp>武器</Chinesesimp>			
+				<Chinese>武器</Chinese>	
 			</Key>
 			<Key ID="STR_EJAM_Config_PlaceholderLabel">
 				<Original>No weapon selected</Original>
 				<Russian>Оружие не выбрано</Russian>		
+				<Chinesesimp>没有选择武器</Chinesesimp>			
+				<Chinese>沒有選擇武器</Chinese>		
 			</Key>
 			<Key ID="STR_EJAM_Config_FilterLabel">
 				<Original>Filter...</Original>
 				<Russian>Фильтр...</Russian>		
+				<Chinesesimp>搜索栏</Chinesesimp>			
+				<Chinese>蒐索欄</Chinese>		
 			</Key>
 			
 			<!-- CONFIGURATOR: Buttons -->
 			<Key ID="STR_EJAM_Config_SaveBtn">
 				<Original>Save</Original>
-				<Russian>Сохранить</Russian>		
+				<Russian>Сохранить</Russian>			
+				<Chinesesimp>保存</Chinesesimp>			
+				<Chinese>保存</Chinese>			
 			</Key>
 			<Key ID="STR_EJAM_Config_CopyBtn">
 				<Original>Copy</Original>
-				<Russian>Копировать</Russian>		
+				<Russian>Копировать</Russian>			
+				<Chinesesimp>复制</Chinesesimp>			
+				<Chinese>複製</Chinese>	
 			</Key>
 			<Key ID="STR_EJAM_Config_PasteBtn">
 				<Original>Paste</Original>
 				<Russian>Вставить</Russian>		
+				<Chinesesimp>粘贴</Chinesesimp>			
+				<Chinese>粘貼</Chinese>		
 			</Key>
 			<Key ID="STR_EJAM_Config_ResetBtn">
 				<Original>Reset</Original>
 				<Russian>Сброс</Russian>		
+				<Chinesesimp>重置</Chinesesimp>			
+				<Chinese>重置</Chinese>		
 			</Key>
 			<Key ID="STR_EJAM_Config_CloseBtn">
 				<Original>Close</Original>
 				<Russian>Закрыть</Russian>		
+				<Chinesesimp>关闭</Chinesesimp>			
+				<Chinese>關閉</Chinese>		
 			</Key>
 		
 			<!-- CONFIGURATOR: Tooltips -->
 			<Key ID="STR_EJAM_Config_FilterTooltip">
 				<Original>Enter/NumEnter to apply filter. Use "|" for multiple filter values</Original>
 				<Russian>Enter/NumEnter для применения фильтра. Используйте "|" для фильтрации по нескольким значениям</Russian>		
+				<Chinesesimp>输入武器名称后. 按左Shift+回车或小键盘回车即可执行搜索. 搜索多个武器时可以用 "|" 将几个关键词隔开</Chinesesimp>			
+				<Chinese>輸入武器名稱後. 按左Shift+回車或小鍵盤回車即可執行蒐索. 蒐索多個武器時可以用 "|" 將幾個關鍵字隔開</Chinese>		
 			</Key>
 			<Key ID="STR_EJAM_Config_ResetTooltip">
 				<Original>Unsets weapon settings</Original>
-				<Russian>Сбрасывает настройки для оружия</Russian>		
+				<Russian>Сбрасывает настройки для оружия</Russian>			
+				<Chinesesimp>取消武器设置</Chinesesimp>			
+				<Chinese>取消武器設定</Chinese>	
 			</Key>
 			<Key ID="STR_EJAM_Config_PasteTooltip">
 				<Original>Double clicking list element will also apply copied settings!</Original>
 				<Russian>Двойной клик по оружию из списка также применит скопированные настройки!</Russian>		
+				<Chinesesimp>双击列表内容也能应用复制的设置文本!</Chinesesimp>			
+				<Chinese>按兩下清單內容也能應用複製的設定文字!</Chinese>		
 			</Key>
 
 			<!-- CONFIGURATOR: Hints -->
 			<Key ID="STR_EJAM_Config_NoDataHint">
 				<Original>No data to apply!</Original>
 				<Russian>Нет данных для применения!</Russian>		
+				<Chinesesimp>无数据可应用!</Chinesesimp>			
+				<Chinese>無數據可應用!</Chinese>		
 			</Key>
 
 			<Key ID="STR_EJAM_Config_ApplidHint">
-				<Original>Applied!!</Original>
+				<Original>Applied!</Original>
 				<Russian>Применено!</Russian>		
+				<Chinesesimp>设置已应用!</Chinesesimp>			
+				<Chinese>設定已應用!</Chinese>		
 			</Key>
 			<Key ID="STR_EJAM_Config_CopiedHint">
 				<Original>Config copied!</Original>
 				<Russian>Конфигурация скопирована!</Russian>		
+				<Chinesesimp>设置已复制!</Chinesesimp>			
+				<Chinese>設定已複製!</Chinese>		
 			</Key>
 			<Key ID="STR_EJAM_Config_SavedHint">
 				<Original>Config saved!</Original>
-				<Russian>Конфигурация сохранена!</Russian>		
+				<Russian>Конфигурация сохранена!</Russian>			
+				<Chinesesimp>设置已保存!</Chinesesimp>			
+				<Chinese>設定已保存!</Chinese>	
 			</Key>
 		
 		</Container>
