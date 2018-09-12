@@ -127,11 +127,25 @@
 			<Key ID="STR_EJAM_hang_fire_ChanceSettings">
 				<Original>(Chance of) Hang fire</Original>
 				<Russian>(Шанс на) Затяжной выстрел</Russian>
-				<Chinesesimp>延迟射门概率</Chinesesimp>
-				<Chinese>延迟射门概率</Chinese>
+				<Chinesesimp></Chinesesimp>
+				<Chinese></Chinese>
 				<Portuguese>(Chance) Tiro atrasado</Portuguese>
 			</Key>
 			<Key ID="STR_EJAM_hang_fire_ChanceSettings_desc">
+				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>
+				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
+				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>
+				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
+				<Portuguese>Chance de ocorrer esse defeito específico se a arma travar.</Portuguese>
+			</Key>
+			<Key ID="STR_EJAM_runaway_gun_ChanceSettings">
+				<Original>(Chance of) Runaway gun</Original>
+				<Russian>(Шанс на) Самопроизвольный огонь</Russian>
+				<Chinesesimp></Chinesesimp>
+				<Chinese></Chinese>
+				<Portuguese>(Chance) Fogo Espontâneo</Portuguese>
+			</Key>
+			<Key ID="STR_EJAM_runaway_gun_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>
 				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>
 				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>
