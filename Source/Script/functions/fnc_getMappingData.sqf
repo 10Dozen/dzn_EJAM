@@ -46,9 +46,10 @@ if (!isNil { GVAR(ConfigData) getVariable _gun}) then {
 			, GVAR(dud_ChanceSettings)
 			, GVAR(fail_to_extract_ChanceSettings)
 			, GVAR(fail_to_eject_ChanceSettings)
+			, GVAR(hang_fire_ChanceSettings)
 		];
 	} else {
-		_data = [0,0,0,0,0,0];
+		_data = [0,0,0,0,0,0,0];
 	};
 
 };

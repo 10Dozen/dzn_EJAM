@@ -86,6 +86,13 @@ private _addLocal = {
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
+[
+	"hang_fire_ChanceSettings"
+	, "SLIDER"
+	, [0, 100, 20, 0] 
+	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
+] call _add;
+
 // Subsonic ammo effect on jam chance
 [
 	"SubsonicJamEffectSetting"
@@ -129,7 +136,7 @@ private _addKey = {
 // Inspect weapon key
 [
 	"InspectKey"
-	, "Action_Inspect"
+	, "Action_Inspect_Menu"
 	, { call GVAR(fnc_inspectWeapon); true }
 	, [19, [false,true,false]]
 ] call _addKey;

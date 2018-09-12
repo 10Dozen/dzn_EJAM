@@ -22,12 +22,6 @@ Author:
 
 #include "..\macro.hpp"
 
-// Reset EJAM's config
-private _configVars = allVariables GVAR(ConfigData);
-{
-	GVAR(ConfigData) setVariable [_x, nil];
-} forEach _configVars;
-
 {
 	_x params ["_gun","_jamChance"];
 
@@ -43,7 +37,13 @@ private _configVars = allVariables GVAR(ConfigData);
 	_data set [2, _jamChance/100];
 	ace_overheating_cacheWeaponData setVariable [_gun, _data];
 
-	// Set EJAM customized data for weapon
-	GVAR(ConfigData) setVariable [_gun, _x select [1,6]];
-	
+	// Set EJAM customized data
+	private _configVars = allVariables GVAR(ConfigData);
+	{
+		GVAR(ConfigData) setVariable [_x, nil];
+	} forEach _configVars;
+
+	private _ejamData = [] + _x;
+	_ejamData deleteAt 0;
+	GVAR(ConfigData) setVariable [_gun, _ejamData];
 } forEach GVAR(Mapping);

@@ -61,4 +61,7 @@ if (_case == "case_not_ejected") then {
 	};
 };
 
+// --- Hang fire case: set initiated round removed from chamber
+player setVariable [SVAR(HangFire_InitiatedRoundLoaded), false];
+
 call GVAR(fnc_processWeaponFixed);

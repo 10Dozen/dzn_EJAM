@@ -21,7 +21,15 @@ Author:
 
 #include "..\macro.hpp"
 
+// --- Check that weapon is not jammed already
 private _gun = [primaryWeapon player] call BIS_fnc_baseWeapon;
+private _jamCauses = player getVariable [SVAR(Cause), []];
+
+if !( (_jamCauses select { _gun == _x # 0 }) isEqualTo [] ) exitWith {
+	// --- Weapon is already jammed - do nothing
+};
+
+// --- Select jam cause
 private _weights = [_gun, "malfunction"] call GVAR(fnc_getMappingData);
 private _cause = GVAR(Causes) selectRandomWeighted _weights;
 
@@ -30,19 +38,9 @@ _cause params ["_causeID","_weaponState"];
 // Set weapon state
 _weaponState call GVAR(fnc_setWeaponState);
 
-// List weapon as jammed
-private _jamCauses = player getVariable [SVAR(Cause), []];
-if ((_jamCauses select { _gun == _x # 0 }) isEqualTo []) then {
-
-	// Add gun to cause list
-	_jamCauses pushBack [_gun, _causeID];
-	player setVariable [SVAR(Cause), _jamCauses];
-} else {
-
-	// Update gun in cause list (actually there is no case for that)
-	private _itemInList = (_jamCauses select { _gun == _x # 0 }) # 0;
-	_itemInList set [1, _causeID];
-};
+// List weapon as jammed -- add gun to cause list
+_jamCauses pushBack [_gun, _causeID];
+player setVariable [SVAR(Cause), _jamCauses];
 
 // Set gun jamming
 if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
@@ -75,4 +73,9 @@ if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 		private _family = (primaryWeapon player) call GVAR(fnc_getClassFamily);
 		{ _aceJammed pushBackUnique _x; } forEach _family;
 	};
+};
+
+// Hang fire case
+if (_causeID == "hang_fire") then {
+	[] spawn GVAR(fnc_hangFireHandler);
 };

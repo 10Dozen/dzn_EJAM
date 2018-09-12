@@ -11,6 +11,8 @@ COMPILE_FUNCTION(fnc_getJamCause);
 COMPILE_FUNCTION(fnc_setWeaponState);
 COMPILE_FUNCTION(fnc_getWeaponState);
 
+COMPILE_FUNCTION(fnc_hangFireHandler);
+
 COMPILE_FUNCTION(fnc_inspectWeapon);
 COMPILE_FUNCTION(fnc_doAction);
 COMPILE_FUNCTION(fnc_doHotkeyAction);
