@@ -1,5 +1,7 @@
 ## Extended Weapon Jamming
 
+Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1379304937
+
 #### Version: 2
 
 Adds a little bit more complex logic to ACE jamming effect.
