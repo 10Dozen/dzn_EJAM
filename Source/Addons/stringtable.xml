@@ -10,12 +10,14 @@
 				<Russian>Починка только через EJAM</Russian>				
 				<Chinesesimp>武器只能使用EJAM排障</Chinesesimp>			
 				<Chinese>武器只能使用EJAM排障</Chinese>
+				<German>Entstörung nur über EJAM</German>
 			</Key>
 			<Key ID="STR_EJAM_Force_desc">
 				<Original>Force EJAM unjam logic over ACE</Original>				
 				<Russian>Принудительно использовать логику починки EJAM вместо ACE</Russian>				
 				<Chinesesimp>强制使用EJAM排障覆盖ACE</Chinesesimp>			
 				<Chinese>強制使用EJAM排障覆蓋ACE</Chinese>
+				<German>Erzwinge EJAM Logik über ACE-Jam-Logik</German>
 			</Key>
 
 			<Key ID="STR_EJAM_ForceOverallChance">
@@ -23,12 +25,14 @@
 				<Russian>Перезаписать шанс на заклинивание</Russian>			
 				<Chinesesimp>重新定义武器卡弹概率</Chinesesimp>			
 				<Chinese>重新定義武器卡彈概率</Chinese>
+				<German>Allgemeine Chance auf Ladehemmungen überschreiben</German>
 			</Key>
 			<Key ID="STR_EJAM_ForceOverallChance_desc">
 				<Original>Force EJAM Overall jam chance over ACE jamming logic.</Original>				
 				<Russian>Принудительно использовать общий шанс на заклинивание.</Russian>			
 				<Chinesesimp>强行让EJAM覆盖ACE卡弹机制</Chinesesimp>			
 				<Chinese>强行讓EJAM覆蓋ACE卡彈機制</Chinese>
+				<German>Erwinge EJAM Allgemeine Chance auf Ladehemmungen über ACE-Jam-Logik</German>
 			</Key>
 
 			<Key ID="STR_EJAM_OverallChanceSetting">
@@ -36,12 +40,14 @@
 				<Russian>Общий шанс заклинивания</Russian>
 				<Chinesesimp>整体卡弹概率</Chinesesimp>			
 				<Chinese>整體卡彈概率</Chinese>
+				<German>Allgemeine Chance auf Ladehemmungen</German>
 			</Key>
 			<Key ID="STR_EJAM_OverallChanceSetting_desc">
 				<Original>Default jam chance for all primary weapons. From 0 to 100. Custom weapon setting will be used if set.</Original>				
 				<Russian>Шанс на клин для всего основного оружия. От 0 до 100. Если для оружия указаны специфические настройки - будут использованы они.</Russian>		
 				<Chinesesimp>所有主武器的默认卡弹概率. 从0到100. 自定义武器设置后生效</Chinesesimp>			
 				<Chinese>所有主武器的默認卡彈概率.從0到100.自定義武器設定後生效</Chinese>
+				<German>Standardmäßige Chance auf Ladehemmungen für alle Primärwaffen. Von 0 bis 100. Die benutzerdefinierte Waffeneinstellung wird verwendet, wenn sie eingestellt ist.</German>
 			</Key>
 
 			<Key ID="STR_EJAM_feed_failure_ChanceSettings">
@@ -49,60 +55,70 @@
 				<Russian>(Шанс на) Неподачу патрона</Russian>		
 				<Chinesesimp>导气系统故障概率</Chinesesimp>			
 				<Chinese>導氣系統故障概率</Chinese>
+				<German>(Chance auf) Zufuhrausfall</German>
 			</Key>
 			<Key ID="STR_EJAM_feed_failure_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed.</Original>				
 				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>		
 				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>			
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
+				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 			</Key>
 			<Key ID="STR_EJAM_feed_failure_2_ChanceSettings">
 				<Original>(Chance of) Chamber failure</Original>				
 				<Russian>(Шанс на) Утыкание патрона</Russian>		
 				<Chinesesimp>供弹失败概率</Chinesesimp>			
 				<Chinese>供彈失敗概率</Chinese>
+				<German>(Chance auf) Kammerausfall</German>
 			</Key>
 			<Key ID="STR_EJAM_feed_failure_2_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
 				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>		
 				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>			
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
+				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 			</Key>			
 			<Key ID="STR_EJAM_dud_ChanceSettings">
 				<Original>(Chance of) Dud</Original>				
 				<Russian>(Шанс на) Осечка</Russian>		
 				<Chinesesimp>哑弹概率</Chinesesimp>			
 				<Chinese>啞彈概率</Chinese>
+				<German>(Chance auf) Blindgänger</German>
 			</Key>
 			<Key ID="STR_EJAM_dud_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
 				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>		
 				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>			
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
+				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 			</Key>
 			<Key ID="STR_EJAM_fail_to_extract_ChanceSettings">
 				<Original>(Chance of) Extraction failure</Original>				
 				<Russian>(Шанс на) Неизвлечение гильзы</Russian>		
 				<Chinesesimp>抽壳失败概率</Chinesesimp>			
 				<Chinese>抽殼失敗概率</Chinese>
+				<German>(Chance des) Extraktionsversagens</German>
 			</Key>
 			<Key ID="STR_EJAM_fail_to_extract_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
 				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>		
 				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>			
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
+				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 			</Key>
 			<Key ID="STR_EJAM_fail_to_eject_ChanceSettings">
 				<Original>(Chance of) Ejection failure</Original>				
 				<Russian>(Шанс на) Прихват гильзы</Russian>		
 				<Chinesesimp>抛壳失败概率</Chinesesimp>			
 				<Chinese>拋殼失敗概率</Chinese>
+				<German>(Chance auf) Auswurfversagen</German>
 			</Key>
 			<Key ID="STR_EJAM_fail_to_eject_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>				
 				<Russian>Шанс, что с оружием случится данная неисправность, если оружие заклинило</Russian>		
 				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>			
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
+				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 			</Key>
 
 			<Key ID="STR_EJAM_SubsonicJamEffectSetting">
@@ -110,12 +126,14 @@
 				<Russian>Пенальти дозвуковых боеприпасов</Russian>		
 				<Chinesesimp>亚音速弹卡弹概率</Chinesesimp>			
 				<Chinese>亞音速彈卡彈概率</Chinese>
+				<German>Strafe für Unterschall-Munition</German>
 			</Key>
 			<Key ID="STR_EJAM_SubsonicJamEffectSetting_desc">
 				<Original>Jam chance penalty on using subsonic ammo. Value will be added to weapon's jam chance.</Original>				
 				<Russian>Штраф к шансу на заклинивание при использовании дозвуковых патронов. Значение будет добавляться к шансу на клин для оружия.</Russian>		
 				<Chinesesimp>额外增加使用亚音速弹药时的卡弹概率</Chinesesimp>			
 				<Chinese>額外新增使用亞音速彈藥時的卡彈概率</Chinese>
+				<German>Strafe für die Verwendung von Unterschall-Munition. Der Wert wird der Blockierungschance der Waffe hinzugefügt.</German>
 			</Key>
 
 			<Key ID="STR_EJAM_MappingSettings">
@@ -123,12 +141,14 @@
 				<Russian>Настройки оружия</Russian>		
 				<Chinesesimp>武器设置</Chinesesimp>			
 				<Chinese>武器設定</Chinese>
+				<German>Waffen-Einstellungen</German>
 			</Key>
 			<Key ID="STR_EJAM_MappingSettings_desc">
 				<Original>Custom settings for specific weapon. In format [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. Use EJAM Configurator by [ call dzn_EJAM_Configure ]</Original>				
 				<Russian>Настройки для конкретных классов оружия. В формтае [@Класс, @Шанс_на_клин, @Шанс_на_поломку_типа#1...5]. Используйте конфигуратор вызовом [ call dzn_EJAM_Configure ]</Russian>		
 				<Chinesesimp>特定武器的自定义设置. 格式为 [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. 使用EJAM配置程序为 [ call dzn_EJAM_Configure ]</Chinesesimp>			
 				<Chinese>特定武器的自定義設定. 格式為 [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. 使用EJAM配寘程式為 [ call dzn_EJAM_Configure ]</Chinese>
+				<German>Benutzerdefinierte Einstellungen für bestimmte Waffen. Im Format @WeaponClass, @JamChance, @MalfunctionChance#1...5]. Verwenden Sie den EJAM-Konfigurator durch [ call dzn_EJAM_Configure ].</German>
 			</Key>
 
 			<!-- MENU -->
@@ -137,6 +157,7 @@
 				<Russian>ОРУЖИЕ НЕИСПРАВНО</Russian>		
 				<Chinesesimp>武器故障</Chinesesimp>			
 				<Chinese>武器故障</Chinese>
+				<German>WAFFEN-FEHLFUNKTION</German>
 			</Key>
 			
 			<Key ID="STR_EJAM_Menu_Close">
@@ -144,6 +165,7 @@
 				<Russian>ЗАКРЫТЬ</Russian>		
 				<Chinesesimp>关闭</Chinesesimp>			
 				<Chinese>關閉</Chinese>
+				<German>SCHLIEßEN</German>
 			</Key>
 			
 			<!-- STATES	-->
@@ -152,66 +174,77 @@
 				<Russian>Затвор в переднем положении</Russian>		
 				<Chinesesimp>枪机闭合</Chinesesimp>			
 				<Chinese>槍機閉合</Chinese>
+				<German>Verschluss geschlossen</German>
 			</Key>
 			<Key ID="STR_EJAM_State_BoltNotClosed">
 				<Original>Bolt &lt;t color="#f79400"&gt;not closed&lt;/t&gt;</Original>				
 				<Russian>Затвор &lt;t color="#f79400"&gt;в среднем положении&lt;/t&gt;</Russian>		
 				<Chinesesimp>枪机 &lt;t color="#f79400"&gt;未闭合&lt;/t&gt;</Chinesesimp>			
 				<Chinese>槍機 &lt;t color="#f79400"&gt;未閉合&lt;/t&gt;</Chinese>
+				<German>Verschluss &lt;t color="#f79400"&gt;nicht geschlossen&lt;/t&gt;</German>	
 			</Key>
 			<Key ID="STR_EJAM_State_BoltOpened">
 				<Original>Bolt &lt;t color="#00b9f7"&gt;opened&lt;/t&gt;</Original>				
 				<Russian>Затвор &lt;t color="#00b9f7"&gt;в заднем положении&lt;/t&gt;</Russian>		
 				<Chinesesimp>枪机 &lt;t color="#00b9f7"&gt;已打开&lt;/t&gt;</Chinesesimp>			
 				<Chinese>槍機 &lt;t color="#00b9f7"&gt;已打開&lt;/t&gt;</Chinese>
+				<German>Verschluss &lt;t color="#00b9f7"&gt;geöffnet&lt;/t&gt;</German>	
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberEmpty">
 				<Original>Chamber empty</Original>				
 				<Russian>Патронник пустой</Russian>		
 				<Chinesesimp>枪膛内已清空</Chinesesimp>			
 				<Chinese>槍膛內已清空</Chinese>
+				<German>Kammer leer</German>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberReady">
 				<Original>Chamber &lt;t color="#00b9f7"&gt;loaded&lt;/t&gt;</Original>				
 				<Russian>Патрон &lt;t color="#00b9f7"&gt;в патроннике&lt;/t&gt;</Russian>		
 				<Chinesesimp>枪膛内 &lt;t color="#00b9f7"&gt;已供弹&lt;/t&gt;</Chinesesimp>			
 				<Chinese>槍膛內 &lt;t color="#00b9f7"&gt;已供彈&lt;/t&gt;</Chinese>
+				<German>Kammer &lt;t color="#00b9f7"&gt;geladen&lt;/t&gt;</German>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberStucked">
 				<Original>Round &lt;t color="#f79400"&gt;stuck&lt;/t&gt;</Original>				
 				<Russian>Патрон &lt;t color="#f79400"&gt;уткнулся&lt;/t&gt;</Russian>		
 				<Chinesesimp>子弹 &lt;t color="#f79400"&gt;卡住&lt;/t&gt;</Chinesesimp>			
 				<Chinese>子彈 &lt;t color="#f79400"&gt;卡住&lt;/t&gt;</Chinese>
+				<German>Patrone &lt;t color="#f79400"&gt;blockiert&lt;/t&gt;</German>	
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberNotExtracted">
 				<Original>Round &lt;t color="#f79400"&gt;not extracted&lt;/t&gt;</Original>				
 				<Russian>Гильза &lt;t color="#f79400"&gt;не извлечена&lt;/t&gt;</Russian>		
 				<Chinesesimp>子弹 &lt;t color="#f79400"&gt;未入膛&lt;/t&gt;</Chinesesimp>			
 				<Chinese>子彈 &lt;t color="#f79400"&gt;未入膛&lt;/t&gt;</Chinese>
+				<German>Patrone &lt;t color="#f79400"&gt;nicht entnommen&lt;/t&gt;</German>	
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberNotEjected">
 				<Original>Case &lt;t color="#f79400"&gt;not ejected&lt;/t&gt;</Original>				
 				<Russian>Гильза &lt;t color="#f79400"&gt;не выброшена&lt;/t&gt;</Russian>		
 				<Chinesesimp>弹壳 &lt;t color="#f79400"&gt;未抛出&lt;/t&gt;</Chinesesimp>			
 				<Chinese>彈殼 &lt;t color="#f79400"&gt;未拋出&lt;/t&gt;</Chinese>
+				<German>Hülse &lt;t color="#f79400"&gt;nicht ausgeworfen&lt;/t&gt;</German>
 			</Key>
 			<Key ID="STR_EJAM_State_CaseEjected">
 				<Original>Case ejected</Original>				
 				<Russian>Гильза выброшена</Russian>		
 				<Chinesesimp>弹壳已抛出</Chinesesimp>			
 				<Chinese>彈殼已抛出</Chinese>
+				<German>Hülse ausgeworfen</German>
 			</Key>
 			<Key ID="STR_EJAM_State_MagAttached">
 				<Original>Magazine attached</Original>				
 				<Russian>Магазин присоединен</Russian>		
 				<Chinesesimp>已插入弹匣</Chinesesimp>			
 				<Chinese>已插入彈匣</Chinese>
+				<German>Magazin eingelegt</German>
 			</Key>
 			<Key ID="STR_EJAM_State_MagDetached">
 				<Original>Magazine &lt;t color="#00b9f7"&gt;detached&lt;/t&gt;</Original>				
 				<Russian>Магазин &lt;t color="#00b9f7"&gt;отсоединен<&lt;/t&gt;/Russian>		
 				<Chinesesimp>弹匣 &lt;t color="#00b9f7"&gt;卸下&lt;/t&gt;</Chinesesimp>			
 				<Chinese>彈匣 &lt;t color="#00b9f7"&gt;卸下&lt;/t&gt;</Chinese>
+				<German>Magazin &lt;t color="#00b9f7"&gt;entfernt&lt;/t&gt;</German>
 			</Key>			
 			
 			<!-- ACTIONS -->
@@ -223,18 +256,21 @@
 				<Russian>Проверить оружие (меню)</Russian>		
 				<Chinesesimp>武器检查菜单</Chinesesimp>			
 				<Chinese>武器檢查選單</Chinese>
+				<German>Waffe untersuchen Menü</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_QuickInspect">
 				<Original>Inspect weapon (no menu)</Original>				
 				<Russian>Проверить оружие (без меню)</Russian>		
 				<Chinesesimp>武器检查 (无菜单)</Chinesesimp>			
 				<Chinese>武器檢查 (无菜单)</Chinese>
+				<German>Waffe untersuchen (Kein Menü)</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagazineToggle">
 				<Original>Attach/Detach magazine</Original>				
 				<Russian>Присоединить/Отсоединить магазин</Russian>		
 				<Chinesesimp>装入/卸下 弹匣</Chinesesimp>			
 				<Chinese>裝入/卸下 彈匣</Chinese>
+				<German>Magazin einlegen/auswerfen</German>
 			</Key>
 
 			<Key ID="STR_EJAM_Action_PullBolt">
@@ -242,42 +278,49 @@
 				<Russian>Передернуть затвор</Russian>		
 				<Chinesesimp>拉动枪机</Chinesesimp>			
 				<Chinese>拉動槍機</Chinese>
+				<German>Verschluss ziehen</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_OpenBolt">
 				<Original>Open bolt</Original>				
 				<Russian>Отвести затвор</Russian>		
 				<Chinesesimp>打开枪机</Chinesesimp>			
 				<Chinese>打開槍機</Chinese>
+				<German>Verschluss öffnen</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_ClearChamber">
 				<Original>Clear chamber</Original>				
 				<Russian>Очистить патронник</Russian>		
 				<Chinesesimp>清理膛室</Chinesesimp>			
 				<Chinese>清理膛室</Chinese>
+				<German>Kammer leeren</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_RemoveCase">
 				<Original>Remove case</Original>				
 				<Russian>Удалить гильзу</Russian>		
 				<Chinesesimp>清理卡住的弹壳</Chinesesimp>			
 				<Chinese>清理卡住的彈殼</Chinese>
+				<German>Hülse entfernen</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagDetach">
 				<Original>Detach magazine</Original>				
 				<Russian>Отсоединить магазин</Russian>		
 				<Chinesesimp>卸下弹匣</Chinesesimp>			
 				<Chinese>卸下彈匣</Chinese>
+				<German>Magazin auswerfen</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagAttach">
 				<Original>Attach magazine</Original>				
 				<Russian>Присоединить магазин</Russian>		
 				<Chinesesimp>装入弹匣</Chinesesimp>			
 				<Chinese>裝入彈匣</Chinese>
+				<German>Magazin einlegen</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_Inspect">
 				<Original>Inspect weapon</Original>				
 				<Russian>Проверить оружие</Russian>		
 				<Chinesesimp>检查武器</Chinesesimp>			
 				<Chinese>檢查武器</Chinese>
+				<German>Waffe untersuchen</German>
 			</Key>
 
 			<!-- 
@@ -288,42 +331,49 @@
 				<Russian>Передергиваем затвор</Russian>		
 				<Chinesesimp>正在拉动枪机</Chinesesimp>			
 				<Chinese>正在拉動槍機</Chinese>
+				<German>Ziehen des Verschlusses</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_OpenBolt_Process">
 				<Original>Opening the bolt</Original>				
 				<Russian>Отводим затвор назад</Russian>		
 				<Chinesesimp>正在打开枪机</Chinesesimp>			
 				<Chinese>正在打開槍機</Chinese>
+				<German>Öffnen des Verschlusses</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_ClearChamber_Process">
 				<Original>Clearing the chamber</Original>				
 				<Russian>Извлекаем патрон из патронника</Russian>		
 				<Chinesesimp>正在清理膛室</Chinesesimp>			
 				<Chinese>正在清理膛室</Chinese>
+				<German>Kammer leeren</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_RemoveCase_Process">
 				<Original>Removing the case</Original>				
 				<Russian>Извлекаем гильзу</Russian>		
 				<Chinesesimp>正在清理卡住的弹壳</Chinesesimp>			
 				<Chinese>正在清理卡住的彈殼</Chinese>
+				<German>Entfernen der Hülse</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagDetach_Process">
 				<Original>Detaching magazine</Original>				
 				<Russian>Отсоединяем магазин</Russian>		
 				<Chinesesimp>正在卸下弹匣</Chinesesimp>			
 				<Chinese>正在卸下彈匣</Chinese>
+				<German>Werfe Magazin aus</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagAttach_Process">
 				<Original>Attaching magazine</Original>				
 				<Russian>Присоединием магазин</Russian>		
 				<Chinesesimp>正在装入弹匣</Chinesesimp>			
 				<Chinese>正在裝入彈匣</Chinese>
+				<German>Lege Magazin ein</German>
 			</Key>
 			<Key ID="STR_EJAM_Action_Inspect_Process">
 				<Original>Inspecting</Original>				
 				<Russian>Проверка</Russian>		
 				<Chinesesimp>正在检查武器</Chinesesimp>			
 				<Chinese>正在檢查武器</Chinese>
+				<German>Untersuche Waffe</German>
 			</Key>
 
 			<!-- 
@@ -334,30 +384,35 @@
 				<Russian>Магазин сброшен</Russian>		
 				<Chinesesimp>弹匣脱落</Chinesesimp>			
 				<Chinese>彈匣脫落</Chinese>
+				<German>Magazin fallen gelassen</German>
 			</Key>
 			<Key ID="STR_EJAM_Hint_MagAttached">
 				<Original>Magazine attached</Original>
 				<Russian>Магазин присоединен</Russian>		
 				<Chinesesimp>弹匣已裝入</Chinesesimp>			
 				<Chinese>彈匣已裝入</Chinese>
+				<German>Magazin eingelegt</German>
 			</Key>
 			<Key ID="STR_EJAM_Hint_WeaponOK">
 				<Original>Weapon is functioning normally</Original>
 				<Russian>Оружие функционирует нормально</Russian>		
 				<Chinesesimp>武器已可以正常使用</Chinesesimp>			
 				<Chinese>武器已可以正常使用</Chinese>
+				<German>Waffe funktioniert normal</German>
 			</Key>
 			<Key ID="STR_EJAM_Hint_NoAccess">
 				<Original>Not possible to perform action!</Original>
 				<Russian>Невозможно выполнить действие!</Russian>		
 				<Chinesesimp>不能执行该命令!</Chinesesimp>			
 				<Chinese>不能執行該命令!</Chinese>
+				<German>Keine Aktion möglich!</German>
 			</Key>
 			<Key ID="STR_EJAM_Hint_NoMag">
 				<Original>No magazine to load!</Original>
 				<Russian>Нет магазинов!</Russian>		
 				<Chinesesimp>武器无弹匣!</Chinesesimp>			
 				<Chinese>武器無彈匣!</Chinese>
+				<German>Kein Magazin zum Laden!</German>
 			</Key>
 
 
@@ -366,25 +421,29 @@
 				<Original>dzn EJAM Weapon Configurator</Original>
 				<Russian>dzn EJAM Конфигуратор оружия</Russian>		
 				<Chinesesimp>dzn EJAM 自定义武器设置</Chinesesimp>			
-				<Chinese>dzn EJAM自定義武器設定</Chinese>		
+				<Chinese>dzn EJAM自定義武器設定</Chinese>	
+				<German>dzn EJAM Waffen-Konfigurator</German>				
 			</Key>
 			<Key ID="STR_EJAM_Config_SectionLabel">
 				<Original>Weapon</Original>
 				<Russian>Оружие</Russian>			
 				<Chinesesimp>武器</Chinesesimp>			
-				<Chinese>武器</Chinese>	
+				<Chinese>武器</Chinese>
+				<German>Waffe</German>				
 			</Key>
 			<Key ID="STR_EJAM_Config_PlaceholderLabel">
 				<Original>No weapon selected</Original>
 				<Russian>Оружие не выбрано</Russian>		
 				<Chinesesimp>没有选择武器</Chinesesimp>			
-				<Chinese>沒有選擇武器</Chinese>		
+				<Chinese>沒有選擇武器</Chinese>	
+				<German>Keine Waffe ausgewählt</German>				
 			</Key>
 			<Key ID="STR_EJAM_Config_FilterLabel">
 				<Original>Filter...</Original>
 				<Russian>Фильтр...</Russian>		
 				<Chinesesimp>搜索栏</Chinesesimp>			
-				<Chinese>蒐索欄</Chinese>		
+				<Chinese>蒐索欄</Chinese>
+				<German>Filtern...</German>				
 			</Key>
 			
 			<!-- CONFIGURATOR: Buttons -->
@@ -392,31 +451,36 @@
 				<Original>Save</Original>
 				<Russian>Сохранить</Russian>			
 				<Chinesesimp>保存</Chinesesimp>			
-				<Chinese>保存</Chinese>			
+				<Chinese>保存</Chinese>
+				<German>Speichern</German>				
 			</Key>
 			<Key ID="STR_EJAM_Config_CopyBtn">
 				<Original>Copy</Original>
 				<Russian>Копировать</Russian>			
 				<Chinesesimp>复制</Chinesesimp>			
 				<Chinese>複製</Chinese>	
+				<German>Kopieren</German>
 			</Key>
 			<Key ID="STR_EJAM_Config_PasteBtn">
 				<Original>Paste</Original>
 				<Russian>Вставить</Russian>		
 				<Chinesesimp>粘贴</Chinesesimp>			
-				<Chinese>粘貼</Chinese>		
+				<Chinese>粘貼</Chinese>
+				<German>Einfügen</German>
 			</Key>
 			<Key ID="STR_EJAM_Config_ResetBtn">
 				<Original>Reset</Original>
 				<Russian>Сброс</Russian>		
 				<Chinesesimp>重置</Chinesesimp>			
-				<Chinese>重置</Chinese>		
+				<Chinese>重置</Chinese>	
+				<German>Zurücksetzen</German>
 			</Key>
 			<Key ID="STR_EJAM_Config_CloseBtn">
 				<Original>Close</Original>
 				<Russian>Закрыть</Russian>		
 				<Chinesesimp>关闭</Chinesesimp>			
-				<Chinese>關閉</Chinese>		
+				<Chinese>關閉</Chinese>
+				<German>Schließen</German>
 			</Key>
 		
 			<!-- CONFIGURATOR: Tooltips -->
@@ -424,19 +488,22 @@
 				<Original>Enter/NumEnter to apply filter. Use "|" for multiple filter values</Original>
 				<Russian>Enter/NumEnter для применения фильтра. Используйте "|" для фильтрации по нескольким значениям</Russian>		
 				<Chinesesimp>输入武器名称后. 按左Shift+回车或小键盘回车即可执行搜索. 搜索多个武器时可以用 "|" 将几个关键词隔开</Chinesesimp>			
-				<Chinese>輸入武器名稱後. 按左Shift+回車或小鍵盤回車即可執行蒐索. 蒐索多個武器時可以用 "|" 將幾個關鍵字隔開</Chinese>		
+				<Chinese>輸入武器名稱後. 按左Shift+回車或小鍵盤回車即可執行蒐索. 蒐索多個武器時可以用 "|" 將幾個關鍵字隔開</Chinese>
+				<German>Eingabe/Numpad Eingabe zum Anwenden des Filters. Verwenden Sie "|" für mehrere Filterwerte.</German>
 			</Key>
 			<Key ID="STR_EJAM_Config_ResetTooltip">
 				<Original>Unsets weapon settings</Original>
 				<Russian>Сбрасывает настройки для оружия</Russian>			
 				<Chinesesimp>取消武器设置</Chinesesimp>			
 				<Chinese>取消武器設定</Chinese>	
+				<German>Löscht die Waffeneinstellungen</German>
 			</Key>
 			<Key ID="STR_EJAM_Config_PasteTooltip">
 				<Original>Double clicking list element will also apply copied settings!</Original>
 				<Russian>Двойной клик по оружию из списка также применит скопированные настройки!</Russian>		
 				<Chinesesimp>双击列表内容也能应用复制的设置文本!</Chinesesimp>			
 				<Chinese>按兩下清單內容也能應用複製的設定文字!</Chinese>		
+				<German>Beim Doppelklick auf ein Listenelement werden auch die kopierten Einstellungen übernommen!</German>
 			</Key>
 
 			<!-- CONFIGURATOR: Hints -->
@@ -444,26 +511,30 @@
 				<Original>No data to apply!</Original>
 				<Russian>Нет данных для применения!</Russian>		
 				<Chinesesimp>无数据可应用!</Chinesesimp>			
-				<Chinese>無數據可應用!</Chinese>		
+				<Chinese>無數據可應用!</Chinese>	
+				<German>Keine Daten zu übergeben!</German>				
 			</Key>
 
 			<Key ID="STR_EJAM_Config_ApplidHint">
 				<Original>Applied!</Original>
 				<Russian>Применено!</Russian>		
 				<Chinesesimp>设置已应用!</Chinesesimp>			
-				<Chinese>設定已應用!</Chinese>		
+				<Chinese>設定已應用!</Chinese>
+				<German>Übergeben!</German>				
 			</Key>
 			<Key ID="STR_EJAM_Config_CopiedHint">
 				<Original>Config copied!</Original>
 				<Russian>Конфигурация скопирована!</Russian>		
 				<Chinesesimp>设置已复制!</Chinesesimp>			
-				<Chinese>設定已複製!</Chinese>		
+				<Chinese>設定已複製!</Chinese>
+				<German>Konfiguration kopiert!</German>
 			</Key>
 			<Key ID="STR_EJAM_Config_SavedHint">
 				<Original>Config saved!</Original>
 				<Russian>Конфигурация сохранена!</Russian>			
 				<Chinesesimp>设置已保存!</Chinesesimp>			
 				<Chinese>設定已保存!</Chinese>	
+				<German>Konfiguration gespeichert!</German>
 			</Key>
 		
 		</Container>
