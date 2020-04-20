@@ -58,7 +58,7 @@ if (!isNil { GVAR(ClassFamiliesCache) getVariable _parent }) then {
 					&& {
 						[_classItem,"picture","t"] call _fnc_gfc != "" 
 						&& [_classItem,"model","t"] call _fnc_gfc != "" 
-						&& [_classItem,"scope","n"] call _fnc_gfc == 2
+						&& [_classItem,"scope","n"] call _fnc_gfc > 0
 					}
 			) then {
 				private _baseClass = [_classItem] call BIS_fnc_baseWeapon;

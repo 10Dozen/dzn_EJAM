@@ -1,11 +1,13 @@
 #include "macro.hpp"
 
+COMPILE_FUNCTION(fnc_initPlayer);
 COMPILE_FUNCTION(fnc_firedEH);
 COMPILE_FUNCTION(fnc_getMappingData);
 COMPILE_FUNCTION(fnc_processMappingData);
 
 COMPILE_FUNCTION(fnc_checkJammed);
 COMPILE_FUNCTION(fnc_setJammed);
+COMPILE_FUNCTION(fnc_setUnjammed);
 
 COMPILE_FUNCTION(fnc_getJamCause);
 COMPILE_FUNCTION(fnc_setWeaponState);

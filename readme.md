@@ -34,6 +34,9 @@ Note:
 Credits:
 10Dozen - scripting;
 hyper's youtube channel (https://www.youtube.com/channel/UCSezUnbvCLYBXuUlPcXU_QQ) - sound.
+KICKASS (Chinese, Chinese simplified translation)
+EckoMoire (Portuguese translation)
+Ralf (German translation)
 
 License: APL-SA
 
@@ -65,5 +68,8 @@ License: APL-SA
 [h1]Credits:[/h1]
 10Dozen - scripting;
 hyper's youtube channel ( https://www.youtube.com/channel/UCSezUnbvCLYBXuUlPcXU_QQ ) - sound.
+KICKASS (Chinese, Chinese simplified translation)
+EckoMoire (Portuguese translation)
+Ralf (German translation)
 
 [h1]License: APL-SA[/h1]

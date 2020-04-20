@@ -56,7 +56,7 @@ if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 				playSound3D ['a3\sounds_f\weapons\Other\dry9.wss', _this select 0];
 			}, "", 0, false, true, "DefaultAction"
 			, format [
-				"_muzzle = str(currentMuzzle player) splitString '""' joinString '';				
+				"_muzzle = str(currentMuzzle player) splitString '""' joinString '';
 				(_muzzle == primaryWeapon player) 
 				&& [player, primaryWeapon player] call CBA_fnc_canUseWeapon 
 				&& ""inspect"" call %1"

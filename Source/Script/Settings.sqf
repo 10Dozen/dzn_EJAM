@@ -90,7 +90,7 @@ private _addLocal = {
 [
 	"SubsonicJamEffectSetting"
 	, "EDITBOX"
-	, "20"
+	, "0.05"
 	, {
 		GVAR(SubsonicJamEffect) = parseNumber _this;
 	}

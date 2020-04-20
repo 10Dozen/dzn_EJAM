@@ -24,12 +24,11 @@ Author:
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 
 private _gun = primaryWeapon player;
-
 if ( _weapon != _gun || {_muzzle !=  _gun} || "inspect" call GVAR(fnc_checkJammed) ) exitWith { 
 	// Exit if fired not a main muzzle (e.g. UGL) OR weapon already jammed 
 };
 
-// Get jam chacne (from config or overall)
+// Get jam chance (from config or overall)
 private _lastFiredGunData = player getVariable [SVAR(FiredLastGunData), []];
 private _jamChance = 0;
 if (_lastFiredGunData isEqualTo [] || { _gun != _lastFiredGunData select 0 }) then {
@@ -55,7 +54,7 @@ private _random = random 100;
 // Check random vs jam chance to modify 
 if (_random <= _jamChance) then {
 	call GVAR(fnc_setJammed);
-	
+
 	// Stop firing
 	_gun spawn {
 		private _gun = _this;
@@ -66,5 +65,5 @@ if (_random <= _jamChance) then {
 			waitUntil {_frame < diag_frameno};
 			player setAmmo [_gun, _ammo];
 		};
-	};	
+	};
 };
