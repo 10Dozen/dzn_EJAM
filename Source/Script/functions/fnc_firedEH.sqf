@@ -41,10 +41,7 @@ if (_lastFiredGunData isEqualTo [] || { _gun != _lastFiredGunData select 0 }) th
 };
 
 // Check is subsonic to enlarge jam chance
-private _ammo = getText (configFile >> "CfgMagazines" >> _magazine >> "ammo");
-private _subsonicSpeed = getNumber (configFile >> "CfgAmmo" >> _ammo >> "typicalSpeed") < 343;
-private _lowAudible = getNumber (configFile >> "CfgAmmo" >> _ammo >> "audibleFire") < 10;
-if (_subsonicSpeed && _lowAudible ) then {
+if (GVAR(SubsonicMagazines) findIf { _magazine isEqualTo _x } > -1) then {
 	_jamChance = _jamChance + GVAR(SubsonicJamEffect);
 };
 

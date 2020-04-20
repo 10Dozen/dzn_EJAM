@@ -22,6 +22,8 @@ Author:
 #include "..\macro.hpp"
 
 if !(isNil SVAR(ActionInProgress)) exitWith {};
+private _combatCrewRoles = ["driver", "commander", "gunner", "turret"];
+if ((fullCrew vehicle player) findIf {player isEqualTo _x # 0 && _x # 1 in _combatCrewRoles} > -1) exitWith {};
 
 if !("inspect" call GVAR(fnc_checkJammed)) exitWith {
 	"OK" call GVAR(fnc_uiShowBriefState);

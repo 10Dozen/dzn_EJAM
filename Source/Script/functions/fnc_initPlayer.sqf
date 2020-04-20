@@ -26,12 +26,16 @@ if (!(missionNamespace getVariable ["ace_overheating_enabled",false]) || GVAR(Fo
 	GVAR(FiredEH) = player addEventHandler ["Fired", { call GVAR(fnc_firedEH) }];
 };
 
-private _oldFailChance = ace_overheating_unJamFailChance;
-ace_overheating_unJamFailChance = 0;
-{
-	[player, _x, true] call ace_overheating_fnc_clearJam;
-} forEach (player getVariable ["ace_overheating_jammedWeapons", []]);
-ace_overheating_unJamFailChance = _oldFailChance;
+if (!isNil "ace_overheating_unJamFailChance") then {
+	private _oldFailChance = ace_overheating_unJamFailChance;
+	ace_overheating_unJamFailChance = 0;
+
+	{
+		[player, _x, true] call ace_overheating_fnc_clearJam;
+	} forEach (player getVariable ["ace_overheating_jammedWeapons", []]);
+
+	ace_overheating_unJamFailChance = _oldFailChance;
+};
 
 player setVariable ["ace_overheating_jammedWeapons", []];
 player setVariable [SVAR(Cause), []];

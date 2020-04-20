@@ -96,6 +96,15 @@ private _addLocal = {
 	}
 ] call _add;
 
+[
+	"SubsonicMagazinesSettings"
+	, "EDITBOX"
+	, ""
+	, {
+		GVAR(SubsonicMagazines) = call compile ("[" + _this + "]");
+	}
+] call _add;
+
 // Mapping of gun classes on jam settings
 [
 	"MappingSettings"

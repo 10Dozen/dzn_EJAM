@@ -191,6 +191,14 @@
 				<German>Strafe für die Verwendung von Unterschall-Munition. Der Wert wird der Blockierungschance der Waffe hinzugefügt.</German>
 				<Portuguese>Penalidade na chance de travar a arma ao utilizar munição subsônica. Valor será adicionado à chance de trava.</Portuguese>
 			</Key>
+			<Key ID="STR_EJAM_SubsonicMagazinesSettings">
+				<Original>Subsonic magazines</Original>
+				<Russian>Дозвуковые боеприпасы</Russian>
+			</Key>
+			<Key ID="STR_EJAM_SubsonicMagazinesSettings_desc">
+				<Original>Magazine classes of subsonic ammunition that cause penalty. List only magazines for weapons that are NOT subsonic by design (e.g. AS Val mags shouldn't be listed, but subsonic AKM magazines should)</Original>
+				<Russian>Классы магазинов с дозвуковыми патронами которые способствуют повышению шанса на клин. Вносите только магазины для оружия которое не расчитано на дозвуковые патроны по умолчанию (т.е. магазины АС Вал не нужно записывать, а вот дозвуковые магазины к АКМ - должны)</Russian>
+			</Key>
 
 			<Key ID="STR_EJAM_MappingSettings">
 				<Original>Weapon settings</Original>
