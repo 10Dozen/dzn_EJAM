@@ -54,7 +54,7 @@ private _addLocal = {
 [
 	"feed_failure_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 30, 0] 
+	, [0, 100, 60, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
@@ -68,7 +68,7 @@ private _addLocal = {
 [
 	"dud_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 30, 0] 
+	, [0, 100, 60, 0] 
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
@@ -99,9 +99,9 @@ private _addLocal = {
 [
 	"SubsonicMagazinesSettings"
 	, "EDITBOX"
-	, ""
+	, '"cup_30rnd_subsonic_545x39_ak_m","cup_20rnd_subsonic_545x39_aksu_m","cup_30rnd_subsonic_545x39_ak74m_m","cup_30rnd_subsonic_545x39_ak74_plum_m","cup_30rnd_subsonic_762x39_ak47_m","cup_20rnd_subsonic_762x39_amd63_m","cup_30rnd_subsonic_762x39_ak47_bakelite_m","cup_30rnd_subsonic_762x39_ak103_bakelite_m","cup_30rnd_subsonic_762x39_akm_bakelite_desert_m","cup_30rnd_subsonic_545x39_fort224_m","rhs_30rnd_545x39_7u1_ak","rhs_45rnd_545x39_7u1_ak","rhs_30rnd_762x39mm_u","rhs_30rnd_762x39mm_bakelite_u","rhs_30rnd_762x39mm_polymer_u","hlc_30rnd_545x39_s_ak","hlc_30rnd_545x39_s_ak_plum","hlc_30rnd_545x39_s_ak_black","hlc_20rnd_762x51_s_fal","hlc_10rnd_762x51_s_fal","hlc_20rnd_762x51_s_g3"'
 	, {
-		GVAR(SubsonicMagazines) = call compile ("[" + _this + "]");
+		GVAR(SubsonicMagazines) = (call compile ("[" + _this + "]")) apply { toLower _x };
 	}
 ] call _add;
 
@@ -120,8 +120,9 @@ private _addLocal = {
 ] call _add;
 
 // Keybinding
+#define ALLOW_OVERRIDE !([] call GVAR(fnc_isInVehicleCrew))
 private _addKey = {
-	params["_var","_str","_downCode",["_defaultKey", nil],["_upCode", { true }]];
+	params["_var","_str","_downCode",["_defaultKey", nil],["_upCode", { false }]];
 
 	private _settings = [
 		TITLE
@@ -139,28 +140,29 @@ private _addKey = {
 [
 	"InspectKey"
 	, "Action_Inspect"
-	, { call GVAR(fnc_inspectWeapon); true }
+	, { call GVAR(fnc_inspectWeapon); ALLOW_OVERRIDE }
 	, [19, [false,true,false]]
+	, { true }
 ] call _addKey;
 
 [
 	"QuickInspectKey"
 	, "Action_QuickInspect"
-	, { "inspect" call GVAR(fnc_doHotkeyAction); true }
+	, { "inspect" call GVAR(fnc_doHotkeyAction); ALLOW_OVERRIDE }
 ] call _addKey;
 
 // Pull bolt key
 [
 	"PullBoltKey"
 	, "Action_PullBolt"
-	, { "pull_bolt" call GVAR(fnc_doHotkeyAction); true }
+	, { "pull_bolt" call GVAR(fnc_doHotkeyAction); ALLOW_OVERRIDE }
 ] call _addKey;
 
 // Open bolt key
 [
 	"OpenBoltKey"
 	, "Action_OpenBolt"
-	, { "open_bolt" call GVAR(fnc_doHotkeyAction); true }
+	, { "open_bolt" call GVAR(fnc_doHotkeyAction); ALLOW_OVERRIDE }
 ] call _addKey;
 
 // Toggle magazine key
@@ -171,7 +173,7 @@ private _addKey = {
 		(call GVAR(fnc_getWeaponState)) params ["","","","_mag"];
 		private _action = if (_mag == "mag_attached") then { "detach_mag" } else { "attach_mag" };
 		_action call GVAR(fnc_doHotkeyAction);
-		true
+		ALLOW_OVERRIDE
 	}
 ] call _addKey;
 

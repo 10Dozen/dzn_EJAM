@@ -25,7 +25,7 @@ params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projecti
 
 private _gun = primaryWeapon player;
 if ( _weapon != _gun || {_muzzle !=  _gun} || "inspect" call GVAR(fnc_checkJammed) ) exitWith { 
-	// Exit if fired not a main muzzle (e.g. UGL) OR weapon already jammed 
+	// Exit if fired not a main muzzle (e.g. UGL) OR weapon already jammed
 };
 
 // Get jam chance (from config or overall)
@@ -41,6 +41,7 @@ if (_lastFiredGunData isEqualTo [] || { _gun != _lastFiredGunData select 0 }) th
 };
 
 // Check is subsonic to enlarge jam chance
+_magazine = toLower(_magazine);
 if (GVAR(SubsonicMagazines) findIf { _magazine isEqualTo _x } > -1) then {
 	_jamChance = _jamChance + GVAR(SubsonicJamEffect);
 };
