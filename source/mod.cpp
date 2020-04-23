@@ -1,0 +1,10 @@
+name = "dzn Extended Jamming";
+actionName = "WEBSITE";
+action = "";
+tooltip = "dzn EJAM";
+overview = "";
+author = "10Dozen";
+description = "dzn EJAM - Version 2.7";
+logo = "mod.paa";
+logoOver = "mod.paa";
+overviewPicture = "mod.paa";

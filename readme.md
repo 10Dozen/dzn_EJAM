@@ -2,7 +2,7 @@
 
 Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1379304937
 
-#### Version: 2
+#### Version: 2.7
 
 Adds a little bit more complex logic to ACE jamming effect.
 
@@ -34,11 +34,14 @@ Note:
 Credits:
 10Dozen - scripting;
 hyper's youtube channel (https://www.youtube.com/channel/UCSezUnbvCLYBXuUlPcXU_QQ) - sound.
+KICKASS (Chinese, Chinese simplified translation)
+EckoMoire (Portuguese translation)
+Ralf (German translation)
 
 License: APL-SA
 
 --- 
-Версия: 2
+Версия: 2.7
 
 Мод добавляет логику заклинивания оружия в ванильную игру или расширяет логику работы с заклинившим оружием в ACE (ACE Overheating).
 Клиентский мод, при установке на сервер - применяет единые настройки для всех клиентов.
@@ -65,5 +68,8 @@ License: APL-SA
 [h1]Credits:[/h1]
 10Dozen - scripting;
 hyper's youtube channel ( https://www.youtube.com/channel/UCSezUnbvCLYBXuUlPcXU_QQ ) - sound.
+KICKASS (Chinese, Chinese simplified translation)
+EckoMoire (Portuguese translation)
+Ralf (German translation)
 
 [h1]License: APL-SA[/h1]
