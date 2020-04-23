@@ -24,6 +24,7 @@ Usage:
 - Bind hotkeys at (Settings -> Controls -> Addon Options)
 - Check mod settings in the (Settings -> Addon Options -> dzn Extended Jamming)
 - When weapon got jammed - use Inspect Weapon keybind or (Self-interaction - Equipment - Inspect Weapon) action to open extended unjamming interface. Or use hotkeys for "blind" fixing.
+- Use "Subsonic magazines" settings to set up subsonic mags which should cause penalty; also you can use this setting to make high-capacity mags less reliable (just like IRL!)
 
 Note:
 - Currently loaded magazine will be dropped to the ground on Magazine Detach action if there is no space in player's inventory.
@@ -57,12 +58,14 @@ License: APL-SA
 - Настройте горячие клавиши в (Settings -> Controls -> Configure Addon -> dzn Extended Jamming)
 - Проверьте и измените настройки мода в (Settings -> Addon Options -> dzn Extended Jamming)
 - Когда оружие заклинит - используйте горячие клавиши или меню взаимодействия ACE (Self-interaction - Equipment - Inspect Weapon) для вызова интерфейса мода. Или попробуйте исправить неисправность "вслепую" с помощью горячих клавиш.
+- Вы можете использовать настройку "Дозвуковые боеприпасы" чтобы указать типы дозвуковых магазинов, которые повышают шанс неисправности; кстати, вы можете дополнительно увеличить шанс клина у магазинов повышенной емкости (прям как в реальности!)
 
 [h1]Notes:[/h1]
 - Если в инвентаре не хватает места, то магазин будет выброшен на землю при отсоединении.
 - Мод может быть настроен на принудительное использование логики расклинивания, взамен ACE'овой.
 - Оружие из разных модов может вести себя по разному во время выполнения операций (например, оружие из CUP всегда отображается с присоединенным магазином)
 - Чтобы заклинить оружие (для тестов) - увельчте шанс на заклин в настройках мода.
+
 
 
 [h1]Credits:[/h1]
