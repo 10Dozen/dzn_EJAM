@@ -1,4 +1,3 @@
-
 #include "macro.hpp"
 
 call compile preprocessFileLineNumbers format ["%1\Enums.sqf", PATH];
@@ -7,6 +6,9 @@ call compile preprocessFileLineNumbers format ["%1\Settings.sqf", PATH];
 
 // Exit at dedicated or headless client
 if (!hasInterface) exitWith {};
+
+
+
 // Init main
 [] spawn {
 	waitUntil { !isNull player && local player }; // Handle 3DEN and/or specator
@@ -14,6 +16,12 @@ if (!hasInterface) exitWith {};
 
 	GVAR(ClassFamiliesCache) = call CBA_fnc_createNamespace;
 	GVAR(ConfigData) = call CBA_fnc_createNamespace;
+	GVAR(ACEUnjamFailChance) = 0.1;
+	
+	player addEventHandler ["Respawn", {
+		params ["_unit", "_corpse"];
+		call GVAR(fnc_initPlayer);
+	}];
 
 	if (missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 		// Wait ACE init 
@@ -21,6 +29,8 @@ if (!hasInterface) exitWith {};
 			!isNil "ace_overheating_cacheWeaponData"
 			&& !isNil "ace_overheating_cacheSilencerData"
 		};
+
+		GVAR(ACEUnjamFailChance) = ace_overheating_unJamFailChance;
 
 		// Update ACE Overheating data with custom mapping
 		call GVAR(fnc_processMappingData);
@@ -32,14 +42,10 @@ if (!hasInterface) exitWith {};
 				if (_this select 1 != primaryWeapon player) exitWith {}; 
 				call GVAR(fnc_setJammed);
 			}
-		] call CBA_fnc_addEventHandler;		
+		] call CBA_fnc_addEventHandler;
 	};
 
-	if (!(missionNamespace getVariable ["ace_overheating_enabled",false]) || GVAR(ForceOverallChance)) then {
-
-		// Run EJAM's FiredEH if ACE Overheating disabled OR EJAM Jam chance forced
-		GVAR(FiredEH) = player addEventHandler ["Fired", { call GVAR(fnc_firedEH) }];
-	};
+	[] call GVAR(fnc_initPlayer); 
 
 	// Add ACE Self-Interecation action if ACE Interaction is running
 	if (!isNil "ace_interact_menu_fnc_createAction") exitWith {
@@ -56,22 +62,23 @@ if (!hasInterface) exitWith {};
 			, ["ACE_SelfActions", "ACE_Equipment"]
 			, GVAR(ACE_InspectActionClass)
 		] call ace_interact_menu_fnc_addActionToClass;
-
-		// Loop to handle gun icon change		
+	
+		// Loop to handle gun icon change
 		GVAR(CurrentWeapon) = primaryWeapon player;
-		while { true } do {
-			sleep 2;
-			if (GVAR(CurrentWeapon) != primaryWeapon player && primaryWeapon player != "") then {
-				GVAR(CurrentWeapon) = primaryWeapon player;
-				GVAR(ACE_InspectActionClass) set [2, getText(configFile >> "CfgWeapons" >> GVAR(CurrentWeapon) >> "picture")];
+		GVAR(UnjamChanceOverridePFH) = [{
+			if (!alive player) exitWith {};
 
+			private _pw = primaryWeapon player;
+			if (_pw != "" && GVAR(CurrentWeapon) != _pw) then {
+				GVAR(CurrentWeapon) = _pw;
+				GVAR(ACE_InspectActionClass) set [2, getText(configFile >> "CfgWeapons" >> _pw >> "picture")];
 				// Cache weapon family
-				GVAR(CurrentWeapon) spawn dzn_EJAM_fnc_getClassFamily
+				_pw spawn GVAR(fnc_getClassFamily);
 			};
 
 			if (GVAR(Force)) then {
-				ace_overheating_unJamFailChance = 1;
+				ace_overheating_unJamFailChance = [GVAR(ACEUnjamFailChance), 1] select (currentWeapon player == _pw);
 			};
-		};
+		}] call CBA_fnc_addPerFrameHandler;
 	};
 };
