@@ -2,7 +2,7 @@
 
 Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1379304937
 
-#### Version: 2.7
+#### Version: 2.7.1
 
 Adds a little bit more complex logic to ACE jamming effect.
 
@@ -42,7 +42,7 @@ Ralf (German translation)
 License: APL-SA
 
 --- 
-Версия: 2.7
+Версия: 2.7.1
 
 Мод добавляет логику заклинивания оружия в ванильную игру или расширяет логику работы с заклинившим оружием в ACE (ACE Overheating).
 Клиентский мод, при установке на сервер - применяет единые настройки для всех клиентов.
