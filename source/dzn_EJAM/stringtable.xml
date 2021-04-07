@@ -7,6 +7,7 @@
 			KICKASS (Chinese, Chinese simplified)
 			EckoMoire (Portuguese)
 			Ralf (German)
+			Abogado (Spanish)
 		-->
 		<Container name="Menus">
 			<!--
@@ -19,6 +20,7 @@
 				<Chinese>武器只能使用EJAM排障</Chinese>
 				<German>Entstörung nur über EJAM</German>
 				<Portuguese>Destravar apenas pelo EJAM</Portuguese>
+				<Spanish>Desencasquillar usando sólo EJAM</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Force_desc">
 				<Original>Force EJAM unjam logic over ACE</Original>
@@ -27,6 +29,7 @@
 				<Chinese>強制使用EJAM排障覆蓋ACE</Chinese>
 				<German>Erzwinge EJAM Logik über ACE-Jam-Logik</German>
 				<Portuguese>Forçar configurações do EJAM sobre o ACE</Portuguese>
+				<Spanish>Forzar uso de EJAM sobre ACE</Spanish>
 			</Key>
 
 			<Key ID="STR_EJAM_ForceOverallChance">
@@ -36,6 +39,7 @@
 				<Chinese>重新定義武器卡彈概率</Chinese>
 				<German>Allgemeine Chance auf Ladehemmungen überschreiben</German>
 				<Portuguese>Sobrepor a chance de trava</Portuguese>
+				<Spanish>Forzar probabilidad de encasquillado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_ForceOverallChance_desc">
 				<Original>Force EJAM Overall jam chance over ACE jamming logic.</Original>
@@ -44,6 +48,7 @@
 				<Chinese>强行讓EJAM覆蓋ACE卡彈機制</Chinese>
 				<German>Erwinge EJAM Allgemeine Chance auf Ladehemmungen über ACE-Jam-Logik</German>
 				<Portuguese>Forçar a chance geral de trava do EJAM sobre a lógica do ACE</Portuguese>
+				<Spanish>Forzar la probabilidad de EJAM sobre la de ACE</Spanish>
 			</Key>
 
 			<Key ID="STR_EJAM_OverallChanceSetting">
@@ -53,6 +58,7 @@
 				<Chinese>整體卡彈概率</Chinese>
 				<German>Allgemeine Chance auf Ladehemmungen</German>
 				<Portuguese>Chance geral de trava</Portuguese>
+				<Spanish>Probabilidad de encasquillado general</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_OverallChanceSetting_desc">
 				<Original>Default jam chance for all primary weapons. From 0 to 100. Custom weapon setting will be used if set.</Original>
@@ -61,6 +67,7 @@
 				<Chinese>所有主武器的默認卡彈概率.從0到100.自定義武器設定後生效</Chinese>
 				<German>Standardmäßige Chance auf Ladehemmungen für alle Primärwaffen. Von 0 bis 100. Die benutzerdefinierte Waffeneinstellung wird verwendet, wenn sie eingestellt ist.</German>
 				<Portuguese>Chance padrão para todas as armas primárias. De 0 a 100. Configurações personalizadas serão utilizadas se definidas.</Portuguese>
+				<Spanish>Probabilidad de encasquillado para las armas principales. De 0 a 100. Se usarán las configuraciones personalizadas si están definidas.</Spanish>
 			</Key>
 
 			<Key ID="STR_EJAM_feed_failure_ChanceSettings">
@@ -70,6 +77,7 @@
 				<Chinese>導氣系統故障概率</Chinese>
 				<German>(Chance auf) Zufuhrausfall</German>
 				<Portuguese>(Chance) Falha de Alimentação</Portuguese>
+				<Spanish>(Probabilidad de) fallo de alimentación</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_feed_failure_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed.</Original>
@@ -78,6 +86,7 @@
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
 				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 				<Portuguese>Chance de ocorrer esse defeito específico se a arma travar.</Portuguese>
+				<Spanish>Probabilidad de ocurrir este fallo específico de encasquillado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_feed_failure_2_ChanceSettings">
 				<Original>(Chance of) Chamber failure</Original>
@@ -86,6 +95,7 @@
 				<Chinese>供彈失敗概率</Chinese>
 				<German>(Chance auf) Kammerausfall</German>
 				<Portuguese>(Chance) Falha na Câmara</Portuguese>
+				<Spanish>(Probabilidad de) fallo en la recámara</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_feed_failure_2_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>
@@ -94,6 +104,7 @@
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
 				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 				<Portuguese>Chance de ocorrer esse defeito específico se a arma travar.</Portuguese>
+				<Spanish>Probabilidad de ocurrir este fallo específico de encasquillado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_dud_ChanceSettings">
 				<Original>(Chance of) Dud</Original>
@@ -102,6 +113,7 @@
 				<Chinese>啞彈概率</Chinese>
 				<German>(Chance auf) Blindgänger</German>
 				<Portuguese>(Chance) Projétil Falho</Portuguese>
+				<Spanish>(Probabilidad de) cartucho defectuoso</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_dud_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>
@@ -110,6 +122,7 @@
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
 				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 				<Portuguese>Chance de ocorrer esse defeito específico se a arma travar.</Portuguese>
+				<Spanish>Probabilidad de ocurrir este fallo específico de encasquillado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_fail_to_extract_ChanceSettings">
 				<Original>(Chance of) Extraction failure</Original>
@@ -118,6 +131,7 @@
 				<Chinese>抽殼失敗概率</Chinese>
 				<German>(Chance des) Extraktionsversagens</German>
 				<Portuguese>(Chance) Falha de Extração do estojo do cartucho</Portuguese>
+				<Spanish>(Probabilidad de) fallo de extracción de casquillo</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_fail_to_extract_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>
@@ -126,6 +140,7 @@
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
 				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 				<Portuguese>Chance de ocorrer esse defeito específico se a arma travar.</Portuguese>
+				<Spanish>Probabilidad de ocurrir este fallo específico de encasquillado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_fail_to_eject_ChanceSettings">
 				<Original>(Chance of) Ejection failure</Original>
@@ -134,6 +149,7 @@
 				<Chinese>拋殼失敗概率</Chinese>
 				<German>(Chance auf) Auswurfversagen</German>
 				<Portuguese>(Chance) Falha de Ejeção</Portuguese>
+				<Spanish>(Probabilidad de) eyección </Spanish>
 			</Key>
 			<Key ID="STR_EJAM_fail_to_eject_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>
@@ -142,6 +158,7 @@
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
 				<German>Möglichkeit einer spezifischen Fehlfunktion, wenn die Waffe blockiert wurde</German>
 				<Portuguese>Chance de ocorrer esse defeito específico se a arma travar.</Portuguese>
+				<Spanish>Probabilidad de ocurrir este fallo específico de encasquillado</Spanish>
 			</Key>
 
 			<!--
@@ -151,6 +168,7 @@
 				<Chinesesimp></Chinesesimp>
 				<Chinese></Chinese>
 				<Portuguese>(Chance) Tiro atrasado</Portuguese>
+				<Spanish>(Probabilidad de) disparo retardado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_hang_fire_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>
@@ -158,6 +176,7 @@
 				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
 				<Portuguese>Chance de ocorrer esse defeito específico se a arma travar.</Portuguese>
+				<Spanish>Probabilidad de ocurrir este fallo específico de encasquillado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_runaway_gun_ChanceSettings">
 				<Original>(Chance of) Runaway gun</Original>
@@ -165,6 +184,7 @@
 				<Chinesesimp></Chinesesimp>
 				<Chinese></Chinese>
 				<Portuguese>(Chance) Fogo Espontâneo</Portuguese>
+				<Spanish>(Probabilidad de) disparo espontáneo</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_runaway_gun_ChanceSettings_desc">
 				<Original>Chance for specific malfunction to happen if weapon got jammed</Original>
@@ -172,6 +192,7 @@
 				<Chinesesimp>武器卡弹后发生特定故障的概率</Chinesesimp>
 				<Chinese>武器卡彈後發生特定故障的概率</Chinese>
 				<Portuguese>Chance de ocorrer esse defeito específico se a arma travar.</Portuguese>
+				<Spanish>Probabilidad de ocurrir este fallo específico de encasquillado</Spanish>
 			</Key>
 			-->
 
@@ -182,6 +203,7 @@
 				<Chinese>亞音速彈卡彈概率</Chinese>
 				<German>Strafe für Unterschall-Munition</German>
 				<Portuguese>Penalidade de munições subsônicas</Portuguese>
+				<Spanish>Penalización por munición subsónica</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_SubsonicJamEffectSetting_desc">
 				<Original>Jam chance penalty on using subsonic ammo. Value will be added to weapon's jam chance.</Original>
@@ -190,14 +212,17 @@
 				<Chinese>額外新增使用亞音速彈藥時的卡彈概率</Chinese>
 				<German>Strafe für die Verwendung von Unterschall-Munition. Der Wert wird der Blockierungschance der Waffe hinzugefügt.</German>
 				<Portuguese>Penalidade na chance de travar a arma ao utilizar munição subsônica. Valor será adicionado à chance de trava.</Portuguese>
+				<Spanish>Probabilidad de encasquillado usando munición subsónica. Este valor se suma a la probabilidad normal de encasquillado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_SubsonicMagazinesSettings">
 				<Original>Subsonic magazines</Original>
 				<Russian>Дозвуковые боеприпасы</Russian>
+				<Spanish>Cargadores subsónicos</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_SubsonicMagazinesSettings_desc">
 				<Original>Magazine classes of subsonic ammunition that cause penalty. List only magazines for weapons that are NOT subsonic by design (e.g. AS Val mags shouldn't be listed, but subsonic AKM magazines should)</Original>
 				<Russian>Классы магазинов с дозвуковыми патронами которые способствуют повышению шанса на клин. Вносите только магазины для оружия которое не расчитано на дозвуковые патроны по умолчанию (т.е. магазины АС Вал не нужно записывать, а вот дозвуковые магазины к АКМ - должны)</Russian>
+				<Spanish>Classnames de cargadores subsónicos con penalización. Definir únicamente cargadores que NO son subsónicos por diseño (ej. cargadores de la AS Val no deben ser listados, pero los cargadores de munición subsónica de AKM sí)</Spanish>
 			</Key>
 
 			<Key ID="STR_EJAM_MappingSettings">
@@ -207,6 +232,7 @@
 				<Chinese>武器設定</Chinese>
 				<German>Waffen-Einstellungen</German>
 				<Portuguese>Configuraçõe de Arma</Portuguese>
+				<Spanish>Configuración del arma</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_MappingSettings_desc">
 				<Original>Custom settings for specific weapon. In format [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. Use EJAM Configurator by [ call dzn_EJAM_Configure ]</Original>
@@ -215,6 +241,7 @@
 				<Chinese>特定武器的自定義設定. 格式為 [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. 使用EJAM配寘程式為 [ call dzn_EJAM_Configure ]</Chinese>
 				<German>Benutzerdefinierte Einstellungen für bestimmte Waffen. Im Format @WeaponClass, @JamChance, @MalfunctionChance#1...5]. Verwenden Sie den EJAM-Konfigurator durch [ call dzn_EJAM_Configure ].</German>
 				<Portuguese>Configurações personalizadas para arma específica. No formato [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. Use o configurador EJAM com [ call dzn_EJAM_Configure ]</Portuguese>
+				<Spanish>Opciones para armas específicas. Con el formato [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. Usar el configurador de EJAM con [ call dzn_EJAM_Configure ]</Spanish>
 			</Key>
 
 			<!-- MENU -->
@@ -225,6 +252,7 @@
 				<Chinese>武器故障</Chinese>
 				<German>WAFFEN-FEHLFUNKTION</German>
 				<Portuguese>ARMA DEFEITUOSA</Portuguese>
+				<Spanish>FALLO DEL ARMA</Spanish>
 			</Key>
 
 			<Key ID="STR_EJAM_Menu_Close">
@@ -234,6 +262,7 @@
 				<Chinese>關閉</Chinese>
 				<German>SCHLIEßEN</German>
 				<Portuguese>FECHAR</Portuguese>
+				<Spanish>CERRAR</Spanish>
 			</Key>
 
 			<!-- STATES	-->
@@ -244,6 +273,7 @@
 				<Chinese>槍機閉合</Chinese>
 				<German>Verschluss geschlossen</German>
 				<Portuguese>Ferrolho fechado</Portuguese>
+				<Spanish>Cerrojo cerrado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_BoltNotClosed">
 				<Original>Bolt &lt;t color="#f79400"&gt;not closed&lt;/t&gt;</Original>
@@ -252,6 +282,7 @@
 				<Chinese>槍機 &lt;t color="#f79400"&gt;未閉合&lt;/t&gt;</Chinese>
 				<German>Verschluss &lt;t color="#f79400"&gt;nicht geschlossen&lt;/t&gt;</German>
 				<Portuguese>Ferrolho &lt;t color="#f79400"&gt;solto&lt;/t&gt;</Portuguese>
+				<Spanish>Cerrojo &lt;t color="#f79400"&gt;no cerrado&lt;/t&gt;</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_BoltOpened">
 				<Original>Bolt &lt;t color="#00b9f7"&gt;opened&lt;/t&gt;</Original>
@@ -260,6 +291,7 @@
 				<Chinese>槍機 &lt;t color="#00b9f7"&gt;已打開&lt;/t&gt;</Chinese>
 				<German>Verschluss &lt;t color="#00b9f7"&gt;geöffnet&lt;/t&gt;</German>
 				<Portuguese>Ferrolho &lt;t color="#00b9f7"&gt;aberto&lt;/t&gt;</Portuguese>
+				<Spanish>Cerrojo &lt;t color="#f79400"&gt;abierto&lt;/t&gt;</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberEmpty">
 				<Original>Chamber empty</Original>
@@ -268,6 +300,7 @@
 				<Chinese>槍膛內已清空</Chinese>
 				<German>Kammer leer</German>
 				<Portuguese>Câmara vazia</Portuguese>
+				<Spanish>Recámara vacía</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberReady">
 				<Original>Chamber &lt;t color="#00b9f7"&gt;loaded&lt;/t&gt;</Original>
@@ -276,6 +309,7 @@
 				<Chinese>槍膛內 &lt;t color="#00b9f7"&gt;已供彈&lt;/t&gt;</Chinese>
 				<German>Kammer &lt;t color="#00b9f7"&gt;geladen&lt;/t&gt;</German>
 				<Portuguese>Câmara &lt;t color="#00b9f7"&gt;carregada&lt;/t&gt;</Portuguese>
+				<Spanish>Recámara &lt;t color="#00b9f7"&gt;cargada&lt;/t&gt;</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberStucked">
 				<Original>Round &lt;t color="#f79400"&gt;stuck&lt;/t&gt;</Original>
@@ -284,6 +318,7 @@
 				<Chinese>子彈 &lt;t color="#f79400"&gt;卡住&lt;/t&gt;</Chinese>
 				<German>Patrone &lt;t color="#f79400"&gt;blockiert&lt;/t&gt;</German>
 				<Portuguese>Cartucho &lt;t color="#f79400"&gt;preso&lt;/t&gt;</Portuguese>
+				<Spanish>Cartucho &lt;t color="#f79400"&gt;atascado&lt;/t&gt;</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberNotExtracted">
 				<Original>Round &lt;t color="#f79400"&gt;not extracted&lt;/t&gt;</Original>
@@ -292,6 +327,7 @@
 				<Chinese>子彈 &lt;t color="#f79400"&gt;未入膛&lt;/t&gt;</Chinese>
 				<German>Patrone &lt;t color="#f79400"&gt;nicht entnommen&lt;/t&gt;</German>
 				<Portuguese>Cartucho &lt;t color="#f79400"&gt;não extraído&lt;/t&gt;</Portuguese>
+				<Spanish>Cartucho &lt;t color="#f79400"&gt;no extraído&lt;/t&gt;</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_ChamberNotEjected">
 				<Original>Case &lt;t color="#f79400"&gt;not ejected&lt;/t&gt;</Original>
@@ -300,6 +336,7 @@
 				<Chinese>彈殼 &lt;t color="#f79400"&gt;未拋出&lt;/t&gt;</Chinese>
 				<German>Hülse &lt;t color="#f79400"&gt;nicht ausgeworfen&lt;/t&gt;</German>
 				<Portuguese>Estojo &lt;t color="#f79400"&gt;não ejetado&lt;/t&gt;</Portuguese>
+				<Spanish>Casquillo &lt;t color="#f79400"&gt;no eyectado&lt;/t&gt;</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_CaseEjected">
 				<Original>Case ejected</Original>
@@ -308,6 +345,7 @@
 				<Chinese>彈殼已抛出</Chinese>
 				<German>Hülse ausgeworfen</German>
 				<Portuguese>Estojo ejetado</Portuguese>
+				<Spanish>Cartucho eyectado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_MagAttached">
 				<Original>Magazine attached</Original>
@@ -316,14 +354,16 @@
 				<Chinese>已插入彈匣</Chinese>
 				<German>Magazin eingelegt</German>
 				<Portuguese>Carregador inserido</Portuguese>
+				<Spanish>Cargador insertado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_State_MagDetached">
 				<Original>Magazine &lt;t color="#00b9f7"&gt;detached&lt;/t&gt;</Original>
-				<Russian>Магазин &lt;t color="#00b9f7"&gt;отсоединен<&lt;/t&gt;/Russian>
+				<Russian>Магазин &lt;t color="#00b9f7"&gt;отсоединен&lt;/t&gt;</Russian>
 				<Chinesesimp>弹匣 &lt;t color="#00b9f7"&gt;卸下&lt;/t&gt;</Chinesesimp>
 				<Chinese>彈匣 &lt;t color="#00b9f7"&gt;卸下&lt;/t&gt;</Chinese>
 				<German>Magazin &lt;t color="#00b9f7"&gt;entfernt&lt;/t&gt;</German>
 				<Portuguese>Carregador &lt;t color="#00b9f7"&gt;removido&lt;/t&gt;</Portuguese>
+				<Spanish>Cargador &lt;t color="#00b9f7"&gt;extraído&lt;/t&gt;</Spanish>
 			</Key>
 
 			<!-- ACTIONS -->
@@ -337,6 +377,7 @@
 				<Chinese>武器檢查選單</Chinese>
 				<German>Waffe untersuchen Menü</German>
 				<Portuguese>Inspecionar Arma (menu)</Portuguese>
+				<Spanish>Inspeccionar arma (menú)</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_QuickInspect">
 				<Original>Inspect weapon (no menu)</Original>
@@ -345,6 +386,7 @@
 				<Chinese>武器檢查 (无菜单)</Chinese>
 				<German>Waffe untersuchen (Kein Menü)</German>
 				<Portuguese>Inspecionar Arma (sem menu)</Portuguese>
+				<Spanish>Inspeccionar arma (sin menú)</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagazineToggle">
 				<Original>Attach/Detach magazine</Original>
@@ -353,6 +395,7 @@
 				<Chinese>裝入/卸下 彈匣</Chinese>
 				<German>Magazin einlegen/auswerfen</German>
 				<Portuguese>Inserir/Remover carregador</Portuguese>
+				<Spanish>Insertar/Extraer cargador</Spanish>
 			</Key>
 
 			<Key ID="STR_EJAM_Action_PullBolt">
@@ -362,6 +405,7 @@
 				<Chinese>拉動槍機</Chinese>
 				<German>Verschluss ziehen</German>
 				<Portuguese>Puxar ferrolho</Portuguese>
+				<Spanish>Accionar cerrojo</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_OpenBolt">
 				<Original>Open bolt</Original>
@@ -370,6 +414,7 @@
 				<Chinese>打開槍機</Chinese>
 				<German>Verschluss öffnen</German>
 				<Portuguese>Abrir ferrolho</Portuguese>
+				<Spanish>Abrir cerrojo</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_ClearChamber">
 				<Original>Clear chamber</Original>
@@ -378,6 +423,7 @@
 				<Chinese>清理膛室</Chinese>
 				<German>Kammer leeren</German>
 				<Portuguese>Limpar câmara</Portuguese>
+				<Spanish>Limpiar recámara</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_RemoveCase">
 				<Original>Remove case</Original>
@@ -386,6 +432,7 @@
 				<Chinese>清理卡住的彈殼</Chinese>
 				<German>Hülse entfernen</German>
 				<Portuguese>Remover estojo</Portuguese>
+				<Spanish>Extraer casquillo</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagDetach">
 				<Original>Detach magazine</Original>
@@ -394,6 +441,7 @@
 				<Chinese>卸下彈匣</Chinese>
 				<German>Magazin auswerfen</German>
 				<Portuguese>Remover carregador</Portuguese>
+				<Spanish>Quitar cargador</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagAttach">
 				<Original>Attach magazine</Original>
@@ -402,6 +450,7 @@
 				<Chinese>裝入彈匣</Chinese>
 				<German>Magazin einlegen</German>
 				<Portuguese>Inserir carregador</Portuguese>
+				<Spanish>Insertar cargador</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_Inspect">
 				<Original>Inspect weapon</Original>
@@ -410,6 +459,7 @@
 				<Chinese>檢查武器</Chinese>
 				<German>Waffe untersuchen</German>
 				<Portuguese>Inspercionar Arma</Portuguese>
+				<Spanish>Inspeccionar arma</Spanish>
 			</Key>
 
 			<!--
@@ -422,6 +472,7 @@
 				<Chinese>正在拉動槍機</Chinese>
 				<German>Ziehen des Verschlusses</German>
 				<Portuguese>Puxando o ferrolho</Portuguese>
+				<Spanish>Accionando cerrojo</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_OpenBolt_Process">
 				<Original>Opening the bolt</Original>
@@ -430,6 +481,7 @@
 				<Chinese>正在打開槍機</Chinese>
 				<German>Öffnen des Verschlusses</German>
 				<Portuguese>Abrindo o ferrolho</Portuguese>
+				<Spanish>Abriendo cerrojo</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_ClearChamber_Process">
 				<Original>Clearing the chamber</Original>
@@ -438,6 +490,7 @@
 				<Chinese>正在清理膛室</Chinese>
 				<German>Kammer leeren</German>
 				<Portuguese>Limpando a câmara</Portuguese>
+				<Spanish>Limpiando recámara</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_RemoveCase_Process">
 				<Original>Removing the case</Original>
@@ -446,6 +499,7 @@
 				<Chinese>正在清理卡住的彈殼</Chinese>
 				<German>Entfernen der Hülse</German>
 				<Portuguese>Removendo o estojo</Portuguese>
+				<Spanish>Extrayendo casquillo</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagDetach_Process">
 				<Original>Detaching magazine</Original>
@@ -454,6 +508,7 @@
 				<Chinese>正在卸下彈匣</Chinese>
 				<German>Werfe Magazin aus</German>
 				<Portuguese>Removendo o carregador</Portuguese>
+				<Spanish>Quitando cargador</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_MagAttach_Process">
 				<Original>Attaching magazine</Original>
@@ -462,6 +517,7 @@
 				<Chinese>正在裝入彈匣</Chinese>
 				<German>Lege Magazin ein</German>
 				<Portuguese>Inserindo o carregador</Portuguese>
+				<Spanish>Insertando cargador</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Action_Inspect_Process">
 				<Original>Inspecting</Original>
@@ -470,6 +526,7 @@
 				<Chinese>正在檢查武器</Chinese>
 				<German>Untersuche Waffe</German>
 				<Portuguese>Inspecionando</Portuguese>
+				<Spanish>Inspeccionando</Spanish>
 			</Key>
 
 			<!--
@@ -482,6 +539,7 @@
 				<Chinese>彈匣脫落</Chinese>
 				<German>Magazin fallen gelassen</German>
 				<Portuguese>Carregador removido</Portuguese>
+				<Spanish>Cargador quitado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Hint_MagAttached">
 				<Original>Magazine attached</Original>
@@ -490,6 +548,7 @@
 				<Chinese>彈匣已裝入</Chinese>
 				<German>Magazin eingelegt</German>
 				<Portuguese>Carregador inserido</Portuguese>
+				<Spanish>Cargador insertado</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Hint_WeaponOK">
 				<Original>Weapon is functioning normally</Original>
@@ -497,7 +556,8 @@
 				<Chinesesimp>武器已可以正常使用</Chinesesimp>
 				<Chinese>武器已可以正常使用</Chinese>
 				<German>Waffe funktioniert normal</German>
-				<Portuguese>Não foi possível efetuar essa ação!</Portuguese>
+				<Portuguese>Arma funcionando corretamente</Portuguese>
+				<Spanish>Arma funcionando correctamente</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Hint_NoAccess">
 				<Original>Not possible to perform action!</Original>
@@ -505,7 +565,8 @@
 				<Chinesesimp>不能执行该命令!</Chinesesimp>
 				<Chinese>不能執行該命令!</Chinese>
 				<German>Keine Aktion möglich!</German>
-				<Portuguese>Sem carregador para inserir!</Portuguese>
+				<Portuguese>Não foi possível efetuar essa ação!</Portuguese>
+				<Spanish>¡No es posible realizar la acción!</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Hint_NoMag">
 				<Original>No magazine to load!</Original>
@@ -513,7 +574,8 @@
 				<Chinesesimp>武器无弹匣!</Chinesesimp>
 				<Chinese>武器無彈匣!</Chinese>
 				<German>Kein Magazin zum Laden!</German>
-				<Portuguese>dzn EJAM Configurador de Arma</Portuguese>
+				<Portuguese>Sem carregador para inserir!</Portuguese>
+				<Spanish>¡No hay cargadores para insertar!</Spanish>
 			</Key>
 
 
@@ -525,6 +587,7 @@
 				<Chinese>dzn EJAM自定義武器設定</Chinese>
 				<German>dzn EJAM Waffen-Konfigurator</German>
 				<Portuguese>dzn EJAM Configurador de Arma</Portuguese>
+				<Spanish>dzn EJAM Configurar arma</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_SectionLabel">
 				<Original>Weapon</Original>
@@ -533,6 +596,7 @@
 				<Chinese>武器</Chinese>
 				<German>Waffe</German>
 				<Portuguese>Arma</Portuguese>
+				<Spanish>Arma</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_PlaceholderLabel">
 				<Original>No weapon selected</Original>
@@ -541,6 +605,7 @@
 				<Chinese>沒有選擇武器</Chinese>
 				<German>Keine Waffe ausgewählt</German>
 				<Portuguese>Nenhuma arma selecionada</Portuguese>
+				<Spanish>Ningun arma seleccionada</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_FilterLabel">
 				<Original>Filter...</Original>
@@ -549,6 +614,7 @@
 				<Chinese>蒐索欄</Chinese>
 				<German>Filtern...</German>
 				<Portuguese>Filtro...</Portuguese>
+				<Spanish>Filtro...</Spanish>
 			</Key>
 
 			<!-- CONFIGURATOR: Buttons -->
@@ -559,6 +625,7 @@
 				<Chinese>保存</Chinese>
 				<German>Speichern</German>
 				<Portuguese>Salvar</Portuguese>
+				<Spanish>Guardar</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_CopyBtn">
 				<Original>Copy</Original>
@@ -567,6 +634,7 @@
 				<Chinese>複製</Chinese>
 				<German>Kopieren</German>
 				<Portuguese>Copiar</Portuguese>
+				<Spanish>Copiar</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_PasteBtn">
 				<Original>Paste</Original>
@@ -575,6 +643,7 @@
 				<Chinese>粘貼</Chinese>
 				<German>Einfügen</German>
 				<Portuguese>Colar</Portuguese>
+				<Spanish>Pegar</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_ResetBtn">
 				<Original>Reset</Original>
@@ -583,6 +652,7 @@
 				<Chinese>重置</Chinese>
 				<German>Zurücksetzen</German>
 				<Portuguese>Resetar</Portuguese>
+				<Spanish>Resetear</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_CloseBtn">
 				<Original>Close</Original>
@@ -591,6 +661,7 @@
 				<Chinese>關閉</Chinese>
 				<German>Schließen</German>
 				<Portuguese>Fechar</Portuguese>
+				<Spanish>Cerrar</Spanish>
 			</Key>
 
 			<!-- CONFIGURATOR: Tooltips -->
@@ -601,6 +672,7 @@
 				<Chinese>輸入武器名稱後. 按左Shift+回車或小鍵盤回車即可執行蒐索. 蒐索多個武器時可以用 "|" 將幾個關鍵字隔開</Chinese>
 				<German>Eingabe/Numpad Eingabe zum Anwenden des Filters. Verwenden Sie "|" für mehrere Filterwerte.</German>
 				<Portuguese>Enter/NumpadEnter para aplicar filtro. Use "|" para múltiplos filtros</Portuguese>
+				<Spanish>Entrar/NumpadEntrar para aplicar filtro. Usar "|" para múltiples filtros</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_ResetTooltip">
 				<Original>Unsets weapon settings</Original>
@@ -609,6 +681,7 @@
 				<Chinese>取消武器設定</Chinese>
 				<German>Löscht die Waffeneinstellungen</German>
 				<Portuguese>Desfaz configurações de arma</Portuguese>
+				<Spanish>Deshacer configuración de arma</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_PasteTooltip">
 				<Original>Double clicking list element will also apply copied settings!</Original>
@@ -617,6 +690,7 @@
 				<Chinese>按兩下清單內容也能應用複製的設定文字!</Chinese>
 				<German>Beim Doppelklick auf ein Listenelement werden auch die kopierten Einstellungen übernommen!</German>
 				<Portuguese>Clicar duas vezes no elemento da lista também aplica configurações copiadas!</Portuguese>
+				<Spanish>¡Doble click en el elemento de la lista aplica los cambios copiados! </Spanish>
 			</Key>
 
 			<!-- CONFIGURATOR: Hints -->
@@ -627,6 +701,7 @@
 				<Chinese>無數據可應用!</Chinese>
 				<German>Keine Daten zu übergeben!</German>
 				<Portuguese>Nenhuma configuração para aplicar!</Portuguese>
+				<Spanish>¡Sin datos para aplicar!</Spanish>
 			</Key>
 
 			<Key ID="STR_EJAM_Config_ApplidHint">
@@ -636,6 +711,7 @@
 				<Chinese>設定已應用!</Chinese>
 				<German>Übergeben!</German>
 				<Portuguese>Aplicado!</Portuguese>
+				<Spanish>¡Aplicado!</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_CopiedHint">
 				<Original>Config copied!</Original>
@@ -644,6 +720,7 @@
 				<Chinese>設定已複製!</Chinese>
 				<German>Konfiguration kopiert!</German>
 				<Portuguese>Configuração copiada!</Portuguese>
+				<Spanish>¡Configuración copiada!</Spanish>
 			</Key>
 			<Key ID="STR_EJAM_Config_SavedHint">
 				<Original>Config saved!</Original>
@@ -652,6 +729,7 @@
 				<Chinese>設定已保存!</Chinese>
 				<German>Konfiguration gespeichert!</German>
 				<Portuguese>Configuração salva!</Portuguese>
+				<Spanish>¡Configuración guardada!</Spanish>
 			</Key>
 
 		</Container>
