@@ -19,7 +19,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 // Exit with FALSE if player not in vehicle
 if (vehicle player == player) exitWith { false };

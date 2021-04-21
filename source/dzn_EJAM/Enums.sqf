@@ -5,7 +5,7 @@ GVAR(Causes) =  [
 	[
 		/* "Неподача патрона" */
 		/* To fix: 	"pull_bolt" */
-		"feed_failure" 
+		"feed_failure"
 		,["bolt_closed","chamber_empty","case_ejected","mag_attached"]
 	]
 	,[
@@ -13,7 +13,7 @@ GVAR(Causes) =  [
 		/* To fix: 	"open_bolt","detach_mag","clear_chamber" */
 		"feed_failure_2"
 		,["bolt_not_closed","chamber_stucked","case_ejected","mag_attached"]
-		
+
 	]
 	,[
 		/* "Осечка" */
@@ -57,7 +57,7 @@ GVAR(States) = [
 	,["chamber_empty"			,localize "STR_EJAM_State_ChamberEmpty"]
 	,["chamber_ready"			,localize "STR_EJAM_State_ChamberReady"]
 	,["chamber_stucked"			,localize "STR_EJAM_State_ChamberStucked"]
-	,["chamber_not_extracted"	,localize "STR_EJAM_State_ChamberNotExtracted"]	
+	,["chamber_not_extracted"	,localize "STR_EJAM_State_ChamberNotExtracted"]
 	,["case_not_ejected"		,localize "STR_EJAM_State_ChamberNotEjected"]
 	,["case_ejected"			,localize "STR_EJAM_State_CaseEjected"]
 	,["mag_attached"			,localize "STR_EJAM_State_MagAttached"]
@@ -70,8 +70,8 @@ GVAR(FixActions) = [
 	,["open_bolt"		,localize "STR_EJAM_Action_OpenBolt"		, localize "STR_EJAM_Action_OpenBolt_Process"		, 0.5]
 	,["clear_chamber"	,localize "STR_EJAM_Action_ClearChamber"	, localize "STR_EJAM_Action_ClearChamber_Process"	, 3]
 	,["remove_case"		,localize "STR_EJAM_Action_RemoveCase"		, localize "STR_EJAM_Action_RemoveCase_Process"		, 1.5]
-	,["detach_mag"		,localize "STR_EJAM_Action_MagDetach"		, localize "STR_EJAM_Action_MagDetach_Process"		, 0.3]		
-	,["attach_mag"		,localize "STR_EJAM_Action_MagAttach"		, localize "STR_EJAM_Action_MagAttach_Process"		, 0.75]		
+	,["detach_mag"		,localize "STR_EJAM_Action_MagDetach"		, localize "STR_EJAM_Action_MagDetach_Process"		, 0.3]
+	,["attach_mag"		,localize "STR_EJAM_Action_MagAttach"		, localize "STR_EJAM_Action_MagAttach_Process"		, 0.75]
 	,["inspect"			,localize "STR_EJAM_Action_Inspect"			, localize "STR_EJAM_Action_Inspect_Process"		, 0.5]
 ];
 
@@ -84,6 +84,6 @@ GVAR(Defaults) = [
 
 GVAR(Mapping) = [
 	[
-		"arifle_MX_F", 0.05, 45, 10, 45, 0, 0
+		"arifle_MX_F", 0.01, 45, 10, 45, 0, 0
 	]
 ];

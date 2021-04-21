@@ -2,7 +2,7 @@
 Function: dzn_EJAM_fnc_getClassFamily
 
 Description:
-	Search and return all guns of the same family 
+	Search and return all guns of the same family
 	(e.g. base weapon and all weapons models w. grip)
 
 Parameters:
@@ -20,16 +20,16 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 private _class = _this;
 private _parent = [_class] call BIS_fnc_baseWeapon;
 private _result = [];
 
 if (!isNil { GVAR(ClassFamiliesCache) getVariable _parent }) then {
-	// Return cached data 
+	// Return cached data
 	_result = GVAR(ClassFamiliesCache) getVariable _parent;
-	
+
 } else {
 	// Get data
 	private _fnc_gfc = {
@@ -56,8 +56,8 @@ if (!isNil { GVAR(ClassFamiliesCache) getVariable _parent }) then {
 			if (
 				[_classItem,"type","n"] call _fnc_gfc == 1
 					&& {
-						[_classItem,"picture","t"] call _fnc_gfc != "" 
-						&& [_classItem,"model","t"] call _fnc_gfc != "" 
+						[_classItem,"picture","t"] call _fnc_gfc != ""
+						&& [_classItem,"model","t"] call _fnc_gfc != ""
 						&& [_classItem,"scope","n"] call _fnc_gfc > 0
 					}
 			) then {

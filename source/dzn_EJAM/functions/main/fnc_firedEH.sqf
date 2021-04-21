@@ -19,12 +19,12 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 
 private _gun = primaryWeapon player;
-if ( _weapon != _gun || {_muzzle !=  _gun} || "inspect" call GVAR(fnc_checkJammed) ) exitWith { 
+if ( _weapon != _gun || {_muzzle !=  _gun} || "inspect" call FUNC(checkJammed) ) exitWith {
 	// Exit if fired not a main muzzle (e.g. UGL) OR weapon already jammed
 };
 
@@ -33,11 +33,15 @@ private _lastFiredGunData = player getVariable [SVAR(FiredLastGunData), []];
 private _jamChance = 0;
 if (_lastFiredGunData isEqualTo [] || { _gun != _lastFiredGunData select 0 }) then {
 	// No gun data - get from mapping
-	_jamChance = [_gun, "jam"] call GVAR(fnc_getMappingData);
+	_jamChance = [_gun, "jam"] call FUNC(getMappingData);
 	player setVariable [SVAR(FiredLastGunData), [_gun, _jamChance]];
 } else {
 	// Gun data cached
 	_jamChance = _lastFiredGunData select 1;
+};
+
+if (_jamChance isEqualTo 0) exitWith {
+		// No jam may happen by default
 };
 
 // Check is subsonic to enlarge jam chance
@@ -46,12 +50,12 @@ if (GVAR(SubsonicMagazines) findIf { _magazine isEqualTo _x } > -1) then {
 	_jamChance = _jamChance + GVAR(SubsonicJamEffect);
 };
 
-// Get random value 
+// Get random value
 private _random = random 100;
 
-// Check random vs jam chance to modify 
+// Check random vs jam chance to modify
 if (_random <= _jamChance) then {
-	call GVAR(fnc_setJammed);
+	call FUNC(setJammed);
 
 	// Stop firing
 	_gun spawn {

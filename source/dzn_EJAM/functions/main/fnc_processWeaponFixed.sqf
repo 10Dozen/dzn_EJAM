@@ -19,11 +19,11 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 if (isNil { player getVariable SVAR(WeaponState) }) exitWith {};
 
-(call GVAR(fnc_getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
+(call FUNC(getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 
 if (
 	_bolt != "bolt_not_closed"
@@ -43,5 +43,5 @@ if (
 	};
 
 	// Unjamming
-	[] call GVAR(fnc_setUnjammed);
+	[] call FUNC(setUnjammed);
 };

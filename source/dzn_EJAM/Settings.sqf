@@ -3,17 +3,17 @@
 // Addon Settings
 
 private _add = {
-	params ["_var","_type","_val",["_exp", "No Expression"],["_subcat", ""],["_isGlobal", false]];	
-	 
+	params ["_var","_type","_val",["_exp", "No Expression"],["_subcat", ""],["_isGlobal", false]];
+
 	private _arr = [
 		FORMAT_VAR(_var)
 		, _type
-		, [LOCALIZE_FORMAT_STR(_var), LOCALIZE_FORMAT_STR_desc(_var)]		
+		, [LOCALIZE_FORMAT_STR(_var), LOCALIZE_FORMAT_STR_DESC(_var)]
 		, if (_subcat == "") then { TITLE } else { [TITLE, _subcat] }
 		, _val
 		, _isGlobal
 	];
-	
+
 	if !(typename _exp == "STRING" && { _exp == "No Expression" }) then { _arr pushBack _exp; };
 	_arr call CBA_Settings_fnc_init;
 };
@@ -27,14 +27,14 @@ private _addLocal = {
 [
 	"Force"
 	, "CHECKBOX"
-	, true 
+	, true
 ] call _add;
 
 // Option to force EJAM's Jam chance over ACE
 [
 	"ForceOverallChance"
 	, "CHECKBOX"
-	, true 
+	, true
 ] call _add;
 
 // Overall jam chance
@@ -54,37 +54,44 @@ private _addLocal = {
 [
 	"feed_failure_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 60, 0] 
+	, [0, 100, 60, 0]
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"feed_failure_2_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 20, 0] 
+	, [0, 100, 20, 0]
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"dud_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 60, 0] 
+	, [0, 100, 60, 0]
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"fail_to_extract_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 20, 0] 
+	, [0, 100, 20, 0]
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
 [
 	"fail_to_eject_ChanceSettings"
 	, "SLIDER"
-	, [0, 100, 20, 0] 
+	, [0, 100, 20, 0]
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
+
+// Pull bolt on reload via Reload key or inventory
+[
+	"PullBoltOnReload"
+	, "CHECKBOX"
+	, true
+] call _addLocal;
 
 // Subsonic ammo effect on jam chance
 [
@@ -110,7 +117,7 @@ private _addLocal = {
 	"MappingSettings"
 	, "EDITBOX"
 	, str(GVAR(Mapping)) select [1, count str(GVAR(Mapping)) -2]
-	, { 
+	, {
 		GVAR(Mapping) = call compile ("[" + _this + "]");
 		call GVAR(fnc_processMappingData);
 
@@ -139,7 +146,7 @@ private _addKey = {
 // Inspect weapon key
 [
 	"InspectKey"
-	, "Action_Inspect"
+	, "Action_Inspect_Menu"
 	, { call GVAR(fnc_inspectWeapon); ALLOW_OVERRIDE }
 	, [19, [false,true,false]]
 	, { true }
@@ -169,7 +176,7 @@ private _addKey = {
 [
 	"MagazineKey"
 	, "Action_MagazineToggle"
-	, { 
+	, {
 		(call GVAR(fnc_getWeaponState)) params ["","","","_mag"];
 		private _action = if (_mag == "mag_attached") then { "detach_mag" } else { "attach_mag" };
 		_action call GVAR(fnc_doHotkeyAction);
@@ -177,7 +184,7 @@ private _addKey = {
 	}
 ] call _addKey;
 
-// Clear chamber key 
+// Clear chamber key
 [
 	"ClearChamnerKey"
 	, "Action_ClearChamber"

@@ -19,7 +19,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 private _gun = [primaryWeapon player] call BIS_fnc_baseWeapon;
 private _cause = ((player getVariable [SVAR(Cause), []]) select { _gun == _x # 0 });

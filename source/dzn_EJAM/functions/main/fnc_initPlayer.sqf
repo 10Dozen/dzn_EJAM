@@ -19,7 +19,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 player setVariable [SVAR(Cause), []];
 player setVariable [SVAR(RemovedMagazine), nil];
@@ -33,7 +33,7 @@ if (!isNil SVAR(PreventFireID)) then {
 
 // Run EJAM's FiredEH if ACE Overheating disabled OR EJAM Jam chance forced
 if (!(missionNamespace getVariable ["ace_overheating_enabled",false]) || GVAR(ForceOverallChance)) then {
-	GVAR(FiredEH) = player addEventHandler ["Fired", { call GVAR(fnc_firedEH) }];
+	GVAR(FiredEH) = player addEventHandler ["Fired", { call FUNC(firedEH) }];
 };
 
 if (!isNil "ace_overheating_unJamFailChance") then {
@@ -45,3 +45,5 @@ if (!isNil "ace_overheating_unJamFailChance") then {
 	player setVariable ["ace_overheating_JammingActionID", -1];
 	player setVariable ["ace_overheating_jammedWeapons", []];
 };
+
+player addEventHandler ["Reloaded", { [] call FUNC(reloadedEH) }];

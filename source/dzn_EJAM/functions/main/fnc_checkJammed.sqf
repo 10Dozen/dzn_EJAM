@@ -19,10 +19,10 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 private _aceJammed = !(missionNamespace getVariable ["ace_overheating_enabled", false]) || (primaryWeapon player) in (player getVariable ["ace_overheating_jammedWeapons", []]);
-private _causeSet = (call GVAR(fnc_getJamCause)) != "";
+private _causeSet = (call FUNC(getJamCause)) != "";
 
 private _result = false;
 

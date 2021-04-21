@@ -3,7 +3,7 @@ Function: dzn_EJAM_fnc_uiShowUnjamMenu
 
 Description:
 	Draw Unjam UI menu.
-	
+
 Parameters:
 	nothing
 
@@ -19,20 +19,20 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 closeDialog 2;
 hintSilent "";
-sleep 0.001;
+uiSleep 0.001;
 
 // **
-// Get weapon state 
+// Get weapon state
 [
 	nil, nil, nil
-	, if (call GVAR(fnc_isMagAttached)) then { "mag_attached" } else { "mag_detached" }
-] call GVAR(fnc_setWeaponState);
+	, if (call FUNC(isMagAttached)) then { "mag_attached" } else { "mag_detached" }
+] call FUNC(setWeaponState);
 
-(call GVAR(fnc_getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
+(call FUNC(getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 
 // **
 // Prepare data
@@ -51,19 +51,19 @@ private _img = parseText format [
 	"<img align=""center"" image=""%1"" size=""14"" />"
 	, getText (configFile >> "CfgWeapons" >> primaryWeapon player >> "picture")
 ];
-private _boltText = [_bolt, "state"] call GVAR(fnc_getEnumText) call _parseAndFormatCenter;
-private _chamberText = ([_chamber, "state"] call GVAR(fnc_getEnumText)) call _parseAndFormatCenter;
-private _caseText = ([_case, "state"] call GVAR(fnc_getEnumText)) call _parseAndFormatCenter;
-private _magText = ([_mag, "state"] call GVAR(fnc_getEnumText)) call _parseAndFormatCenter;
+private _boltText = [_bolt, "state"] call FUNC(getEnumText) call _parseAndFormatCenter;
+private _chamberText = ([_chamber, "state"] call FUNC(getEnumText)) call _parseAndFormatCenter;
+private _caseText = ([_case, "state"] call FUNC(getEnumText)) call _parseAndFormatCenter;
+private _magText = ([_mag, "state"] call FUNC(getEnumText)) call _parseAndFormatCenter;
 
-private _pullBoltActionText = ["pull_bolt", "action"] call GVAR(fnc_getEnumText) call _parseAndFormatLeft;
-private _clearChamberActionText = ["clear_chamber", "action"] call GVAR(fnc_getEnumText) call _parseAndFormatLeft;
-private _openBoltActionText = ["open_bolt", "action"] call GVAR(fnc_getEnumText) call _parseAndFormatLeft;
-private _clearCaseActionText = ["remove_case", "action"] call GVAR(fnc_getEnumText) call _parseAndFormatLeft;
+private _pullBoltActionText = ["pull_bolt", "action"] call FUNC(getEnumText) call _parseAndFormatLeft;
+private _clearChamberActionText = ["clear_chamber", "action"] call FUNC(getEnumText) call _parseAndFormatLeft;
+private _openBoltActionText = ["open_bolt", "action"] call FUNC(getEnumText) call _parseAndFormatLeft;
+private _clearCaseActionText = ["remove_case", "action"] call FUNC(getEnumText) call _parseAndFormatLeft;
 private _magActionText = [
 	if (_mag == "mag_attached") then { "detach_mag" } else { "attach_mag" }
 	, "action"
-] call GVAR(fnc_getEnumText) call _parseAndFormatLeft;
+] call FUNC(getEnumText) call _parseAndFormatLeft;
 
 
 // **
@@ -94,15 +94,15 @@ GET_CTRL(6023) ctrlSetStructuredText _openBoltActionText;
 GET_CTRL(6024) ctrlSetStructuredText _clearCaseActionText;
 
 // --- Set button states & onclick
-private _generateActionCode = { 
+private _generateActionCode = {
 	compile format ["closeDialog 2; ""%1"" spawn %2", _this, SVAR(fnc_doAction)]
 };
 private _isActive = false;
 
-// --- --- Close 
+// --- --- Close
 GET_CTRL(6003) ctrlAddEventHandler ["ButtonClick", { closeDialog 2; }];
 
-// --- --- Bolt pull 
+// --- --- Bolt pull
 GET_CTRL(6020) ctrlAddEventHandler ["ButtonClick", "pull_bolt" call _generateActionCode];
 GET_CTRL(6020) ctrlSetFont "PuristaLight";
 
@@ -116,7 +116,7 @@ if (_bolt != "bolt_opened") then {
 
 GET_CTRL(6023) ctrlEnable _isActive;
 
-// --- --- Chamber 
+// --- --- Chamber
 if (_bolt == "bolt_opened" && _mag == "mag_detached" && _chamber == "chamber_stucked" && _case == "case_ejected") then {
 	_isActive = true;
 	GET_CTRL(6021) ctrlAddEventHandler ["ButtonClick", "clear_chamber" call _generateActionCode];

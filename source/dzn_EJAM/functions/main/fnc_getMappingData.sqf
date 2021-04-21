@@ -22,7 +22,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 params ["_gun", "_type", ["_isForConfig", false]];
 

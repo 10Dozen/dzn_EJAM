@@ -2,7 +2,7 @@
 Function: dzn_EJAM_fnc_isMagAttached
 
 Description:
-	Process selected action from Weapon Malfunction menu
+	Returns True if magazine attache to current weapon
 
 Parameters:
 	nothing
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-		call dzn_EJAM_fnc_isMagAttached;
+		_isMagAttached = [] call dzn_EJAM_fnc_isMagAttached;
     (end)
 
 Author:

@@ -19,7 +19,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 private _gun = [primaryWeapon player] call BIS_fnc_baseWeapon;
 private _weights = [_gun, "malfunction"] call GVAR(fnc_getMappingData);
@@ -46,7 +46,7 @@ if ((_jamCauses select { _gun == _x # 0 }) isEqualTo []) then {
 
 // Set gun jamming
 if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
-	// No ACE_Overheating 
+	// No ACE_Overheating
 
 	if (isNil SVAR(PreventFireID)) then {
 		// Adding prevent fire handler
@@ -57,8 +57,8 @@ if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 			}, "", 0, false, true, "DefaultAction"
 			, format [
 				"_muzzle = str(currentMuzzle player) splitString '""' joinString '';
-				(_muzzle == primaryWeapon player) 
-				&& [player, primaryWeapon player] call CBA_fnc_canUseWeapon 
+				(_muzzle == primaryWeapon player)
+				&& [player, primaryWeapon player] call CBA_fnc_canUseWeapon
 				&& ""inspect"" call %1"
 				, SVAR(fnc_checkJammed)
 			]

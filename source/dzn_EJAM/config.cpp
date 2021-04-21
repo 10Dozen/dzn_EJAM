@@ -7,7 +7,7 @@ class CfgPatches
 		requiredVersion = 0.1;
 		requiredAddons[] = {"CBA_MAIN"};
 		author = "10Dozen";
-		version = "2.7.1";
+		version = "2.7.2";
 	};
 };
 
@@ -15,7 +15,7 @@ class Extended_PreInit_EventHandlers
 {
 	class dzn_EJAM
 	{
-		init = call compile preprocessFileLineNumbers "\dzn_EJAM\Init.sqf";
+		init = call compile preprocessFileLineNumbers "\dzn_EJAM\PreInit.sqf";
 	};
 };
 

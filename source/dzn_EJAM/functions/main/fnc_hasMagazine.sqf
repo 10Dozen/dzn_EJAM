@@ -19,12 +19,9 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-private _weaponMags = (getArray (configFile >> "CfgWeapons" >> primaryWeapon player >> "magazines")) apply { toLower(_x) };
-private _mag = [];
-{
-	if (toLower(_x select 0) in _weaponMags) exitWith {	_mag = _x; };
-} forEach (magazinesAmmo player);
+private _weaponMags = ([primaryWeapon player] call CBA_fnc_compatibleMagazines) apply { toLower(_x) };
 
-private _result = !(_mag isEqualTo []); 
+// --- Loop through player's magazines and find any compatible
+private _hasAnyMagazine = (magazinesAmmo player) findIf { toLower(_x # 0) in _weaponMags } > -1;
 
-(_result)
+(_hasAnyMagazine)

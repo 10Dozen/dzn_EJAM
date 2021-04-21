@@ -19,7 +19,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 private _gun = [primaryWeapon player] call BIS_fnc_baseWeapon;
 
@@ -50,7 +50,7 @@ if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 	// ACE Overheating enabled
 	private _oldFailChance = ace_overheating_unJamFailChance;
 
-	private _family = _gun call GVAR(fnc_getClassFamily);
+	private _family = _gun call FUNC(getClassFamily);
 	{
 		ace_overheating_unJamFailChance = 0;
 		[player, _x, true] call ace_overheating_fnc_clearJam;

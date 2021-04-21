@@ -19,7 +19,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 switch toLower(_this) do {
 	case "ok": {
@@ -37,7 +37,7 @@ switch toLower(_this) do {
 		];
 	};
 	case "state": {
-		(call GVAR(fnc_getWeaponState)) params [
+		(call FUNC(getWeaponState)) params [
 			["_bolt", GVAR(Defaults) # 0]
 			, ""
 			, ""
@@ -46,8 +46,8 @@ switch toLower(_this) do {
 
 		hint parseText format [
 			"<t shadow='2' size='1.25'>%1</t><br /><t shadow='2' size='1.25'>%2</t><br /><img image='%3' size='5'/>"
-			, [_bolt, "state"] call GVAR(fnc_getEnumText)
-			, [_mag, "state"] call GVAR(fnc_getEnumText)
+			, [_bolt, "state"] call FUNC(getEnumText)
+			, [_mag, "state"] call FUNC(getEnumText)
 			, getText (configFile >> "CfgWeapons" >> primaryWeapon player >> "picture")
 		];
 	};

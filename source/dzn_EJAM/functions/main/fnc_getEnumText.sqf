@@ -3,7 +3,7 @@ Function: dzn_EJAM_fnc_getEnumText
 
 Description:
 	Resolve enum value to localized text
-	
+
 Parameters:
 	_enumValue - Value of enum <STRING>
 	_enumType - Type of the enum to search: "state", "action", "process", "time" <STRING>
@@ -21,7 +21,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 params ["_text", "_source"];
 

@@ -19,7 +19,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 if !(isNil SVAR(ActionInProgress)) exitWith {};
 if ([] call GVAR(fnc_isInVehicleCrew)) exitWith {};

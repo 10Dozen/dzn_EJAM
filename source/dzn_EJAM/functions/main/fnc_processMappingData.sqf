@@ -2,7 +2,7 @@
 Function: dzn_EJAM_fnc_processMappingData
 
 Description:
-	Update ACE Overheating cache data and set up EJAM customized config 
+	Update ACE Overheating cache data and set up EJAM customized config
 	according to dzn_EJAM Jam chance Mapping
 
 Parameters:
@@ -20,7 +20,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 // Reset EJAM's config
 private _configVars = allVariables GVAR(ConfigData);
@@ -31,7 +31,7 @@ private _configVars = allVariables GVAR(ConfigData);
 {
 	_x params ["_gun","_jamChance"];
 
-	_gun = [_gun] call BIS_fnc_baseWeapon;	
+	_gun = [_gun] call BIS_fnc_baseWeapon;
 
 	if (isNil {ace_overheating_cacheWeaponData getVariable _gun}) then {
 		[_gun] call ace_overheating_fnc_getWeaponData;
@@ -45,5 +45,5 @@ private _configVars = allVariables GVAR(ConfigData);
 
 	// Set EJAM customized data for weapon
 	GVAR(ConfigData) setVariable [_gun, _x select [1,6]];
-	
+
 } forEach GVAR(Mapping);

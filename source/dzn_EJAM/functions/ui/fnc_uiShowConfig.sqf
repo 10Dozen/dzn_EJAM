@@ -3,7 +3,7 @@ Function: dzn_EJAM_fnc_uiShowConfig
 
 Description:
 	Draw EJAM Weapon Configurator UI menu.
-	
+
 Parameters:
 	nothing
 
@@ -19,7 +19,7 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
 closeDialog 2;
 sleep 0.001;
@@ -27,7 +27,7 @@ sleep 0.001;
 // Prerparation
 GVAR(SearchRun) = false;
 
-// Define UI functions 
+// Define UI functions
 fnc_EJAM_gfc = {
 	params ["_class", "_par","_type",["_config","CfgWeapons"]];
 	private _result = switch toUpper(_type) do {
@@ -55,7 +55,7 @@ fnc_EJAM_filterWeapons = {
 	private _resultList = [];
 	private _allGunClasses = configFile >> "CfgWeapons";
 	for "_i" from 0 to ((count _allGunClasses) - 1) do {
-		
+
 		private _class = configName (_allGunClasses select _i);
 
 		if (_class != "access") then {
@@ -65,8 +65,8 @@ fnc_EJAM_filterWeapons = {
 			if (
 				[_class,"type","n"] call fnc_EJAM_gfc == 1
 				&& {
-					[_class,"picture","t"] call fnc_EJAM_gfc != "" 
-					&& [_class,"model","t"] call fnc_EJAM_gfc != "" 
+					[_class,"picture","t"] call fnc_EJAM_gfc != ""
+					&& [_class,"model","t"] call fnc_EJAM_gfc != ""
 					&& [_class,"scope","n"] call fnc_EJAM_gfc == 2
 				}
 			) then {
@@ -75,7 +75,7 @@ fnc_EJAM_filterWeapons = {
 
 				if !(_baseClass in _resultList) then {
 					private _name = [_baseClass,"displayName","t"] call fnc_EJAM_gfc;
-					
+
 					{
 						// Filter by string and source
 						if ( [_x, _name, false] call BIS_fnc_inString ) then {
@@ -98,7 +98,7 @@ fnc_EJAM_collectSliderData = {
 	private _gun = call fnc_EJAM_uiGetSelected;
 	private _display = (findDisplay 134802);
 	private _data = [_gun];
-	
+
 	//  Jam chance w. 0.00 accuracy & other sliders w. 0.0 accuracy
 	{
 		private _accuracy = if (_forEachIndex == 0) then { 100 } else { 10 };
@@ -127,7 +127,7 @@ fnc_EJAM_uiOnFilterKeyDown = {
 	[] spawn {
 		uiSleep 0.5;
 		GVAR(SearchRun) = false;
-	};	
+	};
 };
 
 fnc_EJAM_uiUpatdeListbox = {
@@ -161,7 +161,7 @@ fnc_EJAM_uiOnGunSelected = {
 	params ["_control", "_selectedIndex"];
 
 	private _class = call fnc_EJAM_uiGetSelected;
-	
+
 	_class call fnc_EJAM_uiUpdateWeaponData;
 	[_class, true] call fnc_EJAM_uiUpdateSliders;
 	true call fnc_EJAM_uiUpdateButtons;
@@ -170,7 +170,7 @@ fnc_EJAM_uiOnGunSelected = {
 fnc_EJAM_uiUpdateWeaponData = {
 	private _class = _this;
 	private _display = (findDisplay 134802);
-	
+
 	private _gunName = parseText format [
 		"%1 <t align=""right"" size=""0.75"" color=""#ff0000"">%2</t>"
 		, [_class,"displayName","t"] call fnc_EJAM_gfc
@@ -203,12 +203,12 @@ fnc_EJAM_uiUpdateSliders = {
 		private _malfunctionWeights = 0;
 
 		if (_sliderData isEqualTo []) then {
-			_jamChance = [_class, "jam", true] call GVAR(fnc_getMappingData);
-			_malfunctionWeights = [_class, "malfunction", true] call GVAR(fnc_getMappingData);
+			_jamChance = [_class, "jam", true] call FUNC(getMappingData);
+			_malfunctionWeights = [_class, "malfunction", true] call FUNC(getMappingData);
 		} else {
 			_jamChance = _sliderData # 0;
 			_malfunctionWeights = _sliderData select [1,5];
-		};		
+		};
 
 		(_data # 0) set [1, _jamChance];
 		(_data # 1) set [1, _malfunctionWeights # 0];
@@ -216,7 +216,7 @@ fnc_EJAM_uiUpdateSliders = {
 		(_data # 3) set [1, _malfunctionWeights # 2];
 		(_data # 4) set [1, _malfunctionWeights # 3];
 		(_data # 5) set [1, _malfunctionWeights # 4];
-		
+
 		{
 			_x params ["_ctrlId","_val"];
 
@@ -251,7 +251,7 @@ fnc_EJAM_uiOnSliderChanged = {
 fnc_EJAM_uiUpdateButtons = {
 	private _display = (findDisplay 134802);
 	private _data = [6050, 6051, 6052, 6053];
-	
+
 	{
 		((findDisplay 134802) displayCtrl _x) ctrlEnable _this;
 	} forEach _data;
@@ -260,7 +260,7 @@ fnc_EJAM_uiUpdateButtons = {
 fnc_EJAM_uiOnSaveClick = {
 	private _newMappingData = call fnc_EJAM_collectSliderData;
 	private _isReset = (_newMappingData select [1,6]) isEqualTo [0,0,0,0,0,0];
-	
+
 	private _mapping = GVAR(Mapping) select { _newMappingData select 0 == _x select 0 };
 	if (_mapping isEqualTo []) then {
 		if !(_isReset) then {
@@ -353,8 +353,8 @@ fnc_EJAM_uiOnResetClick = {
 	call fnc_EJAM_uiOnSaveClick;
 };
 
-// Draw 
-// --- Dialog 
+// Draw
+// --- Dialog
 createDialog "dzn_EJAM_Config_Group";
 private _display = (findDisplay 134802);
 #define GET_CTRL(X)	(_display displayCtrl X)
@@ -365,20 +365,20 @@ GET_CTRL(6003) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_Close
 GET_CTRL(6010) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_SectionLabel");
 GET_CTRL(6010) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_SectionLabel");
 
-// --- Filter 
+// --- Filter
 GET_CTRL(6012) ctrlSetText LOCALIZE_FORMAT_STR("Config_FilterLabel");
 GET_CTRL(6012) ctrlSetTooltip LOCALIZE_FORMAT_STR("Config_FilterTooltip");
 GET_CTRL(6012) ctrlSetEventHandler ["KeyDown", "_this call fnc_EJAM_uiOnFilterKeyDown;"];
 GET_CTRL(6011) ctrlSetEventHandler ["LBSelChanged", "_this call fnc_EJAM_uiOnGunSelected"];
 GET_CTRL(6011) ctrlSetEventHandler ["LBDblClick", "_this call fnc_EJAM_uiOnLBDblClick"];
 
-// --- Weapon data 
+// --- Weapon data
 GET_CTRL(6021) ctrlSetStructuredText parseText format [
 	"<t align=""center"">%1</t>"
 	, LOCALIZE_FORMAT_STR("Config_PlaceholderLabel")
 ];
 
-// --- Sliders 
+// --- Sliders
 {
 	GET_CTRL(_x) sliderSetRange [0,100];
 	GET_CTRL(_x) sliderSetSpeed (if (_forEachIndex == 0) then { [0.01,10] } else { [0.1,25] });
@@ -389,7 +389,7 @@ GET_CTRL(6021) ctrlSetStructuredText parseText format [
 	];
 } forEach [6040, 6041, 6042, 6043, 6044, 6045];
 
-// --- Buttons 
+// --- Buttons
 false call fnc_EJAM_uiUpdateButtons;
 GET_CTRL(6050) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnSaveClick"];
 GET_CTRL(6050) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_SaveBtn");
@@ -404,4 +404,3 @@ GET_CTRL(6052) ctrlSetTooltip LOCALIZE_FORMAT_STR("Config_PasteTooltip");
 GET_CTRL(6053) ctrlSetEventHandler ["ButtonClick", "_this call fnc_EJAM_uiOnResetClick"];
 GET_CTRL(6053) ctrlSetStructuredText parseText LOCALIZE_FORMAT_STR("Config_ResetBtn");
 GET_CTRL(6053) ctrlSetTooltip LOCALIZE_FORMAT_STR("Config_ResetTooltip");
-

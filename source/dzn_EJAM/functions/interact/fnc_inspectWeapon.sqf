@@ -19,10 +19,10 @@ Author:
 	10Dozen
 ---------------------------------------------------------------------------- */
 
-#include "..\macro.hpp"
+#include "..\script_macro.hpp"
 
-if ("inspect" call GVAR(fnc_checkJammed)) then {
-	[] spawn GVAR(fnc_uiShowUnjamMenu);
+if ("inspect" call FUNC(checkJammed)) then {
+	[] spawn FUNC(uiShowUnjamMenu);
 } else {
 	hint parseText format [
 		"<t shadow='2' size='1.25'>%1</t><br /><img image='%2' size='5'/>"
