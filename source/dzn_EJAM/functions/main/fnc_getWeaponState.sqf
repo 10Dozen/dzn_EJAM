@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-		_weaponState = call dzn_EJAM_fnc_getWeaponState; // ["bolt_not_closed","chamber_stucked","case_ejected","mag_attached"]
+		_weaponState = call dzn_EJAM_fnc_getWeaponState; // [STATE_BOLT_NOT_CLOSED,STATE_CHAMBER_STUCK,STATE_CASE_EJECTED,STATE_MAG_ATTACHED]
     (end)
 
 Author:

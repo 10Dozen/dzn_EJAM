@@ -41,7 +41,7 @@ if (_lastFiredGunData isEqualTo [] || { _gun != _lastFiredGunData select 0 }) th
 };
 
 if (_jamChance isEqualTo 0) exitWith {
-		// No jam may happen by default
+		// No jam may happen if there is 0 chance in config/settings
 };
 
 // Check is subsonic to enlarge jam chance
@@ -55,17 +55,13 @@ private _random = random 100;
 
 // Check random vs jam chance to modify
 if (_random <= _jamChance) then {
-	call FUNC(setJammed);
-
 	// Stop firing
-	_gun spawn {
-		private _gun = _this;
-		private _frame = diag_frameno;
-		private _ammo = player ammo _gun;
-		if (_ammo > 0) then {
-			player setAmmo [_gun, 0];
-			waitUntil {_frame < diag_frameno};
-			player setAmmo [_gun, _ammo];
-		};
-	};
+	private _ammo = player ammo _gun;
+	player setAmmo [_gun, 0];
+	[{
+		params ["_gun","_ammo"];
+		player setAmmo [_gun, _ammo];
+
+		[true] call FUNC(setJammed);
+	}, [_gun, _ammo]] call CBA_fnc_execNextFrame;
 };

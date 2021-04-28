@@ -22,8 +22,7 @@ Author:
 #include "..\script_macro.hpp"
 
 player setVariable [SVAR(Cause), []];
-player setVariable [SVAR(RemovedMagazine), nil];
-player setVariable [SVAR(LooseRound), nil];
+player setVariable [SVAR(DetachedMagazine), nil];
 player setVariable [SVAR(WeaponState), nil];
 
 if (!isNil SVAR(PreventFireID)) then {
@@ -46,4 +45,7 @@ if (!isNil "ace_overheating_unJamFailChance") then {
 	player setVariable ["ace_overheating_jammedWeapons", []];
 };
 
-player addEventHandler ["Reloaded", { [] call FUNC(reloadedEH) }];
+player addEventHandler ["Reloaded", {
+	diag_log parseText "[EJAM] Reloaded EH event";
+	[] call FUNC(reloadedEH)
+}];

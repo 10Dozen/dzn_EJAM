@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-		"pull_bolt" call dzn_EJAM_fnc_doAction;
+		ACTION_PULL_BOLT call dzn_EJAM_fnc_doAction;
     (end)
 
 Author:
@@ -26,10 +26,9 @@ params ["_actionID", ["_isMenuAction", true]];
 GVAR(ActionInProgress) = true;
 
 // Update magazine state
-// [nil, nil, nil, if (call FUNC(isMagAttached)) then { "mag_attached" } else { "mag_detached" }] call FUNC(setWeaponState);
+// [nil, nil, nil, if (call FUNC(isMagAttached)) then { STATE_MAG_ATTACHED } else { STATE_MAG_DETACHED }] call FUNC(setWeaponState);
 
-#define REMOVE_ROUND	if ((player getVariable SVAR(RemovedMagazine) select 1) > 0) then { player setVariable [SVAR(LooseRound), true]; }
-#define SHOW_MENU		if (_args) then { call FUNC(inspectWeapon) } else { "state" call FUNC(uiShowBriefState) }
+#define SHOW_MENU		if (_args) then { [] call FUNC(inspectWeapon) } else { "state" call FUNC(uiShowBriefState) }
 #define FINISH_ACTION	GVAR(ActionInProgress) = nil
 #define PLAY_ANIMATION	if (stance player != "PRONE" && vehicle player == player) then { player playActionNow "DismountOptic"; }
 
@@ -43,38 +42,37 @@ private _needExecute = true;
 private _needSound = true;
 
 switch (_actionID) do {
-	case "pull_bolt": {
+	case ACTION_PULL_BOLT: {
 		_code = {
-			call FUNC(pullBolt);
+			["pull"] call FUNC(operateBolt);
 			SHOW_MENU;
 			FINISH_ACTION;
 		};
 	};
-	case "open_bolt": {
+	case ACTION_OPEN_BOLT: {
 		_code = {
-			["bolt_opened",nil,nil,nil] call FUNC(setWeaponState);
+			["open"] call FUNC(operateBolt);
 			SHOW_MENU;
 			FINISH_ACTION;
 		};
 	};
-	case "clear_chamber": {
+	case ACTION_CLEAR_CHAMBER: {
 		PLAY_ANIMATION;
 		_code = {
-			REMOVE_ROUND;
-			[nil,"chamber_empty",nil,nil] call FUNC(setWeaponState);
+			[nil,STATE_CHAMBER_EMPTY,nil,nil] call FUNC(setWeaponState);
 			SHOW_MENU;
 			FINISH_ACTION;
 		};
 	};
-	case "remove_case": {
+	case ACTION_REMOVE_CASE: {
 		PLAY_ANIMATION;
 		_code = {
-			[nil,nil,"case_ejected",nil] call FUNC(setWeaponState);
+			[nil,nil,STATE_CASE_EJECTED,nil] call FUNC(setWeaponState);
 			SHOW_MENU;
 			FINISH_ACTION;
 		};
 	};
-	case "detach_mag": {
+	case ACTION_DETACH_MAG: {
 		if ((primaryWeaponMagazine player) isEqualTo []) exitWith {
 			FINISH_ACTION;
 			_needExecute = false;
@@ -82,12 +80,17 @@ switch (_actionID) do {
 
 		_code = {
 			true call FUNC(manageMagazine);
-			[nil, nil, nil, if (call FUNC(isMagAttached)) then { "mag_attached" } else { "mag_detached" }] call FUNC(setWeaponState);
+			[
+				nil,
+				nil,
+				nil,
+				[STATE_MAG_DETACHED, STATE_MAG_ATTACHED] select (call FUNC(isMagAttached))
+			] call FUNC(setWeaponState);
 			SHOW_MENU;
 			FINISH_ACTION;
 		};
 	};
-	case "attach_mag": {
+	case ACTION_ATTACH_MAG: {
 		if !(call FUNC(hasMagazine)) exitWith {
 			FINISH_ACTION;
 			private _msg = [LOCALIZE_FORMAT_STR("Hint_NoMag"),1.5];
@@ -103,7 +106,12 @@ switch (_actionID) do {
 		_code = {
 			GVAR(MagLoading) = true;
 			false call FUNC(manageMagazine);
-			[nil, nil, nil, if (call FUNC(isMagAttached)) then { "mag_attached" } else { "mag_detached" }] call FUNC(setWeaponState);
+			[
+				nil,
+				nil,
+				nil,
+				[STATE_MAG_DETACHED, STATE_MAG_ATTACHED] select (call FUNC(isMagAttached))
+			] call FUNC(setWeaponState);
 			SHOW_MENU;
 			FINISH_ACTION;
 
@@ -113,7 +121,8 @@ switch (_actionID) do {
 			GVAR(MagLoading) = nil;
 		};
 	};
-	case "inspect": {
+	case ACTION_INSPECT: {
+		player playActionNow "Gear";
 		_code = {
 			"state" call FUNC(uiShowBriefState);
 			FINISH_ACTION;

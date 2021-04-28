@@ -27,7 +27,7 @@ GVAR(ConfigData) = call CBA_fnc_createNamespace;
 			// Run ACE Jammed handler if ACE Overheating enabled
 			GVAR(ACE_Jammed_EH) = ["ace_weaponJammed", {
 				if (_this select 1 != primaryWeapon player) exitWith {};
-				[] call FUNC(setJammed);
+				[false] call FUNC(setJammed);
 			}] call CBA_fnc_addEventHandler;
 		}] call CBA_fnc_waitUntilAndExecute;
 	};
@@ -38,4 +38,12 @@ GVAR(ConfigData) = call CBA_fnc_createNamespace;
 	if (!isNil "ace_interact_menu_fnc_createAction") then {
 		[] call FUNC(addACEAction);
 	};
+
+	// CBA inventory action
+	[
+		"#All","RIFLE",
+		LSTR(Action_Inspect),
+		[],"",{ true },
+		{ [] call FUNC(inspectWeapon); }
+	] call CBA_fnc_addItemContextMenuOption;
 }] call CBA_fnc_waitUntilAndExecute;

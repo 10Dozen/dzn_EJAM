@@ -2,7 +2,15 @@
 #define	gADDON EJAM
 #define	gADDON_NAME dzn_##gADDON
 
-#define gADDON_PATH gADDON_NAME
+#define _SCRIPT_MACRO 1
+#ifdef _SCRIPT_MACRO
+	#undef gADDON_PATH
+	#define gADDON_PATH gADDON_NAME
+#else
+	#undef gADDON_PATH
+	#define gADDON_PATH \##gADDON_NAME
+#endif
+
 #define gFNCS_PATH gADDON_PATH##\functions\##
 
 #define QUOTE(s) #s
@@ -20,8 +28,11 @@
 #define FUNC(X) gADDON_NAME##_fnc_##X
 #define QFUNC(X) QUOTE(FUNC(X))
 
+
+// Localization
 #define gSTR_NAME(X) STR_##gADDON##_##X
 #define STR_NAME(X) QUOTE(gSTR_NAME(X))
+#define LSTR(X) localize STR_NAME(X)
 
 #define LOCALIZE_FORMAT_STR(X) localize format ["STR_%1_%2", ADDON, X]
 #define LOCALIZE_FORMAT_STR_DESC(X) localize format ["STR_%1_%2_desc", ADDON, X]

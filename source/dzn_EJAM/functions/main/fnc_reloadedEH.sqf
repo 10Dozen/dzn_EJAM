@@ -24,9 +24,14 @@ Author:
 // params ["_unit", "_weapon", "_muzzle", "_newMagazine", "_oldMagazine"];
 
 // Set proper Magazine state
-[nil, nil, nil, if ([] call FUNC(isMagAttached)) then { "mag_attached" } else { "mag_detached" }] call FUNC(setWeaponState);
+[
+	nil,
+	nil,
+	nil,
+	[STATE_MAG_DETACHED, STATE_MAG_ATTACHED] select ([] call FUNC(isMagAttached))
+] call FUNC(setWeaponState);
 
 // Pull bolt if reload is not from Inspect menu
 if (GVAR(PullBoltOnReload) && isNil SVAR(MagLoading)) then {
-	[] call FUNC(pullBolt);
+	["pull"] call FUNC(operateBolt);
 };

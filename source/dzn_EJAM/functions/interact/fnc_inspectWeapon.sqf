@@ -21,12 +21,15 @@ Author:
 
 #include "..\script_macro.hpp"
 
-if ("inspect" call FUNC(checkJammed)) then {
-	[] spawn FUNC(uiShowUnjamMenu);
-} else {
-	hint parseText format [
-		"<t shadow='2' size='1.25'>%1</t><br /><img image='%2' size='5'/>"
-		, LOCALIZE_FORMAT_STR("Hint_WeaponOK")
-		, getText (configFile >> "CfgWeapons" >> primaryWeapon player >> "picture")
-	];
+// --- Show OK hint if not jammed
+if !("inspect" call FUNC(checkJammed)) exitWith {
+	"OK" call FUNC(uiShowBriefState);
 };
+
+// --- Show Full Inspect menu if option selected in settings
+if (GVAR(AllowFullInspectMenu)) exitWith {
+	[] spawn FUNC(uiShowUnjamMenu);
+};
+
+// --- Show Quick Inspect menu otherwise
+[ACTION_INSPECT, false] call FUNC(doAction);

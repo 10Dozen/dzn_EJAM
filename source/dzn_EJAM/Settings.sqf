@@ -86,13 +86,6 @@ private _addLocal = {
 	, {	/* Reset cache */  player setVariable [SVAR(FiredLastGunData), nil]; }
 ] call _add;
 
-// Pull bolt on reload via Reload key or inventory
-[
-	"PullBoltOnReload"
-	, "CHECKBOX"
-	, true
-] call _addLocal;
-
 // Subsonic ammo effect on jam chance
 [
 	"SubsonicJamEffectSetting"
@@ -119,15 +112,30 @@ private _addLocal = {
 	, str(GVAR(Mapping)) select [1, count str(GVAR(Mapping)) -2]
 	, {
 		GVAR(Mapping) = call compile ("[" + _this + "]");
-		call GVAR(fnc_processMappingData);
+		call FUNC(processMappingData);
 
 		// Reset cache
 		player setVariable [SVAR(FiredLastGunData), nil];
 	}
 ] call _add;
 
+// Pull bolt on reload via Reload key or inventory
+[
+	"PullBoltOnReload"
+	, "CHECKBOX"
+	, true
+] call _addLocal;
+
+// Allow full Inspect menu
+[
+	"AllowFullInspectMenu"
+	, "CHECKBOX"
+	, true
+] call _add;
+
+
 // Keybinding
-#define ALLOW_OVERRIDE !([] call GVAR(fnc_isInVehicleCrew))
+#define ALLOW_OVERRIDE !([] call FUNC(isInVehicleCrew))
 private _addKey = {
 	params["_var","_str","_downCode",["_defaultKey", nil],["_upCode", { false }]];
 
@@ -147,7 +155,7 @@ private _addKey = {
 [
 	"InspectKey"
 	, "Action_Inspect_Menu"
-	, { call GVAR(fnc_inspectWeapon); ALLOW_OVERRIDE }
+	, { [] call FUNC(inspectWeapon); ALLOW_OVERRIDE }
 	, [19, [false,true,false]]
 	, { true }
 ] call _addKey;
@@ -155,21 +163,21 @@ private _addKey = {
 [
 	"QuickInspectKey"
 	, "Action_QuickInspect"
-	, { "inspect" call GVAR(fnc_doHotkeyAction); ALLOW_OVERRIDE }
+	, { ACTION_INSPECT call FUNC(doHotkeyAction); ALLOW_OVERRIDE }
 ] call _addKey;
 
 // Pull bolt key
 [
 	"PullBoltKey"
 	, "Action_PullBolt"
-	, { "pull_bolt" call GVAR(fnc_doHotkeyAction); ALLOW_OVERRIDE }
+	, { ACTION_PULL_BOLT call FUNC(doHotkeyAction); ALLOW_OVERRIDE }
 ] call _addKey;
 
 // Open bolt key
 [
 	"OpenBoltKey"
 	, "Action_OpenBolt"
-	, { "open_bolt" call GVAR(fnc_doHotkeyAction); ALLOW_OVERRIDE }
+	, { ACTION_OPEN_BOLT call FUNC(doHotkeyAction); ALLOW_OVERRIDE }
 ] call _addKey;
 
 // Toggle magazine key
@@ -177,9 +185,9 @@ private _addKey = {
 	"MagazineKey"
 	, "Action_MagazineToggle"
 	, {
-		(call GVAR(fnc_getWeaponState)) params ["","","","_mag"];
-		private _action = if (_mag == "mag_attached") then { "detach_mag" } else { "attach_mag" };
-		_action call GVAR(fnc_doHotkeyAction);
+		(call FUNC(getWeaponState)) params ["","","","_mag"];
+		private _action = if (_mag == STATE_MAG_ATTACHED) then { ACTION_DETACH_MAG } else { ACTION_ATTACH_MAG };
+		_action call FUNC(doHotkeyAction);
 		ALLOW_OVERRIDE
 	}
 ] call _addKey;
@@ -188,12 +196,12 @@ private _addKey = {
 [
 	"ClearChamnerKey"
 	, "Action_ClearChamber"
-	, { "clear_chamber" call GVAR(fnc_doHotkeyAction); true }
+	, { ACTION_CLEAR_CHAMBER call FUNC(doHotkeyAction); true }
 ] call _addKey;
 
 // Remove case key
 [
 	"RemoveCaseKey"
 	, "Action_RemoveCase"
-	, { "remove_case" call GVAR(fnc_doHotkeyAction); true }
+	, { ACTION_REMOVE_CASE call FUNC(doHotkeyAction); true }
 ] call _addKey;

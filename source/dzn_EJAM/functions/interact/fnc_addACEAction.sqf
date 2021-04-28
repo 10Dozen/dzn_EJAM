@@ -25,7 +25,7 @@ GVAR(ACE_InspectActionClass) = [
 	SVAR(ACE_Action_Inspect)
 	, LOCALIZE_FORMAT_STR("Action_Inspect")
 	, getText (configFile >> "CfgWeapons" >> primaryWeapon player >> "picture")
-	, { call FUNC(inspectWeapon) }
+	, { [] call FUNC(inspectWeapon) }
 	, { private _pw = primaryWeapon player; _pw isNotEqualTo "" && currentWeapon player == _pw }
 ] call ace_interact_menu_fnc_createAction;
 

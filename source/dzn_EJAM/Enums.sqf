@@ -1,85 +1,93 @@
 #include "macro.hpp"
+#include "Enums.hpp"
 
 // Causes list in format: [ @ID, [@BoltState, @ChamberState, @CaseState, @MagState] ]
 GVAR(Causes) =  [
 	[
 		/* "Неподача патрона" */
-		/* To fix: 	"pull_bolt" */
-		"feed_failure"
-		,["bolt_closed","chamber_empty","case_ejected","mag_attached"]
+		/* To fix: 	ACTION_PULL_BOLT */
+		CAUSE_FEED_FAILURE
+		,[STATE_BOLT_CLOSED, STATE_CHAMBER_EMPTY, STATE_CASE_EJECTED, STATE_MAG_ATTACHED]
 	]
 	,[
 		/* "Утыкание патрона" */
-		/* To fix: 	"open_bolt","detach_mag","clear_chamber" */
-		"feed_failure_2"
-		,["bolt_not_closed","chamber_stucked","case_ejected","mag_attached"]
+		/* To fix: 	ACTION_OPEN_BOLT, ACTION_DETACH_MAG, ACTION_CLEAR_CHAMBER */
+		CAUSE_CHAMBER_FAILURE
+		,[STATE_BOLT_NOT_CLOSED, STATE_CHAMBER_STUCK, STATE_CASE_EJECTED, STATE_MAG_ATTACHED]
 
 	]
 	,[
 		/* "Осечка" */
-		/* To fix: 	"pull_bolt" */
-		"dud"
-		,["bolt_closed","chamber_ready","case_ejected","mag_attached"]
+		/* To fix: 	ACTION_PULL_BOLT */
+		CAUSE_DUD
+		,[STATE_BOLT_CLOSED, STATE_CHAMBER_READY, STATE_CASE_EJECTED, STATE_MAG_ATTACHED]
 	]
 	,[
 		/* "Неизвлечение гильзы" */
-		/* To fix: 	"open_bolt","detach_mag","remove_case","clear_chamber" */
-		"fail_to_extract"
-		,["bolt_not_closed","chamber_not_extracted","case_not_ejected","mag_attached"]
+		/* To fix: 	ACTION_OPEN_BOLT, ACTION_DETACH_MAG, ACTION_CLEAR_CHAMBER */
+		CAUSE_EXTRACTION_FAILURE
+		,[STATE_BOLT_NOT_CLOSED, STATE_CHAMBER_NOT_EXTRACTABLE, STATE_CASE_EJECTED, STATE_MAG_ATTACHED]
 	]
 	,[
 		/* "Прихват гильзы" */
-		/* To fix: 	"open_bolt","remove_case" */
-		"fail_to_eject"
-		,["bolt_not_closed","chamber_empty","case_not_ejected","mag_attached"]
+		/* To fix: 	ACTION_OPEN_BOLT, ACTION_REMOVE_CASE */
+		CAUSE_EJECTION_FAILURE
+		,[STATE_BOLT_NOT_CLOSED, STATE_CHAMBER_EMPTY, STATE_CASE_NOT_EJECTED, STATE_MAG_ATTACHED]
 	]
 ];
 
 //	, [
 //		/* Затяжной выстрел */
-//		/* To fix: 	"pull_bolt" */
+//		/* To fix: 	ACTION_PULL_BOLT */
 //		"hang_fire"
-//		, ["bolt_closed","chamber_ready","case_ejected","mag_attached"]
+//		, [STATE_BOLT_CLOSED,STATE_CHAMBER_READY,STATE_CASE_EJECTED,STATE_MAG_ATTACHED]
 //	]
 //	, [
 //		/* Неконтролируемый автоматический огонь */
-//		/* To fix:	"detach_mag" or reload */
+//		/* To fix:	ACTION_DETACH_MAG or reload */
 //		"unmanned_fire"
-//		, ["bolt_closed","chamber_ready","case_ejected","mag_attached"]
+//		, [STATE_BOLT_CLOSED,STATE_CHAMBER_READY,STATE_CASE_EJECTED,STATE_MAG_ATTACHED]
 //	]
 
 
 // Weapon States; In format [@ID, @DisplayName]
 GVAR(States) = [
-	["bolt_closed"				,localize "STR_EJAM_State_BoltClosed"]
-	,["bolt_not_closed"			,localize "STR_EJAM_State_BoltNotClosed"]
-	,["bolt_opened"				,localize "STR_EJAM_State_BoltOpened"]
-	,["chamber_empty"			,localize "STR_EJAM_State_ChamberEmpty"]
-	,["chamber_ready"			,localize "STR_EJAM_State_ChamberReady"]
-	,["chamber_stucked"			,localize "STR_EJAM_State_ChamberStucked"]
-	,["chamber_not_extracted"	,localize "STR_EJAM_State_ChamberNotExtracted"]
-	,["case_not_ejected"		,localize "STR_EJAM_State_ChamberNotEjected"]
-	,["case_ejected"			,localize "STR_EJAM_State_CaseEjected"]
-	,["mag_attached"			,localize "STR_EJAM_State_MagAttached"]
-	,["mag_detached"			,localize "STR_EJAM_State_MagDetached"]
+	[STATE_BOLT_CLOSED, LSTR(State_BoltClosed)],
+	[STATE_BOLT_NOT_CLOSED, LSTR(State_BoltNotClosed)],
+	[STATE_BOLT_OPENED, LSTR(State_BoltOpened)],
+	[STATE_CHAMBER_EMPTY, LSTR(State_ChamberEmpty)],
+	[STATE_CHAMBER_READY, LSTR(State_ChamberReady)],
+	[STATE_CHAMBER_STUCK, LSTR(State_ChamberStucked)],
+	[STATE_CHAMBER_NOT_EXTRACTABLE, LSTR(State_ChamberNotExtracted)],
+	[STATE_CASE_EJECTED, LSTR(State_CaseEjected)],
+	[STATE_CASE_NOT_EJECTED, LSTR(State_ChamberNotEjected)],
+	[STATE_MAG_ATTACHED, LSTR(State_MagAttached)],
+	[STATE_MAG_DETACHED, LSTR(State_MagDetached)]
 ];
 
 // Actions; In format [@ID, @DisplayName, @ProgressBarDisplayText, @TimeSpent]
 GVAR(FixActions) = [
-	["pull_bolt"		,localize "STR_EJAM_Action_PullBolt"		, localize "STR_EJAM_Action_PullBolt_Process"		, 0.5]
-	,["open_bolt"		,localize "STR_EJAM_Action_OpenBolt"		, localize "STR_EJAM_Action_OpenBolt_Process"		, 0.5]
-	,["clear_chamber"	,localize "STR_EJAM_Action_ClearChamber"	, localize "STR_EJAM_Action_ClearChamber_Process"	, 3]
-	,["remove_case"		,localize "STR_EJAM_Action_RemoveCase"		, localize "STR_EJAM_Action_RemoveCase_Process"		, 1.5]
-	,["detach_mag"		,localize "STR_EJAM_Action_MagDetach"		, localize "STR_EJAM_Action_MagDetach_Process"		, 0.3]
-	,["attach_mag"		,localize "STR_EJAM_Action_MagAttach"		, localize "STR_EJAM_Action_MagAttach_Process"		, 0.75]
-	,["inspect"			,localize "STR_EJAM_Action_Inspect"			, localize "STR_EJAM_Action_Inspect_Process"		, 0.5]
+	[ACTION_PULL_BOLT,
+		LSTR(Action_PullBolt), LSTR(Action_PullBolt_Process), 0.5],
+	[ACTION_OPEN_BOLT,
+		LSTR(Action_OpenBolt), LSTR(Action_OpenBolt_Process), 0.5],
+	[ACTION_CLEAR_CHAMBER,
+		LSTR(Action_ClearChamber), LSTR(Action_ClearChamber_Process), 3],
+	[ACTION_REMOVE_CASE,
+		LSTR(Action_RemoveCase), LSTR(Action_RemoveCase_Process), 1.5],
+	[ACTION_DETACH_MAG,
+		LSTR(Action_MagDetach), LSTR(Action_MagDetach_Process), 0.3],
+	[ACTION_ATTACH_MAG,
+		LSTR(Action_MagAttach), LSTR(Action_MagAttach_Process), 0.75],
+	[ACTION_INSPECT,
+		LSTR(Action_Inspect), LSTR(Action_Inspect_Process), 0.5]
 ];
 
 GVAR(Defaults) = [
-	"bolt_closed"
-	, "chamber_ready"
-	, "case_ejected"
-	, "mag_attached"
+	STATE_BOLT_CLOSED
+	, STATE_CHAMBER_READY
+	, STATE_CASE_EJECTED
+	, STATE_MAG_ATTACHED
 ];
 
 GVAR(Mapping) = [

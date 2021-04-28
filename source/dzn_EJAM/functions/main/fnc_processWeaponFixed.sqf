@@ -26,10 +26,10 @@ if (isNil { player getVariable SVAR(WeaponState) }) exitWith {};
 (call FUNC(getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 
 if (
-	_bolt != "bolt_not_closed"
-	&& _chamber in ["chamber_ready","chamber_empty"]
-	&& _case == "case_ejected"
-	&& _mag == "mag_attached"
+	_bolt != STATE_BOLT_NOT_CLOSED
+	&& _chamber in [STATE_CHAMBER_READY,STATE_CHAMBER_EMPTY]
+	&& _case == STATE_CASE_EJECTED
+	&& _mag == STATE_MAG_ATTACHED
 ) then {
 	[] spawn {
 		if (isNil "ace_common_fnc_displayTextStructured") then {

@@ -1,7 +1,7 @@
 // Was 1,1
 
 #define SOUND_CLASS(X,Y)	class X { \
-	sound[] = {Y, db+10, 1}; \
+	sound[] = {Y, db+5, 1}; \
 	name = ""; \
 	titles[] = {0, ""}; \
 }

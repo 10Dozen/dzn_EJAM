@@ -16,9 +16,12 @@ PREP(main,fnc_getJamCause);
 PREP(main,fnc_setJammed);
 PREP(main,fnc_setUnjammed);
 PREP(main,fnc_processWeaponFixed);
+PREP(main,fnc_wasteRound);
 
 PREP(main,fnc_setWeaponState);
 PREP(main,fnc_getWeaponState);
+PREP(main,fnc_calculateStateOnBoltOpen);
+PREP(main,fnc_calculateStateOnBoltPull);
 PREP(main,fnc_isMagAttached);
 PREP(main,fnc_hasMagazine);
 
@@ -27,7 +30,7 @@ PREP(interact,fnc_inspectWeapon);
 PREP(interact,fnc_doAction);
 PREP(interact,fnc_doHotkeyAction);
 PREP(interact,fnc_playActionSound);
-PREP(interact,fnc_pullBolt);
+PREP(interact,fnc_operateBolt);
 PREP(interact,fnc_manageMagazine);
 
 PREP(ui,fnc_uiShowUnjamMenu);

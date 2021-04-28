@@ -13,10 +13,10 @@ Returns:
 Examples:
     (begin example)
 		[
-			"bolt_closed"
-			,"chamber_empty"
-			,"case_ejected"
-			,"mag_attached"
+			STATE_BOLT_CLOSED
+			,STATE_CHAMBER_EMPTY
+			,STATE_CASE_EJECTED
+			,STATE_MAG_ATTACHED
 		] call dzn_EJAM_fnc_setWeaponState;
     (end)
 

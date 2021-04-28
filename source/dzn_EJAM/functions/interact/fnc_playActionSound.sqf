@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-		"pull_bolt" call dzn_EJAM_fnc_playActionSound;
+		ACTION_PULL_BOLT call dzn_EJAM_fnc_playActionSound;
     (end)
 
 Author:

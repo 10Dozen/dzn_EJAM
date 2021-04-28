@@ -13,8 +13,8 @@ Returns:
 
 Examples:
     (begin example)
-		_boltStateText = ["bolt_not_closed", "state"] call dzn_EJAM_fnc_getEnumText;
-		_pullProcess = ["pull_bolt", "process"] call dzn_EJAM_fnc_getEnumText;
+		_boltStateText = [STATE_BOLT_NOT_CLOSED, "state"] call dzn_EJAM_fnc_getEnumText;
+		_pullProcess = [ACTION_PULL_BOLT, "process"] call dzn_EJAM_fnc_getEnumText;
     (end)
 
 Author:

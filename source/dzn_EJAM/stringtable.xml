@@ -197,15 +197,6 @@
 			</Key>
 			-->
 
-			<Key ID="STR_EJAM_PullBoltOnReload">
-				<Original>Pull bolt on reload</Original>
-				<Russian>Дергать затвор при перезарядке</Russian>
-			</Key>
-			<Key ID="STR_EJAM_PullBoltOnReload_desc">
-				<Original>Automatically pull bolt when weapon reloaded by reload key or inventory</Original>
-				<Russian>Автоматически передергивать затвор при перезардке через кнопку перезарядке или инвентарь.</Russian>
-			</Key>
-
 			<Key ID="STR_EJAM_SubsonicJamEffectSetting">
 				<Original>Subsonic ammunition penalty</Original>
 				<Russian>Пенальти дозвуковых боеприпасов</Russian>
@@ -252,6 +243,24 @@
 				<German>Benutzerdefinierte Einstellungen für bestimmte Waffen. Im Format @WeaponClass, @JamChance, @MalfunctionChance#1...5]. Verwenden Sie den EJAM-Konfigurator durch [ call dzn_EJAM_Configure ].</German>
 				<Portuguese>Configurações personalizadas para arma específica. No formato [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. Use o configurador EJAM com [ call dzn_EJAM_Configure ]</Portuguese>
 				<Spanish>Opciones para armas específicas. Con el formato [@WeaponClass, @JamChance, @MalfunctionChance#1...5]. Usar el configurador de EJAM con [ call dzn_EJAM_Configure ]</Spanish>
+			</Key>
+
+			<Key ID="STR_EJAM_PullBoltOnReload">
+				<Original>Pull bolt on reload</Original>
+				<Russian>Дергать затвор при перезарядке</Russian>
+			</Key>
+			<Key ID="STR_EJAM_PullBoltOnReload_desc">
+				<Original>Automatically pull bolt when weapon reloaded by reload key or inventory.</Original>
+				<Russian>Автоматически передергивать затвор при перезардке через кнопку перезарядке или инвентарь.</Russian>
+			</Key>
+
+			<Key ID="STR_EJAM_AllowFullInspectMenu">
+				<Original>Allow Inspect Menu</Original>
+				<Russian>Разрешить Меню проверки оружия</Russian>
+			</Key>
+			<Key ID="STR_EJAM_AllowFullInspectMenu_desc">
+				<Original>Allows Inspect weapon menu dialog with actions. If not allowed - unjamming will be possible only via hotkeys!</Original>
+				<Russian>Разрешить использование Меню проверки оружия для выполнения действий. Если не разрешено, то исправлять проблемы придеться только через горячие главиши!</Russian>
 			</Key>
 		</Container>
 

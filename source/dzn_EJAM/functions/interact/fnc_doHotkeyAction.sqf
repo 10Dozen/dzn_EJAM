@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-		"pull_bolt" call dzn_EJAM_fnc_doHotkeyAction;
+		ACTION_PULL_BOLT call dzn_EJAM_fnc_doHotkeyAction;
     (end)
 
 Author:
@@ -22,21 +22,22 @@ Author:
 #include "..\script_macro.hpp"
 
 if !(isNil SVAR(ActionInProgress)) exitWith {};
-if ([] call GVAR(fnc_isInVehicleCrew)) exitWith {};
+if ([] call FUNC(isInVehicleCrew)) exitWith {};
 
-if !("inspect" call GVAR(fnc_checkJammed)) exitWith {
-	"OK" call GVAR(fnc_uiShowBriefState);
+if !("inspect" call FUNC(checkJammed)) exitWith {
+	"OK" call FUNC(uiShowBriefState);
 };
 
-(call GVAR(fnc_getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
+(call FUNC(getWeaponState)) params ["_bolt","_chamber","_case","_mag"];
 private _actionID = _this;
 
+// --- Prevent actions inside gun if no access (bolt closed/blocked by magazine)
 if (
-	(_actionID == "clear_chamber" && (_mag == "mag_attached" || _bolt in ["bolt_closed","bolt_not_closed"]))
+	(_actionID == ACTION_CLEAR_CHAMBER && (CHECK_MAG_ATTACHED(_mag) || not CHECK_BOLT_OPENED(_bolt)))
 	||
-	(_actionID == "remove_case" && _bolt in ["bolt_closed","bolt_not_closed"])
+	(_actionID == ACTION_REMOVE_CASE && not CHECK_BOLT_OPENED(_bolt))
 ) exitWith {
-	"no_access" call GVAR(fnc_uiShowBriefState);
+	"no_access" call FUNC(uiShowBriefState);
 };
 
-[_actionID, false] call GVAR(fnc_doAction);
+[_actionID, false] call FUNC(doAction);

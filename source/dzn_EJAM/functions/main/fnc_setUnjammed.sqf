@@ -35,9 +35,6 @@ player setVariable [
 	SVAR(Cause)
 	, _causes - (_causes select { _gun == _x select 0 })
 ];
-player setVariable [SVAR(RemovedMagazine), nil];
-player setVariable [SVAR(LooseRound), nil];
-
 
 if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 	// No ACE Overheating
