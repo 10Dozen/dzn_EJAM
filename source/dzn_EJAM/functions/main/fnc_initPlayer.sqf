@@ -30,11 +30,6 @@ if (!isNil SVAR(PreventFireID)) then {
 	GVAR(PreventFireID) = nil;
 };
 
-// Run EJAM's FiredEH if ACE Overheating disabled OR EJAM Jam chance forced
-if (!(missionNamespace getVariable ["ace_overheating_enabled",false]) || GVAR(ForceOverallChance)) then {
-	GVAR(FiredEH) = player addEventHandler ["Fired", { call FUNC(firedEH) }];
-};
-
 if (!isNil "ace_overheating_unJamFailChance") then {
 	private _jammedList = player getVariable ["ace_overheating_jammedWeapons", []];
 	if (_jammedList isEqualTo []) exitWith {};
@@ -44,8 +39,3 @@ if (!isNil "ace_overheating_unJamFailChance") then {
 	player setVariable ["ace_overheating_JammingActionID", -1];
 	player setVariable ["ace_overheating_jammedWeapons", []];
 };
-
-player addEventHandler ["Reloaded", {
-	diag_log parseText "[EJAM] Reloaded EH event";
-	[] call FUNC(reloadedEH)
-}];

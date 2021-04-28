@@ -23,6 +23,8 @@ Author:
 
 // params ["_unit", "_weapon", "_muzzle", "_newMagazine", "_oldMagazine"];
 
+if !("inspect" call FUNC(checkJammed)) exitWith {};
+
 // Set proper Magazine state
 [
 	nil,

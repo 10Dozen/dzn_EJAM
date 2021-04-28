@@ -1,7 +1,9 @@
 #include "macro.hpp"
 
 // Init for script
+#ifdef _SCRIPT_MACRO
 call compile preprocessFileLineNumbers format ["%1\PreInit.sqf", PATH];
+#endif
 
 // Exit at dedicated or headless client
 if (!hasInterface) exitWith {};
@@ -10,9 +12,21 @@ GVAR(ClassFamiliesCache) = call CBA_fnc_createNamespace;
 GVAR(ConfigData) = call CBA_fnc_createNamespace;
 
 [{ time > 0 && !isNull player && local player },{
-	player addEventHandler ["Respawn", {
-		params ["_unit", "_corpse"];
-		call FUNC(initPlayer);
+	// Run EJAM's FiredEH if ACE Overheating disabled OR EJAM Jam chance forced
+	if (!(missionNamespace getVariable ["ace_overheating_enabled",false]) || GVAR(ForceOverallChance)) then {
+		GVAR(FiredEH) = player addEventHandler ["Fired", {
+			[] call FUNC(firedEH)
+		}];
+	};
+
+	// Reload EH to handle magazine state & pull bolt on reload
+	GVAR(ReloadedEH) = player addEventHandler ["Reloaded", {
+		[] call FUNC(reloadedEH)
+	}];
+
+	// Respawn EH to drop jammed state
+	GVAR(RespawnEH) = player addEventHandler ["Respawn", {
+		[] call FUNC(initPlayer);
 	}];
 
 	// Handle ACE Overheating if enabled

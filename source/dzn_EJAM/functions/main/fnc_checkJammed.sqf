@@ -22,7 +22,7 @@ Author:
 #include "..\script_macro.hpp"
 
 private _aceJammed = !(missionNamespace getVariable ["ace_overheating_enabled", false]) || (primaryWeapon player) in (player getVariable ["ace_overheating_jammedWeapons", []]);
-private _causeSet = (call FUNC(getJamCause)) != "";
+private _causeSet = ([] call FUNC(getJamCause)) isNotEqualTo "";
 
 private _result = false;
 

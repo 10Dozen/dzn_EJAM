@@ -2,7 +2,6 @@
 #define	gADDON EJAM
 #define	gADDON_NAME dzn_##gADDON
 
-#define _SCRIPT_MACRO 1
 #ifdef _SCRIPT_MACRO
 	#undef gADDON_PATH
 	#define gADDON_PATH gADDON_NAME
@@ -49,8 +48,7 @@ COMPILE_FUNCTION(main,fnc_initPlayer) ->
 	["dzn_EJAM\functions\main\fnc_initPlayer.sqf", "dzn_EJAM_fnc_initPlayer"] call CBA_fnc_compileFunction
 */
 
-#define DISABLE_COMPILE_CACHE 1
-#ifdef DISABLE_COMPILE_CACHE
+#ifdef _SCRIPT_MACRO
 	#undef PREP
 	#define PREP(SUBPATH,NAME) COMPILE_FUNCTION(SUBPATH,NAME)
 #else

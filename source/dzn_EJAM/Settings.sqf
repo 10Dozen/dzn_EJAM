@@ -1,4 +1,5 @@
 #include "macro.hpp"
+#include "Enums.hpp"
 
 // Addon Settings
 
@@ -186,7 +187,7 @@ private _addKey = {
 	, "Action_MagazineToggle"
 	, {
 		(call FUNC(getWeaponState)) params ["","","","_mag"];
-		private _action = if (_mag == STATE_MAG_ATTACHED) then { ACTION_DETACH_MAG } else { ACTION_ATTACH_MAG };
+		private _action = [ACTION_ATTACH_MAG, ACTION_DETACH_MAG] select (_mag == STATE_MAG_ATTACHED);
 		_action call FUNC(doHotkeyAction);
 		ALLOW_OVERRIDE
 	}
