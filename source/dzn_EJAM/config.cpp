@@ -4,10 +4,10 @@ class CfgPatches
 	{
 		units[] = {"dzn_EJAM_RequireModule"};
 		weapons[] = {};
-		requiredVersion = 0.1;
+		requiredVersion = 2.02;
 		requiredAddons[] = {"CBA_MAIN"};
 		author = "10Dozen";
-		version = "2.7.1";
+		version = "2.7.2";
 	};
 };
 
@@ -15,7 +15,14 @@ class Extended_PreInit_EventHandlers
 {
 	class dzn_EJAM
 	{
-		init = call compile preprocessFileLineNumbers "\dzn_EJAM\Init.sqf";
+		init = call compile preprocessFileLineNumbers "\dzn_EJAM\PreInit.sqf";
+	};
+};
+class Extended_PostInit_EventHandlers
+{
+	class dzn_EJAM
+	{
+		init = call compile preprocessFileLineNumbers "\dzn_EJAM\PostInit.sqf";
 	};
 };
 
