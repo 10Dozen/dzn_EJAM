@@ -35,19 +35,16 @@ if ((_weaponStates select { _gun == _x # 0 }) isEqualTo []) then {
 	_weaponStates pushBack ([_gun] + _this);
 	player setVariable [SVAR(WeaponState), _weaponStates];
 } else {
-
-	// Update state (parse _this with _currentState as defaults)
+	// Loop throug states and update if needed
 	private _currentState = (_weaponStates select { _gun == _x # 0 }) # 0;
+	private ["_newState"];
 
-	params[
-		["_boltState", _currentState # 1]
-		,["_chamberState", _currentState # 2]
-		,["_caseState", _currentState # 3]
-		,["_magState",  _currentState # 4]
-	];
-
-	_currentState set [1, _boltState];
-	_currentState set [2, _chamberState];
-	_currentState set [3, _caseState];
-	_currentState set [4, _magState];
+	{
+		// Update current state with new values if passed (not nil)
+		if (!isNil "_x") then {
+			// Randomize state if needed
+			_newState = if !(_x isEqualType []) then { _x } else { selectRandom _x };
+			_currentState set [_forEachIndex + 1, _newState];
+		};
+	} forEach _this;
 };
