@@ -7,7 +7,7 @@ class CfgPatches
 		requiredVersion = 2.02;
 		requiredAddons[] = {"CBA_MAIN"};
 		author = "10Dozen";
-		version = "2.7.2";
+		version = "2.7.3";
 	};
 };
 

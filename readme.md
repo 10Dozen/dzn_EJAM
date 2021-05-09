@@ -2,7 +2,7 @@
 
 Workshop: https://steamcommunity.com/sharedfiles/filedetails/?id=1379304937
 
-#### Version: 2.7.2
+#### Version: 2.7.3
 
 Adds a little bit more complex logic to ACE jamming effect.
 

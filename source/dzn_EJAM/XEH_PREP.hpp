@@ -3,6 +3,7 @@
 PREP(main,fnc_initPlayer);
 PREP(main,fnc_firedEH);
 PREP(main,fnc_reloadedEH);
+PREP(main,fnc_weaponEH);
 
 PREP(main,fnc_getMappingData);
 PREP(main,fnc_processMappingData);

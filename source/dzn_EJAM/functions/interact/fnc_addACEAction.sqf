@@ -36,26 +36,19 @@ GVAR(ACE_InspectActionClass) = [
 ] call ace_interact_menu_fnc_addActionToClass;
 
 // Loop to handle gun icon change & unjam chance
-GVAR(CurrentPrimaryWeapon) = primaryWeapon player;
-GVAR(ACE_Weapon_EH) = ["weapon", {
-	params ["", "_newWeapon", ""];
-	private _pw = primaryWeapon player;
+GVAR(CurrentPrimaryWeapon) = "";
+GVAR(ACE_Weapon_EH) = ["weapon", { _this call FUNC(weaponEH); }, true] call CBA_fnc_addPlayerEventHandler;
+GVAR(ACE_SettingChanged_EH) = ["ace_settingChanged", {
+	params ["_name","_value"];
+	if (_name isNotEqualTo "ace_overheating_unJamFailChance") exitWith {};
 
-	// Update ACE Action's icon & cache weapon family
-	// if new weapon is primary and different from previous one
-	if (
-		_newWeapon isNotEqualTo ""
-		&& _newWeapon isEqualTo _pw
-		&& { _newWeapon isNotEqualTo GVAR(CurrentPrimaryWeapon) }
-	) then {
-		GVAR(CurrentPrimaryWeapon) = _pw;
-		GVAR(ACE_InspectActionClass) set [2, getText(configFile >> "CfgWeapons" >> _pw >> "picture")];
+	// Update fallback value
+	GVAR(ACEUnjamFailChance) = ace_overheating_unJamFailChance;
 
-		// Cache weapon family
-		_pw spawn FUNC(getClassFamily);
-	};
+	// Restore 100% fail chance if primary weapon still in hands
+	if (currentWeapon player isNotEqualTo primaryWeapon player) exitWith {};
+	ace_overheating_unJamFailChance = 1;
+}] call CBA_fnc_addEventHandler;
 
-	if (GVAR(Force) && !isNil SVAR(ACEUnjamFailChance)) then {
-		ace_overheating_unJamFailChance = [GVAR(ACEUnjamFailChance), 1] select (_newWeapon isEqualTo _pw);
-	};
-}, true] call CBA_fnc_addPlayerEventHandler;
+// Call EH once on start
+[nil, currentWeapon player, nil] call FUNC(weaponEH);
