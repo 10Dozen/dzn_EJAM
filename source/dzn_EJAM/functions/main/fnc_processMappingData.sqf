@@ -37,11 +37,11 @@ private _configVars = allVariables GVAR(ConfigData);
 		[_gun] call ace_overheating_fnc_getWeaponData;
 	};
 
-	private _data = ace_overheating_cacheWeaponData getVariable _gun;
+	private _data = ace_overheating_cacheWeaponData get _gun;
 
 	// Set ACE Overheating customized data
 	_data set [2, _jamChance/100];
-	ace_overheating_cacheWeaponData setVariable [_gun, _data];
+	ace_overheating_cacheWeaponData set [_gun, _data];
 
 	// Set EJAM customized data for weapon
 	GVAR(ConfigData) setVariable [_gun, _x select [1,6]];

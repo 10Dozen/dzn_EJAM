@@ -47,11 +47,12 @@ if !(missionNamespace getVariable ["ace_overheating_enabled",false]) then {
 	// ACE Overheating enabled
 	private _oldFailChance = ace_overheating_unJamFailChance;
 
-	private _family = _gun call FUNC(getClassFamily);
-	{
-		ace_overheating_unJamFailChance = 0;
-		[player, _x, true] call ace_overheating_fnc_clearJam;
-	} forEach _family;
+	private _primary = primaryWeapon player;
+	private _family = (_gun call FUNC(getClassFamily)) - [_primary];
+	private _aceJammed = player getVariable ["ace_overheating_jammedWeapons", []];
+	player setVariable ["ace_overheating_jammedWeapons", _aceJammed - _family];
 
+	ace_overheating_unJamFailChance = 0;
+	[player, _primary, true] call ace_overheating_fnc_clearJam;
 	ace_overheating_unJamFailChance = _oldFailChance;
 };
